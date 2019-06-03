@@ -1,0 +1,49 @@
+import wollok.game.*
+import personaje.*
+import cofre.*
+import tablero.*
+import puerta.*
+import cofre.*
+import frascos.*
+import enemigos.*
+
+program Game {
+	
+//	CONFIG	
+	game.title("Juego")
+	game.height(15)
+	game.width(30)
+	game.ground("suelo.png")
+	
+// Personaje	
+	game.addVisual(personaje)
+	game.errorReporter(personaje)
+	
+// Muros
+	tablero.ponerMuros() 
+
+// Puerta
+	game.addVisualIn(puerta,game.at(28,13)) 
+
+// Colisiones 
+	game.whenCollideDo(personaje,{}) 
+	
+	
+	
+//Movimientos e interacciones
+	
+	keyboard.space().onPressDo{personaje.interactuar()}// TERMINAR DE IMPLEMENTAR
+
+	keyboard.up().onPressDo{ personaje.move(personaje.position().up(1)) }
+	keyboard.down().onPressDo{ personaje.move(personaje.position().down(1)) }
+	keyboard.left().onPressDo{ personaje.move(personaje.position().left(1)) }
+	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
+	
+	
+	
+	
+// Inicio
+	game.start()
+	
+	
+}

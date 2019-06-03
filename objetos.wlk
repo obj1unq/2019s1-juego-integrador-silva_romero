@@ -1,5 +1,0 @@
-object tesoro{
-	method efecto(){
-		
-	}
-}
