@@ -1,11 +1,11 @@
 import wollok.game.*
 import personaje.*
 
-object tablero {
+object muro {
 	
 	method image()= "muro.png"
 	
-	method ponerMuros(){
+	method cargar(){
 		const ancho = game.width() - 1
 		const largo = game.height() - 1
 		var alrededores = []
@@ -20,5 +20,19 @@ object tablero {
 		//alrededores.addAll([new Position(3,5), new Position(4,5), new Position(5,5)])
 		
 		alrededores.forEach {direccion => game.addVisualIn(self,direccion)}
+	}
+	
+}
+
+object tesoro{
+	
+	method image()= "cofre1.jpg"
+	
+	method cargar(){
+		var tesoros = []
+		
+		tesoros.addAll([new Position(3,12), new Position(6,12), new Position(12,12)])
+		
+		tesoros.forEach {direccion => game.addVisualIn(self,direccion)}
 	}
 }

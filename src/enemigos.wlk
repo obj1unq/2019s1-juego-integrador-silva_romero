@@ -8,9 +8,12 @@ import wollok.game.*
 
 class Enemigo{
 	
-	var property vida 	
-	var property ataque 
+	var property hp
+	var property atk
 	var property position 
 	
-	method image(){}
+	method image() = "golum.jpeg"
+
+	method serAtacado() {}	
+	
 }

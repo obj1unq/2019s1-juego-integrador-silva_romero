@@ -20,13 +20,16 @@ program Game {
 	game.errorReporter(personaje)
 	
 // Muros
-	tablero.ponerMuros() 
-
+	muro.cargar() 
+	tesoro.cargar()
 // Puerta
 	game.addVisualIn(puerta,game.at(28,13)) 
 
+// Eemigos
+	game.addVisualIn(new Enemigo(), game.at(3,3) )
+
 // Colisiones 
-	game.whenCollideDo(personaje,{}) 
+	//game.whenCollideDo(personaje,{}) 
 	
 	
 	
@@ -39,6 +42,7 @@ program Game {
 	keyboard.left().onPressDo{ personaje.move(personaje.position().left(1)) }
 	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
 	
+	//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
 	
 	
 	
