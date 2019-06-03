@@ -28,6 +28,9 @@ program Game {
 // Eemigos
 	game.addVisualIn(new Enemigo(), game.at(3,3) )
 
+// Pociones
+	
+
 // Colisiones 
 	//game.whenCollideDo(personaje,{}) 
 	

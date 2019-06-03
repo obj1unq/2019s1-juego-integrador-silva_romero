@@ -7,6 +7,6 @@ class Cofre{
 		//method image() = "cofre1"
 		method mensajeDeObjeto(){
 			objeto.efecto()
-}
+		}
 
 }

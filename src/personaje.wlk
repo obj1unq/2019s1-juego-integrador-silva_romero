@@ -11,7 +11,7 @@ object personaje {
 	const llavesObtenidas = []
 	
 	
-	method image()= "jack2.png" // imagen provisoria
+	method image()= "jack.png" // imagen provisoria
 	
 	method move(newMove) = self.position(newMove)
 	

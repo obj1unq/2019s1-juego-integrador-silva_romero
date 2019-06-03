@@ -1,14 +1,43 @@
 import wollok.game.*
 
 // NOTAS:
-// Clases provisorias, la idea es que halla frascos que aumenten los puntos de vida del personaje, el ataque y otros que le quiten puntos de vida
-// no se si añadir tambien que quiten puntos de ataque.
-// la idea es hacer que el jugador unnca este seguro si elejir o no estos frascos, ya que no va a saber si le va a ser buno o no.
-// pero a su vez esta obligado para hacerce mas fuerte y poder eliminar a los enemigos mas fuerte que el. 
-// ya que uno va a tener la llave.
+// van a existir pociones y venenos que afecten la vida.
 
-class Frasco{}
+// otros son armas que modifican el ataque , solo puede haber un intem por personaje, si quiere otro debe soltar el que ya tiene. 
 
-class Potenciadores inherits Frasco{}
+class Frasco{
+	
+	var efecto = 0
+	
+	method modificarEfecto(nuevoEfecto){
+		efecto = nuevoEfecto
+	}
+	
+	method serBebida(){
+		game.removeVisual(self)
+		return efecto
+		
+	}
+	
+	method image() = "potion.png"
+	
 
-class Venenos inherits Frasco{}
+	
+	
+	
+	
+}
+
+class PotenciadorHP inherits Frasco{
+	
+	  
+}
+
+class PotenciadorAtk inherits Frasco{
+	
+}
+
+class Veneno inherits Frasco{
+	
+	
+}
