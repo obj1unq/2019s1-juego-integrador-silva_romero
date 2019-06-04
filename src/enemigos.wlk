@@ -13,6 +13,10 @@ class Enemigo{
 	var property position 
 	
 	method image() = "golum.jpeg"
+	
+	method esLlevadoPor(personaje){
+		// no hace nada respeta el poliformismo
+	}
 
 	method serAtacado() {}	
 	

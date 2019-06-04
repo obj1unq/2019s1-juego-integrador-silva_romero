@@ -6,6 +6,7 @@ import puerta.*
 import cofre.*
 import frascos.*
 import enemigos.*
+import armas.*
 
 program Game {
 	
@@ -23,22 +24,31 @@ program Game {
 	muro.cargar() 
 	tesoro.cargar()
 // Puerta
-	game.addVisualIn(puerta,game.at(28,13)) 
+	game.addVisualIn(puerta,game.at(28,13)) // EJEMPLO
 
 // Eemigos
-	game.addVisualIn(new Enemigo(), game.at(3,3) )
+	game.addVisualIn(new Enemigo(), game.at(3,3) ) // EJEMPLO
 
 // Pociones
-	
 
+// USADOS DE EJEMPLO PARA TESTEAR
+	const posion1= new Frasco(efecto = 500)
+	const espada1= new Espada1(tipo = "espada", mejoraAtk = 100,image = "espada1.png" )
+	const espada2= new Espada2(tipo = "espada", mejoraAtk = 300, image = "espada2.png")
+	game.addVisualIn(posion1,game.at(17,8))
+	game.addVisualIn(espada1,game.at(20,11))
+	game.addVisualIn(espada2,game.at(12,9))
+	
+	
+	
 // Colisiones 
-	//game.whenCollideDo(personaje,{}) 
+	game.whenCollideDo(personaje,{objeto => objeto.esLlevadoPor(personaje)}) // colision aplicada a las posiones y llaves para que sea automatico. 
 	
 	
 	
 //Movimientos e interacciones
 	
-	keyboard.space().onPressDo{personaje.interactuar()}// TERMINAR DE IMPLEMENTAR
+	//keyboard.space().onPressDo{personaje.interactuar()}// TERMINAR DE IMPLEMENTAR
 
 	keyboard.up().onPressDo{ personaje.move(personaje.position().up(1)) }
 	keyboard.down().onPressDo{ personaje.move(personaje.position().down(1)) }
@@ -46,7 +56,7 @@ program Game {
 	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
 	
 	//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
-	
+	keyboard.e().onPressDo{ personaje.usarArma() }
 	
 	
 // Inicio

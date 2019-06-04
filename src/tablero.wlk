@@ -1,6 +1,8 @@
 import wollok.game.*
 import personaje.*
 
+// USAR PARA CARGAR OBJETOS AL TABLERO?
+
 object muro {
 	
 	method image()= "muro.png"
@@ -22,6 +24,10 @@ object muro {
 		alrededores.forEach {direccion => game.addVisualIn(self,direccion)}
 	}
 	
+	method esLlevadoPor(personaje){
+		// no hace nada respeta el poliformismo
+	}
+	
 }
 
 object tesoro{
@@ -34,5 +40,9 @@ object tesoro{
 		tesoros.addAll([new Position(3,12), new Position(6,12), new Position(12,12)])
 		
 		tesoros.forEach {direccion => game.addVisualIn(self,direccion)}
+	}
+	
+	method esLlevadoPor(personaje){
+		// no hace nada respeta el poliformismo
 	}
 }
