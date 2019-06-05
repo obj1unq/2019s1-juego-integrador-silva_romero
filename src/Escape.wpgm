@@ -45,7 +45,6 @@ program Game {
 	game.whenCollideDo(personaje,{objeto => objeto.esLlevadoPor(personaje)}) // colision aplicada a las posiones y llaves para que sea automatico. 
 	
 	
-	
 //Movimientos e interacciones
 	
 	// VERSION CON METODOS DIRECCION
@@ -57,16 +56,9 @@ program Game {
 		keyboard.b().onPressDo{ personaje.retroceder() } // ASIGNACION DE BOTON PARA MOTIVO DE TESTEO
 		
 	//keyboard.space().onPressDo{personaje.interactuar()}// TERMINAR DE IMPLEMENTAR
-
-
-	// VERSION SIN METODOS DIRECCION (CLASICA)
-	//keyboard.up().onPressDo{ personaje.move(personaje.position().up(1)) }
-	//keyboard.down().onPressDo{ personaje.move(personaje.position().down(1)) }
-	//keyboard.left().onPressDo{ personaje.move(personaje.position().left(1)) }
-	//keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
 	
 	//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
-	keyboard.e().onPressDo{ personaje.usarArma() }
+	keyboard.e().onPressDo{ personaje.llevarArma() }
 	
 	
 // Inicio

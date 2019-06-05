@@ -51,7 +51,7 @@ object personaje {
 	
 	
 // METODOS PARA LEVANTAR LAS ARMAS	
-	method usarArma(){
+	method llevarArma(){
 		const colision = game.colliders(self)
 		if (colision.isEmpty()){
 			throw new Exception ("No hay armas")
@@ -93,8 +93,6 @@ object personaje {
 			llavesObtenidas ++
 		}
 	}
-	
-	
 	
 	
 	// Metodo  para enemigos, cambiar interactuar por atacar?

@@ -5,7 +5,7 @@ import wollok.game.*
 
 class Frasco{
 	
-	var property tipo = "frasco"
+	var property tipo = "salud" // es de ejemplo pero los tipos serian  de salud ,atk, o si son venenos antisalud (ponele)
 	const property efecto
 	
 	method image() = "potion.png"

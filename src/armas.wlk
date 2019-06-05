@@ -7,7 +7,7 @@ import personaje.*
 
 class Arma{
 	
-	var property tipo  // definir con un string para mejorar la identificacion en otros metodos?
+	var property tipo  // definir con un string para mejorar la identificacion en otros metodos
 	var property mejoraAtk = 0
 	var property image
 	
@@ -18,7 +18,7 @@ class Arma{
 	
 }
 
-
+// cambiar por object inherits Arma ?
 class Espada1 inherits Arma{
 	
 	
