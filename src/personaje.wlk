@@ -1,4 +1,5 @@
 import wollok.game.*
+import direcciones.* // USABLE PARA ASIGNAR A OTROS METODOS
 
 object personaje {
 // NOTAS :
@@ -9,12 +10,47 @@ object personaje {
 	var property ataque = 300
 	var property position = game.at(2,2)
 	var property llavesObtenidas = 0
-	var property itemActual = [] // aqui va solo un item tipo arma
+	var property inventario = [] // aqui va solo un item tipo arma
+	var orientacion = derecha
+	
 	
 	method image()= "jack2.png" // imagen provisoria
 	
 	method move(newMove) = self.position(newMove)
 	
+	
+//	METODOS PARA MOVER AL PERSONAJE Y PARA SABER HACIA QUE LADO MIRA Y VOLVER 
+
+	method irArriba() {
+		orientacion = arriba
+		self.avanzar()
+	}
+
+	method irAbajo() {
+		orientacion = abajo
+		self.avanzar()
+	}
+
+	method irIzquierda() {
+		orientacion = izquierda
+		self.avanzar()
+	}
+
+	method irDerecha() {
+		orientacion = derecha
+		self.avanzar()
+	}
+	
+	method avanzar() {
+		position = orientacion.avanzarHacia(position)
+	}
+	
+	method retroceder() {
+		position = orientacion.opuesto().avanzarHacia(position)
+	}
+	
+	
+// METODOS PARA LEVANTAR LAS ARMAS	
 	method usarArma(){
 		const colision = game.colliders(self)
 		if (colision.isEmpty()){
@@ -25,27 +61,17 @@ object personaje {
 	}
 	
 	method aniadirArma(arma){
-		if(itemActual.isEmpty()){
-			itemActual.add(arma)
+		if(inventario.isEmpty()){
+			inventario.add(arma)
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
 		}else{
-			game.addVisualIn(itemActual.head(),self.position())
-			self.quitarMejora(itemActual.head())
-			itemActual.remove(itemActual.head())
-			itemActual.add(arma)
+			game.addVisualIn(inventario.head(),self.position())
+			self.quitarMejora(inventario.head())
+			inventario.remove(inventario.head())
+			inventario.add(arma)
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
-		}
-	}
-	
-	
-	
-	method aplicarEfecto(item){ // Solo para posiones y llaves.
-		if (item.tipo() == "frasco"){
-			vida += item.efecto()
-		}else{
-			llavesObtenidas ++
 		}
 	}
 	
@@ -56,6 +82,19 @@ object personaje {
 	method quitarMejora(arma) {
 		ataque -= arma.mejoraAtk()
 	}
+	
+	
+	
+// METODO PARA LLAVES Y POSIONES
+	method aplicarEfecto(item){ 
+		if (item.tipo() == "frasco"){
+			vida += item.efecto()
+		}else{
+			llavesObtenidas ++
+		}
+	}
+	
+	
 	
 	
 	// Metodo  para enemigos, cambiar interactuar por atacar?
