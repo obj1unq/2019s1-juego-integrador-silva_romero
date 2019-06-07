@@ -14,7 +14,7 @@ program Game {
 	game.title("Juego")
 	game.height(15)
 	game.width(30)
-	game.ground("suelo.png")
+	game.ground("concreto.png")
 	
 // Personaje	
 	game.addVisual(personaje)

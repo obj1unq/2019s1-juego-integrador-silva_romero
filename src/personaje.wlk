@@ -14,7 +14,7 @@ object personaje {
 	var orientacion = derecha
 	
 	
-	method image()= "jack2.png" // imagen provisoria
+	method image()= orientacion.image() // imagen provisoria
 	
 	method move(newMove) = self.position(newMove)
 	
