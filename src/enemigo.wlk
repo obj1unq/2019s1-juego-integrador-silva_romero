@@ -1,4 +1,5 @@
 import wollok.game.*
+import otros_obj.*
 
 // NOTAS:
 
@@ -6,7 +7,7 @@ import wollok.game.*
 // guarden. Uno de ellos va a tener una llave , para que el jugador se vea obligado a atacarlos.
 
 
-class Enemigo{
+class Enemigo inherits NoColisionable {
 	
 	var property hp
 	var property atk
@@ -18,6 +19,7 @@ class Enemigo{
 		// no hace nada respeta el poliformismo
 	}
 
-	method serAtacado() {}	
-	
+	method serInteractuadoPor(jugador) {
+		game.say(self, "si ves esto es porque hay algo bien! :D falta implementar mecanismos de ataque.")
+	}
 }

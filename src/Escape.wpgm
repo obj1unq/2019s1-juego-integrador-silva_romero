@@ -1,12 +1,18 @@
 import wollok.game.*
-import personaje.*
-import cofre.*
+import otros_obj.*
 import tablero.*
+import interfaz.* //vacio por ahora
+import direcciones.*
+
 import puerta.*
+import personaje.*
+
 import cofre.*
-import frascos.*
-import enemigos.*
-import armas.*
+
+import frasco.*
+import enemigo.*
+import arma.*
+import llave.*
 
 program Game {
 	
@@ -18,47 +24,82 @@ program Game {
 	
 // Personaje	
 	game.addVisual(personaje)
-	game.errorReporter(personaje)
+	game.errorReporter(personaje) // <!!> Que hace esto?
 	
 // Muros
 	muro.cargar() 
-	tesoro.cargar()
 // Puerta
-	game.addVisualIn(puerta,game.at(28,13)) // EJEMPLO
+	game.addVisualIn(puerta,game.at(28,13)) 
 
 // Eemigos
-	game.addVisualIn(new Enemigo(), game.at(3,3) ) // EJEMPLO
+	
 
 // Pociones
 
-// USADOS DE EJEMPLO PARA TESTEAR
-	const posion1= new Frasco(efecto = 500)
-	const espada1= new Espada1(tipo = "espada", mejoraAtk = 100,image = "espada1.png" )
-	const espada2= new Espada2(tipo = "espada", mejoraAtk = 300, image = "espada2.png")
-	game.addVisualIn(posion1,game.at(17,8))
-	game.addVisualIn(espada1,game.at(20,11))
-	game.addVisualIn(espada2,game.at(12,9))
+// "Mock Objects" - USADOS DE EJEMPLO PARA TESTEAR
+	const cofre1 = new Cofre()
+	const cofre2 = new Cofre()
+	
+	const enemigo1 = new Enemigo()
+	const llave1 = new Llave()
+	
+	const pocion= new Pocion(efecto = 500)
+	const veneno= new Veneno(efecto = -900)
+	
+	const palo= new Arma(tipo = "palo", mejoraAtk = 100,image = "palo.png" )
+	const espada= new Arma(tipo = "espada", mejoraAtk = 300, image = "iron_sword.png")
 	
 	
+	game.addVisualIn(pocion,game.at(17,8)) //
+	game.addVisualIn(veneno,game.at(17,12)) //Veneno
+	
+	game.addVisualIn(palo,game.at(20,11))
+	game.addVisualIn(espada,game.at(12,9))
+	
+	//game.addVisualIn(llave1,game.at(13,11)) //falta img de llave <!!>
+	game.addVisualIn(cofre1,game.at(6,6))
+	game.addVisualIn(cofre2,game.at(7,7))
+	
+	game.addVisualIn(enemigo1, game.at(3,3))
 	
 // Colisiones 
-	game.whenCollideDo(personaje,{objeto => objeto.esLlevadoPor(personaje)}) // colision aplicada a las posiones y llaves para que sea automatico. 
+	//Obsoleto
+	//	game.whenCollideDo(personaje,{objeto => objeto.esLlevadoPor(personaje)}) // colision aplicada a las posiones y llaves para que sea automatico. 
+	
+	game.whenCollideDo(pocion, {jugador => pocion.serBebidoPor(jugador)} )
+	game.whenCollideDo(veneno, {jugador => veneno.serBebidoPor(jugador)} )
+	//Deberian crearse las colisiones en otro lado, adentro del frasco por ejemplo, con algun metodo crear() o algo asi.
+	
+	//game.whenCollideDo(llave1, {jugador => llave1.serRecogidaPor(jugador)} )
 	
 	
 //Movimientos e interacciones
 	
 	// VERSION CON METODOS DIRECCION
-		keyboard.up().onPressDo{ personaje.irArriba() }
-		keyboard.down().onPressDo{ personaje.irAbajo() }
-		keyboard.left().onPressDo{ personaje.irIzquierda() }
-		keyboard.right().onPressDo{ personaje.irDerecha() }
+//		keyboard.up().onPressDo{ personaje.irArriba() }
+//		keyboard.down().onPressDo{ personaje.irAbajo() }
+//		keyboard.left().onPressDo{ personaje.irIzquierda() }
+//		keyboard.right().onPressDo{ personaje.irDerecha() }
+// <!!> lo cambie porque para despues implementar lo de colisionable iba a quedar un bardo. obsoleto
+
+		keyboard.up().onPressDo { personaje.mover(personaje.position().up(1),arriba) }
+		keyboard.down().onPressDo { personaje.mover(personaje.position().down(1),abajo) }
+		keyboard.left().onPressDo { personaje.mover(personaje.position().left(1),izquierda) }
+		keyboard.right().onPressDo { personaje.mover(personaje.position().right(1),derecha) }
 		
-		keyboard.b().onPressDo{ personaje.retroceder() } // ASIGNACION DE BOTON PARA MOTIVO DE TESTEO
+		keyboard.space().onPressDo{personaje.interactuar()} 
+		//Interactuar significa:
+		// - Abrir cofre segun la orientacion del personaje (abrir a la izquierda, a la derecha, etc)
+		// - Atacar un enemigo segun orientacion
+		// - Abrir puerta segun orientacion
+		// - Intercambiar arma con la que esta en el piso (para este no compruebo orientacion, me tengo que poner encima)
+
+		keyboard.e().onPressDo{ personaje.llevarArma() } // ROTO <!!>
+		//En un futuro se va a hacer todo con la barra espacio, sin necesitar dos teclas distintas
 		
-	//keyboard.space().onPressDo{personaje.interactuar()}// TERMINAR DE IMPLEMENTAR
-	
-	//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
-	keyboard.e().onPressDo{ personaje.llevarArma() }
+		
+		
+		//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
 	
 	
 // Inicio
