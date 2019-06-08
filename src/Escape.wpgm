@@ -87,7 +87,7 @@ program Game {
 		// - Abrir cofre segun la orientacion del personaje (abrir a la izquierda, a la derecha, etc)
 		// - Atacar un enemigo segun orientacion
 		// - Abrir puerta segun orientacion
-		// LAS ARMAS NO SON COLICIONABLES Y SE INTERACTUA CON ELLAS (GT)
+		// LAS ARMAS NO SON COLISIONABLES Y SE INTERACTUA CON ELLAS (GT)
 		
 		//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
 		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
