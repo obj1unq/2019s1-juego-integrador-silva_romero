@@ -11,13 +11,14 @@ class Frasco inherits Colisionable {
 	method image() = "potion.png"
 	
 	 method serBebidoPor(personaje){
-		
+	 	//<??> SI CAMBIO EL NOMBRE A COLISIONASTECON, Y LITERAL, NOMAS CAMBIO EL NOMBRE, SE ROMPE TODO!!
+		//Ser colisionado significa ser bebido
 		personaje.aplicarEfecto(self)
 		game.removeVisual(self)
 	}
 	
 	method serInteractuadoPor(jugador) {
-		game.say(self, "si ves esto es porque hay algo mal ); resuelto con polimorfismo, pero en un futuro deberia no tener que recibir este mensaje")
+		//Esto esta aca porque polimorfismo, esta nomas para que no se rompa todo
 	}
 }
 

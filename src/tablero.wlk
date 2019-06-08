@@ -25,7 +25,7 @@ object muro inherits NoColisionable {
 	}
 	
 	method serInteractuadoPor(jugador) {
-		game.say(self, "si ves esto es porque hay algo mal ); resuelto con polimorfismo, pero en un futuro deberia no tener que recibir este mensaje")
+		//Esto esta aca porque polimorfismo, esta nomas para que no se rompa todo
 	}
 	
 }

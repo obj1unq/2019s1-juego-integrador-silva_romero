@@ -20,6 +20,7 @@ object personaje {
 		// Respeta el polimorfismo.
 		// Por algun motivo raro que aun no evalue hay que ponerlo aca.(GT)
 	}
+	
 ///----------------------------------------------------------
 ///---------------------- MOVIMIENTO ------------------------
 ///----------------------------------------------------------

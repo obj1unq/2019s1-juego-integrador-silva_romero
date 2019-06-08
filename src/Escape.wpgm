@@ -18,18 +18,18 @@ program Game {
 	
 //	CONFIG	
 	game.title("Juego")
-	game.height(15)
-	game.width(30)
+	game.height(12)
+	game.width(12)
 	game.ground("concreto.png")
 	
 // Personaje	
 	game.addVisual(personaje)
-	game.errorReporter(personaje) // <!!> Que hace esto? --> EL PERSONAJE ES EL QUE REPORTA LOS ERRORES Y MSJ.(GT)
+	game.errorReporter(personaje) // <!!> Que hace esto? --> EL PERSONAJE ES EL QUE REPORTA LOS ERRORES Y MSJ.(GT) --> Que errores? (Leo)
 	
 // Muros
 	muro.cargar() 
 // Puerta
-	game.addVisualIn(puerta,game.at(28,13)) 
+	game.addVisualIn(puerta,game.at(10,10)) //posicion siempre menor o igual a (height - 2) (width - 2) 
 
 // Eemigos
 	
@@ -41,7 +41,7 @@ program Game {
 	const cofre2 = new Cofre()
 	
 	const enemigo1 = new Enemigo()
-	//const llave1  = new Llave()
+	const llave1  = new Llave()
 	
 	const pocion= new Pocion(efecto = 500)
 	const veneno= new Veneno(efecto = -900)
@@ -50,29 +50,26 @@ program Game {
 	const espada= new Arma(mejoraAtk = 300, image = "iron_sword.png")
 	
 	
-	game.addVisualIn(pocion,game.at(17,8)) //
-	game.addVisualIn(veneno,game.at(17,12)) //Veneno
+	game.addVisualIn(pocion,game.at(3,3))
+	game.addVisualIn(veneno,game.at(8,3)) 
 	
-	game.addVisualIn(palo,game.at(20,11))
-	game.addVisualIn(espada,game.at(12,9))
+	game.addVisualIn(palo,game.at(5,6))
+	game.addVisualIn(espada,game.at(5,2))
 	
-	//game.addVisualIn(llave1,game.at(13,11)) //falta img de llave <!!>
+	game.addVisualIn(llave1,game.at(7,2)) 
 	game.addVisualIn(cofre1,game.at(6,6))
 	game.addVisualIn(cofre2,game.at(7,7))
 	
-	game.addVisualIn(enemigo1, game.at(3,3))
+	game.addVisualIn(enemigo1, game.at(3,8))
 	
 // Colisiones 
 	
+	//<??> SI CAMBIO EL NOMBRE A COLISIONASTECON, Y LITERAL, NOMAS CAMBIO EL NOMBRE, SE ROMPE TODO!!
 	game.whenCollideDo(personaje,{objeto => objeto.serBebidoPor(personaje)}) // METODO MAS GENERAL Y SIN ERRORES(GT)
-																			// SOLO COLISIONAN LAS POSIONES (GT)
-	// PROXIMAMENTE CAMBIAR A UN METODO MAS GENERAL PARA LAS LLAVES Y POSIONES (GT)
+																			// SOLO COLISIONAN LAS POCIONES (GT)
+	// PROXIMAMENTE CAMBIAR A UN METODO MAS GENERAL PARA LAS LLAVES Y POSIONES (GT)											
 																			
-																			
-																			
-																			
-																			
-	//game.whenCollideDo(pocion, {jugador => pocion.serBebidoPor(jugador)} )	// DAN ERROR AL COLISIONAR CON LA POSION
+	//game.whenCollideDo(pocion, {jugador => pocion.serBebidoPor(jugador)} )	// DAN ERROR AL COLISIONAR CON LA POCION
 	//game.whenCollideDo(veneno, {jugador => veneno.serBebidoPor(jugador)} )	//
 	
 	//game.whenCollideDo(llave1, {jugador => llave1.serRecogidaPor(jugador)} )
@@ -93,7 +90,9 @@ program Game {
 		// LAS ARMAS NO SON COLICIONABLES Y SE INTERACTUA CON ELLAS (GT)
 		
 		//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
-	
+		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
+		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
+		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
 	
 // Inicio
 	game.start()

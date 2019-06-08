@@ -14,7 +14,7 @@ object izquierda inherits Direccion {
 }
 
 object derecha inherits Direccion { 
-	method imagenDelPersonaje()= "right-pikachu.png"
+	method imagenDelPersonaje()= "right-pikachu.png" //<??> der-pikachu.png no carga y no se por que
 	
 	override method posicionAl(jugador) = jugador.position().right(1)
 	
@@ -22,7 +22,7 @@ object derecha inherits Direccion {
 }
 
 object abajo inherits Direccion { 
-	method imagenDelPersonaje()= "down-pikachu.png"
+	method imagenDelPersonaje()= "down-pikachu.png" //<??> abajo-pikachu.png no carga y no se xq
 	
 	override method posicionAl(jugador) = jugador.position().down(1)
 	
