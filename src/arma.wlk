@@ -14,6 +14,7 @@ class Arma inherits Colisionable {
 	
 	
 	method serInteractuadoPor(jugador) {
+		jugador.aniadirArma(self)
 		// en un futuro deberia hacer que intercambie el arma, por ahora eso se encarga el boton e.
 	}
 	

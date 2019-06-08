@@ -41,7 +41,7 @@ program Game {
 	const cofre2 = new Cofre()
 	
 	const enemigo1 = new Enemigo()
-	const llave1 = new Llave()
+	const llave1  = new Llave()
 	
 	const pocion= new Pocion(efecto = 500)
 	const veneno= new Veneno(efecto = -900)

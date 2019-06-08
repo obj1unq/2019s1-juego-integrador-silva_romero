@@ -82,14 +82,18 @@ method recogerLlave() {
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
 		}else{
-			game.addVisualIn(inventario.head(),self.position())
-			self.quitarMejora(inventario.head())
-			inventario.remove(inventario.head())
+			game.addVisualIn(inventario.head(),self.position()) ///esto puede ir en otro metodo y hacer mas legible 
+			self.quitarMejora(inventario.head())				//			
+			inventario.remove(inventario.head())				//
 			inventario.add(arma)
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
 		}
 	}
+	
+	method tirarArmaActual(){game.addVisualIn(inventario.head(),self.position()) // Metodo que se encarga de tirar el arma 
+							self.quitarMejora(inventario.head())
+							inventario.remove(inventario.head())}
 	
 	method aplicarMejora(arma) {
 		ataque += arma.mejoraAtk()
