@@ -16,9 +16,9 @@ object personaje {
 	
 	method image()= imagen 
 	
-	method serBebidoPor(personaje){
+	method llevadoPor(personaje){
 		// Respeta el polimorfismo.
-		// Por algun motivo raro que aun no evalue hay que ponerlo aca.(GT)
+		// Por algun motivo hay que ponerlo aca tambien para que no de error.(GT)
 	}
 	
 ///----------------------------------------------------------

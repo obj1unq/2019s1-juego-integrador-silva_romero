@@ -24,7 +24,6 @@ program Game {
 	
 // Personaje	
 	game.addVisual(personaje)
-	game.errorReporter(personaje) // <!!> Que hace esto? --> EL PERSONAJE ES EL QUE REPORTA LOS ERRORES Y MSJ.(GT) --> Que errores? (Leo)
 	
 // Muros
 	muro.cargar() 
@@ -64,16 +63,8 @@ program Game {
 	
 // Colisiones 
 	
-	//<??> SI CAMBIO EL NOMBRE A COLISIONASTECON, Y LITERAL, NOMAS CAMBIO EL NOMBRE, SE ROMPE TODO!!
-	game.whenCollideDo(personaje,{objeto => objeto.serBebidoPor(personaje)}) // METODO MAS GENERAL Y SIN ERRORES(GT)
-																			// SOLO COLISIONAN LAS POCIONES (GT)
-	// PROXIMAMENTE CAMBIAR A UN METODO MAS GENERAL PARA LAS LLAVES Y POSIONES (GT)											
+	game.whenCollideDo(personaje,{objeto => objeto.llevadoPor(personaje)}) // METODO MAS GENERAL Y SIN ERRORES PARA LLAVES Y FRASCOS(GT)
 																			
-	//game.whenCollideDo(pocion, {jugador => pocion.serBebidoPor(jugador)} )	// DAN ERROR AL COLISIONAR CON LA POCION
-	//game.whenCollideDo(veneno, {jugador => veneno.serBebidoPor(jugador)} )	//
-	
-	//game.whenCollideDo(llave1, {jugador => llave1.serRecogidaPor(jugador)} )
-	
 	
 //Movimientos e interacciones
 	

@@ -10,9 +10,7 @@ class Frasco inherits Colisionable {
 	
 	method image() = "potion.png"
 	
-	 method serBebidoPor(personaje){
-	 	//<??> SI CAMBIO EL NOMBRE A COLISIONASTECON, Y LITERAL, NOMAS CAMBIO EL NOMBRE, SE ROMPE TODO!!
-		//Ser colisionado significa ser bebido
+	 method llevadoPor(personaje){  // USADO EN LA COLISION (GT)
 		personaje.aplicarEfecto(self)
 		game.removeVisual(self)
 	}
