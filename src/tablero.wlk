@@ -2,7 +2,6 @@ import wollok.game.*
 import personaje.*
 import otros_obj.*
 
-// USAR PARA CARGAR OBJETOS AL TABLERO?
 
 object muro inherits NoColisionable {
 	

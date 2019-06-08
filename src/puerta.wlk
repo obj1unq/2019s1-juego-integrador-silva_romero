@@ -3,7 +3,7 @@ import otros_obj.*
 
 object puerta inherits NoColisionable {
 	
-	method image()= "door.png" // imagen provisoria, que no nos caiga el fbi!
+	method image()= "door.png" 
 	
 	method serInteractuadoPor(jugador) {
 		//Si tiene 3 llaves, la abre y gana el juego. Si no, le dice "Faltan llaves."

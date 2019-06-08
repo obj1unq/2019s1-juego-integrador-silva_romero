@@ -5,15 +5,15 @@ import otros_obj.*
 // van a existir pociones y venenos que afecten la vida.
 
 class Frasco inherits Colisionable {
-	
-	var property tipo = "salud" // es de ejemplo pero los tipos serian  de salud ,atk, o si son venenos antisalud (ponele)
+	 
 	const property efecto
 	
 	method image() = "potion.png"
 	
-	method serBebidoPor(personaje){
-		game.removeVisual(self)
+	 method serBebidoPor(personaje){
+		
 		personaje.aplicarEfecto(self)
+		game.removeVisual(self)
 	}
 	
 	method serInteractuadoPor(jugador) {

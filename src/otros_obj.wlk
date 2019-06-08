@@ -7,9 +7,11 @@
 
 class NoColisionable {
 	method esColisionable() = false
+	
 }
 
 class Colisionable {
 	method esColisionable() = true
+	
 }
 

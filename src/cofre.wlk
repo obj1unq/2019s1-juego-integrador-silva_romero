@@ -2,6 +2,7 @@ import wollok.game.*
 import otros_obj.*
 
 class Cofre inherits NoColisionable {
+	
 	const property objeto
 	
 	method image()= "cofre1.jpg"

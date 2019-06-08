@@ -24,7 +24,7 @@ program Game {
 	
 // Personaje	
 	game.addVisual(personaje)
-	game.errorReporter(personaje) // <!!> Que hace esto?
+	game.errorReporter(personaje) // <!!> Que hace esto? --> EL PERSONAJE ES EL QUE REPORTA LOS ERRORES Y MSJ.(GT)
 	
 // Muros
 	muro.cargar() 
@@ -41,13 +41,13 @@ program Game {
 	const cofre2 = new Cofre()
 	
 	const enemigo1 = new Enemigo()
-	const llave1  = new Llave()
+	//const llave1  = new Llave()
 	
 	const pocion= new Pocion(efecto = 500)
 	const veneno= new Veneno(efecto = -900)
 	
-	const palo= new Arma(tipo = "palo", mejoraAtk = 100,image = "palo.png" )
-	const espada= new Arma(tipo = "espada", mejoraAtk = 300, image = "iron_sword.png")
+	const palo= new Arma(mejoraAtk = 100,image = "palo.png" )
+	const espada= new Arma(mejoraAtk = 300, image = "iron_sword.png")
 	
 	
 	game.addVisualIn(pocion,game.at(17,8)) //
@@ -63,25 +63,23 @@ program Game {
 	game.addVisualIn(enemigo1, game.at(3,3))
 	
 // Colisiones 
-	//Obsoleto
-	//	game.whenCollideDo(personaje,{objeto => objeto.esLlevadoPor(personaje)}) // colision aplicada a las posiones y llaves para que sea automatico. 
 	
-	game.whenCollideDo(pocion, {jugador => pocion.serBebidoPor(jugador)} )
-	game.whenCollideDo(veneno, {jugador => veneno.serBebidoPor(jugador)} )
-	//Deberian crearse las colisiones en otro lado, adentro del frasco por ejemplo, con algun metodo crear() o algo asi.
+	game.whenCollideDo(personaje,{objeto => objeto.serBebidoPor(personaje)}) // METODO MAS GENERAL Y SIN ERRORES(GT)
+																			// SOLO COLISIONAN LAS POSIONES (GT)
+	// PROXIMAMENTE CAMBIAR A UN METODO MAS GENERAL PARA LAS LLAVES Y POSIONES (GT)
+																			
+																			
+																			
+																			
+																			
+	//game.whenCollideDo(pocion, {jugador => pocion.serBebidoPor(jugador)} )	// DAN ERROR AL COLISIONAR CON LA POSION
+	//game.whenCollideDo(veneno, {jugador => veneno.serBebidoPor(jugador)} )	//
 	
 	//game.whenCollideDo(llave1, {jugador => llave1.serRecogidaPor(jugador)} )
 	
 	
 //Movimientos e interacciones
 	
-	// VERSION CON METODOS DIRECCION
-//		keyboard.up().onPressDo{ personaje.irArriba() }
-//		keyboard.down().onPressDo{ personaje.irAbajo() }
-//		keyboard.left().onPressDo{ personaje.irIzquierda() }
-//		keyboard.right().onPressDo{ personaje.irDerecha() }
-// <!!> lo cambie porque para despues implementar lo de colisionable iba a quedar un bardo. obsoleto
-
 		keyboard.up().onPressDo { personaje.mover(personaje.position().up(1),arriba) }
 		keyboard.down().onPressDo { personaje.mover(personaje.position().down(1),abajo) }
 		keyboard.left().onPressDo { personaje.mover(personaje.position().left(1),izquierda) }
@@ -92,12 +90,7 @@ program Game {
 		// - Abrir cofre segun la orientacion del personaje (abrir a la izquierda, a la derecha, etc)
 		// - Atacar un enemigo segun orientacion
 		// - Abrir puerta segun orientacion
-		// - Intercambiar arma con la que esta en el piso (para este no compruebo orientacion, me tengo que poner encima)
-
-		keyboard.e().onPressDo{ personaje.llevarArma() } // ROTO <!!>
-		//En un futuro se va a hacer todo con la barra espacio, sin necesitar dos teclas distintas
-		
-		
+		// LAS ARMAS NO SON COLICIONABLES Y SE INTERACTUA CON ELLAS (GT)
 		
 		//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
 	
