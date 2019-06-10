@@ -17,3 +17,50 @@ Estos tambien tienen atributos de vida , ataque y un objeto. La recompensa por a
 
 ### Puerta de salida:
 al interactuar con este objeto, debe verificar que el personaje tenga las tres llaves para que se termine el juego. En caso contrario que tire un mensaje o excepcion de cuantas llaves le falta o que le faltan.
+
+
+### Para mel:
+
+TRES niveles (vemos como va, por ahi ponemos mas)
+
+Bombassss!!! (al abrir cofres)
+
+Juego por tiempo
+
+Un boton para atacar, un boton para interactuar, botones de movimiento
+
+Enemigos tienen distinto tipo de ataque y distinta vida
+
+Un enemigo cada 3 ataques te saca una cierta cantidad. Cuando ataco 3 veces a un enemigo, ESE enemigo me ataca. Pueden existir enemigos que los mate de 2 ataques.
+ 
+
+
+El personaje que tenga 5 de vida.
+Maximo de vida: 5 corazones.
+
+Si el personaje tiene 5 corazones, no puedo agarrar pociones
+
+NO puedo saber cuanta vida y atk tienen los enemigos, es prueba y error
+
+Mecanismo de ataque todo igual (con estas modificaciones)
+
+ARMAS de FUEGO!! (igual sigue atacando al que tiene al lado, no a distancia)
+
+Atacar significa pararme al lado del enemigo y apretar un boton para atacar.
+Cuando ataco, le saco X cantidad de vida al enemigo que tengo en la direccion a la que estoy mirando (la celda adyacente al personaje). Despues de atacar al enemigo 3 veces, ese enemigo me ataca a mi y me hace daño. 
+
+El enemigo lo ataca solo cuando el jugador interactua con el por tercera vez. El calculo es el siguiente:
+
+vidaEnemigo = self.vida() - jugador.ataque()
+
+(si es la tercera vez que lo ataca)
+vidaJugador = self.vida() - enemigo.ataque()
+
+OJO!! El ataque es con ESE enemigo, NO con todos los enemigos.
+
+sugerencia: representar cada medio corazon con un punto de vida. 2 puntos de vida = 1 corazon. 10 puntos de vida = 5 corazones. Esto es para no tener que usar fracciones.
+
+No hace falta implementar algo que te guarde corazones, de eso se encarga la interfaz del juego. Con que sean puntos de vida basta.
+
+No todos los enemigos tienen la misma cantidad de vida y la misma cantidad de ataque. Ataques posibles del enemigo:
+entre 0.5 y 2 corazones (osea, entre 1 y 4 puntos de vida).
