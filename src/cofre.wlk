@@ -19,6 +19,8 @@ class Cofre inherits NoColisionable {
 	
 	method mostrarContenido() {
 			game.addVisual(armas.get(0.randomUpTo(armas.size()-1)))
+			game.addVisual(posiones.get(0.randomUpTo(armas.size()-1)))
+			game.addVisual(venenos.get(0.randomUpTo(armas.size()-1)))
 	}
 		
 }
