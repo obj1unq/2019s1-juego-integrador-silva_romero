@@ -19,7 +19,63 @@ Estos tambien tienen atributos de vida , ataque y un objeto. La recompensa por a
 al interactuar con este objeto, debe verificar que el personaje tenga las tres llaves para que se termine el juego. En caso contrario que tire un mensaje o excepcion de cuantas llaves le falta o que le faltan.
 
 
-## Implementación
+___
+# IMPLEMENTACIÓN
+___
+
+#### Personaje
+
+* Puede moverse en las cuatro direcciones, atacar con la tecla E e interactuar con espacio.
+* Interactuar significa intentar abrir la puerta, intercambiar el arma que esta en el suelo con el arma que tiene en el inventario (si tiene), o abrir un cofre.
+* Puede llevar como maximo un arma en el inventario.
+* Tiene un atributo ataque, que se usa para pelear!! Este atributo deberia cambiar dependiendo el arma que tiene en el inventario.
+* Tiene como maximo 10 puntos de vida.
+* Puede agarrar llaves o frascos al pasar por encima de ellos. Agarrar una llave significa sumar 1 a la cantidad de llaves que posee. Agarrar un frasco significa recibir el efecto del frasco.
+* Si ya tiene toda la vida, y el frasco es una pocion (que lo cura), no puede agarrar el frasco que esta en el piso.
+* La imagen del personaje cambia conforme en la direccion en la que estoy mirando. La direccion que estoy mirando cambia segun la tecla que presiono para moverme.
+* Cuando el personaje agarra un arma, la imagen del mismo cambia para mostrar el arma que lleva en mano. Si son 5 armas más el personaje sin armas, y son 4 direcciones, en total son 6 * 4 = 24 imagenes para el personaje!!!
+* Cuando ataco, muestro una animacion del personaje disparando o usando su arma en la direccion a la que veo. Necesito el doble de imagenes para hacer esto.
+
+#### Frascos
+* Existen dos tipos de frascos: pociones (que curan) y venenos (que hacen daño).
+* Los efectos aplican al colisionar con el jugador.
+* Un frasco puede curar entre 2 y 5 puntos de vida. //falta discutir bien esto.
+* Un veneno hace daño de entre 2 y 5 puntos de vida. //falta discutir bien esto.
+
+#### Bombas
+* Una bomba puede aparecer en cofres.
+* Si el jugador se encuentra en una casilla adyacente o en diagonal a la bomba en el momento en que explota, SE MUERE.
+* La bomba explota luego de 500ms de aparecer.
+
+#### Cofres
+
+
+#### Armas
+
+
+
+
+
+#### Enemigos
+
+#### Niveles
+* En total son tres.
+* Cada nivel cambia el tamaño del area de juego y la cantidad de cofres que se generan en el mismo.
+* En los
+
+#### Menu
+* Una barra de estatus que se muestra por encima del area de juego.
+* Muestra el arma que llevo en el inventario (si tengo), la cantidad de vida que tengo representado con corazones y medio-corazones, la cantidad de daño que hago representado con <¿?>, alguna represenación del nivel en el que estoy jugando y un reloj que va pasando el tiempo.
+
+#### Otros
+* Si me quedo sin vida, o se me acaba el tiempo, pierdo el juego.
+* Si paso todos los niveles, gano.
+* Para avanzar de nivel, tengo que juntar las 3 llaves e interactuar con la puerta.
+* Hay dos llaves en cofres, la tercera la tiene un enemigo que esta dentro de un cofre.
+
+
+
+___
 
 TRES niveles (vemos como va, por ahi ponemos mas)
 
@@ -32,8 +88,6 @@ Un boton para atacar, un boton para interactuar, botones de movimiento
 Enemigos tienen distinto tipo de ataque y distinta vida
 
 Un enemigo cada 3 ataques te saca una cierta cantidad. Cuando ataco 3 veces a un enemigo, ESE enemigo me ataca. Pueden existir enemigos que los mate de 2 ataques.
- 
-
 
 El personaje que tenga 5 de vida.
 Maximo de vida: 5 corazones.
