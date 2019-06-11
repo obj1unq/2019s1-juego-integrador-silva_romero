@@ -5,7 +5,7 @@ class Llave inherits Colisionable {
 	
 	method image() = "llave.png"
 	
-	method llevadoPor(personaje) { // USADO EN LA COLISION (GT)
+	method colisionarCon(personaje) { // USADO EN LA COLISION (GT)
 		game.removeVisual(self)
 		personaje.recogerLlave()
 	}

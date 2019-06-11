@@ -12,29 +12,47 @@ class Enemigo inherits NoColisionable {
 	var property hp
 	var property atk
 	var property position 
-	var contador = 0
+	var contador = 0 //cuando el contador llega a 3, ataca al personaje y reinicia el contador. Va sumando uno cada vez que recibe un ataque.
+
+
 	method image() = "golum.jpeg"
 	
-	method esLlevadoPor(personaje){
-		// no hace nada respeta el poliformismo
-	}
+//	method colisionarCon(personaje){
+//		// no hace nada respeta el poliformismo (GT)
+//	} // <!!> no hace falta, nunca colisionara y nunca ejecuta. 
 
 	method serInteractuadoPor(jugador) {
-		game.say(self, "si ves esto es porque hay algo bien! :D falta implementar mecanismos de ataque.")
+		self.reciboAtaque(jugador)
 	}
-	method reciboAtaque(personaje){
+	
+	method reciboAtaque(personaje) {
 		hp -= personaje.ataque()
 		contador += 1
 		self.atacoSiEsPosible(personaje)
+
+		if (not self.sigoVivo()) {
+			self.morir()
+		}
 	}
+	
+
 	method atacoSiEsPosible(personaje){
-		if (contador == 3 )
+		if (contador == 3 ) {
 			self.ataco(personaje)
 			contador = 0
 			}
+		}
 	
 	method ataco(personaje){
 		      personaje.esAtacado(atk)
+	}
+
+	method sigoVivo() {
+		return hp > 0
+	}
+
+	method morir() {
+		game.removeVisual(self)
 	}
 
 

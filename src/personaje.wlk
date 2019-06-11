@@ -2,10 +2,9 @@ import wollok.game.*
 import direcciones.* // USABLE PARA ASIGNAR A OTROS METODOS
 //
 object personaje {
-	var property vida = 1000	
-	var property ataque = 300
+	var property vida = 10	//Maximo 10. Ya esta implementado!!
+	var property ataque = 1
 	
-	//El ataque podria ser un method ataque() sin necesidad de usar variables. Se puede hacer de manera poscalculada <!!>
 
 	var property llavesObtenidas = 0
 	var property inventario = [] // Contiene solo un item de tipo arma
@@ -16,9 +15,9 @@ object personaje {
 	
 	method image()= imagen 
 	
-	method serBebidoPor(personaje){
+	method colisionarCon(personaje){
 		// Respeta el polimorfismo.
-		// Por algun motivo hay que ponerlo aca tambien para que no de error.(GT)
+		// Por algun motivo hay que ponerlo aca tambien para que no de error y no sabemos por que, es algo de Wollok.
 	}
 	method ataqueA() {
 	//Ataque solo funciona con un enemigo en orientacion 
@@ -67,7 +66,10 @@ object personaje {
 
 method aplicarEfecto(frasco) {
 	//Ejecuta cuando el frasco le envia este mensaje. El frasco se lo envia cuando es colisionado
+	
 	vida += frasco.efecto()
+	vida = 10.min(vida)
+
 }
 
 // Llaves

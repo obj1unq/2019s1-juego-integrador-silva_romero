@@ -15,3 +15,6 @@ class Colisionable {
 	
 }
 
+class FondoNegro {
+	method image() = "negro.png"
+}

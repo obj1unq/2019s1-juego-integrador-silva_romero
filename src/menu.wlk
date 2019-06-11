@@ -1,3 +1,6 @@
+import otros_obj.* //importa para conseguir el fondo negro
+
+
 //La barra de estatus que va sobre el area de juego
 //Muestra la vida, el ataque y la cantidad de llaves que tiene el jugador en el momento actual
 
@@ -21,3 +24,4 @@ class Corazon {
 class MedioCorazon {
 	//representa 1 punto de vida del personaje
 }
+

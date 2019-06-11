@@ -1,10 +1,10 @@
 import wollok.game.*
 import otros_obj.*
-import tablero.*
-import interfaz.* //vacio por ahora
-import direcciones.*
-
+import menu.* //vacio por ahora
+import obstaculos.*
 import puerta.*
+
+import direcciones.*
 import personaje.*
 
 import cofre.*
@@ -26,27 +26,20 @@ program Game {
 	game.addVisual(personaje)
 	
 // Muros
-	muro.cargar() 
+	muro.cargar() //En lugar de cargar los muros de una, deberia cargar el nivel1, y que el nivel1 sea el responsable de
+	//cargar los muros <!!>
+
 // Puerta
-	game.addVisualIn(puerta,game.at(10,10)) //posicion siempre menor o igual a (height - 2) (width - 2) 
+	game.addVisualIn(new Puerta(nivelActual = 1),game.at(10,10)) //posicion siempre menor o igual a (height - 2) (width - 2) 
 
-// Eemigos
-	
 
-// Pociones
 
 // "Mock Objects" - USADOS DE EJEMPLO PARA TESTEAR
-	const cofre1 = new Cofre()
-	const cofre2 = new Cofre()
+	const pocion= new Frasco(efecto = 8)
+	const veneno= new Frasco(efecto = -4)
 	
-	const enemigo1 = new Enemigo()
-	const llave1  = new Llave()
-	
-	const pocion= new Pocion(efecto = 500)
-	const veneno= new Veneno(efecto = -900)
-	
-	const palo= new Arma(mejoraAtk = 100,image = "palo.png" )
-	const espada= new Arma(mejoraAtk = 300, image = "iron_sword.png")
+	const palo= new Arma(mejoraAtk = 2,image = "palo.png" )
+	const espada= new Arma(mejoraAtk = 3, image = "iron_sword.png")
 	
 	
 	game.addVisualIn(pocion,game.at(3,3))
@@ -55,16 +48,21 @@ program Game {
 	game.addVisualIn(palo,game.at(5,6))
 	game.addVisualIn(espada,game.at(5,2))
 	
-	game.addVisualIn(llave1,game.at(7,2)) 
-	game.addVisualIn(cofre1,game.at(6,6))
-	game.addVisualIn(cofre2,game.at(7,7))
+	game.addVisualIn(new Llave(),game.at(7,2))
+	game.addVisualIn(new Llave(),game.at(7,3))
+	game.addVisualIn(new Llave(),game.at(7,4))
+	 
+	game.addVisualIn(new Cofre(),game.at(6,6))
+	game.addVisualIn(new Cofre(),game.at(7,7))
 	
-	game.addVisualIn(enemigo1, game.at(3,8))
+	game.addVisualIn(new Enemigo(hp = 8, atk = 2), game.at(3,8)) //tira error porque no tiene definida posicion, pero despues se le define
+	
 	
 // Colisiones 
 	
-	game.whenCollideDo(personaje,{objeto => objeto.serBebidoPor(personaje)}) // METODO MAS GENERAL Y SIN ERRORES PARA LLAVES Y FRASCOS(GT)
-																			
+	game.whenCollideDo(personaje,{objeto => objeto.colisionarCon(personaje)})
+	//Los unicos obj. con los que puede colisionar son llaves o frascos.												
+	
 	
 //Movimientos e interacciones 
 	
@@ -84,7 +82,6 @@ program Game {
 		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
 		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
 		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
-		
 // Inicio
 	game.start()
 	
