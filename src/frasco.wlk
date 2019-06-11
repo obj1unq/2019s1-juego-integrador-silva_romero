@@ -10,7 +10,7 @@ class Frasco inherits Colisionable {
 	
 	method image() = "potion.png"
 	
-	 method llevadoPor(personaje){  // USADO EN LA COLISION (GT)
+	 method serBebidoPor(personaje){  // USADO EN LA COLISION (GT)
 		personaje.aplicarEfecto(self)
 		game.removeVisual(self)
 	}

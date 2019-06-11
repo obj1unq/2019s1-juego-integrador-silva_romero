@@ -19,7 +19,7 @@ Estos tambien tienen atributos de vida , ataque y un objeto. La recompensa por a
 al interactuar con este objeto, debe verificar que el personaje tenga las tres llaves para que se termine el juego. En caso contrario que tire un mensaje o excepcion de cuantas llaves le falta o que le faltan.
 
 
-### Para mel:
+## Implementación
 
 TRES niveles (vemos como va, por ahi ponemos mas)
 

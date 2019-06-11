@@ -63,7 +63,7 @@ program Game {
 	
 // Colisiones 
 	
-	game.whenCollideDo(personaje,{objeto => objeto.llevadoPor(personaje)}) // METODO MAS GENERAL Y SIN ERRORES PARA LLAVES Y FRASCOS(GT)
+	game.whenCollideDo(personaje,{objeto => objeto.serBebidoPor(personaje)}) // METODO MAS GENERAL Y SIN ERRORES PARA LLAVES Y FRASCOS(GT)
 																			
 	
 //Movimientos e interacciones 

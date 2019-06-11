@@ -5,11 +5,3 @@ test "testX" {
 	assert.that(true)
 
 }
-
-test "TEST DE PULL PRIEBA" {
-	assert.that(false)
-}
-
-test "si se borro el test de barbi esto es una kk" {
-
-}
