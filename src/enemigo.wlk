@@ -12,7 +12,7 @@ class Enemigo inherits NoColisionable {
 	var property hp
 	var property atk
 	var property position 
-	
+	var contador = 0
 	method image() = "golum.jpeg"
 	
 	method esLlevadoPor(personaje){
@@ -22,4 +22,20 @@ class Enemigo inherits NoColisionable {
 	method serInteractuadoPor(jugador) {
 		game.say(self, "si ves esto es porque hay algo bien! :D falta implementar mecanismos de ataque.")
 	}
+	method reciboAtaque(personaje){
+		hp -= personaje.ataque()
+		contador += 1
+		self.atacoSiEsPosible(personaje)
+	}
+	method atacoSiEsPosible(personaje){
+		if (contador == 3 )
+			self.ataco(personaje)
+			contador = 0
+			}
+	
+	method ataco(personaje){
+		      personaje.esAtacado(atk)
+	}
+
+
 }

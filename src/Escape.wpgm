@@ -72,7 +72,7 @@ program Game {
 		keyboard.down().onPressDo { personaje.mover(personaje.position().down(1),abajo) }
 		keyboard.left().onPressDo { personaje.mover(personaje.position().left(1),izquierda) }
 		keyboard.right().onPressDo { personaje.mover(personaje.position().right(1),derecha) }
-		
+		keyboard.e().onPressDo{personaje.ataque()}
 		keyboard.space().onPressDo{personaje.interactuar()} 
 		//Interactuar significa:
 		// - Abrir cofre segun la orientacion del personaje (abrir a la izquierda, a la derecha, etc)
@@ -84,7 +84,7 @@ program Game {
 		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
 		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
 		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
-	
+		
 // Inicio
 	game.start()
 	

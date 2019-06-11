@@ -4,7 +4,7 @@ import direcciones.* // USABLE PARA ASIGNAR A OTROS METODOS
 object personaje {
 	var property vida = 1000	
 	var property ataque = 300
-
+	
 	//El ataque podria ser un method ataque() sin necesidad de usar variables. Se puede hacer de manera poscalculada <!!>
 
 	var property llavesObtenidas = 0
@@ -20,7 +20,16 @@ object personaje {
 		// Respeta el polimorfismo.
 		// Por algun motivo hay que ponerlo aca tambien para que no de error.(GT)
 	}
+	method ataqueA() {
+	//Ataque solo funciona con un enemigo en orientacion 
+		self.enemigo().reciboAtaque(self)
+	}
+	method esAtacado(ataqueEnemigo){
+		vida -= ataqueEnemigo
+	}
 	
+	method enemigo() = game.getObjectsIn(orientacion.posicionAl(self))
+
 ///----------------------------------------------------------
 ///---------------------- MOVIMIENTO ------------------------
 ///----------------------------------------------------------
