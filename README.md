@@ -23,9 +23,10 @@ ___
 # IMPLEMENTACIÓN
 ___
 
-#### Personaje
 
+### Personaje
 * Puede moverse en las cuatro direcciones, atacar con la tecla E e interactuar con espacio.
+* Atacar significa pararme al lado del enemigo y apretar un boton para atacar. Cuando ataco, le saco X cantidad de vida al enemigo que tengo en la direccion a la que estoy mirando (la celda adyacente al personaje). Despues de atacar al enemigo 3 veces, ese enemigo me ataca a mi y me hace daño. 
 * Interactuar significa intentar abrir la puerta, intercambiar el arma que esta en el suelo con el arma que tiene en el inventario (si tiene), o abrir un cofre.
 * Puede llevar como maximo un arma en el inventario.
 * Tiene un atributo ataque, que se usa para pelear!! Este atributo deberia cambiar dependiendo el arma que tiene en el inventario.
@@ -35,86 +36,91 @@ ___
 * La imagen del personaje cambia conforme en la direccion en la que estoy mirando. La direccion que estoy mirando cambia segun la tecla que presiono para moverme.
 * Cuando el personaje agarra un arma, la imagen del mismo cambia para mostrar el arma que lleva en mano. Si son 5 armas más el personaje sin armas, y son 4 direcciones, en total son 6 * 4 = 24 imagenes para el personaje!!!
 * Cuando ataco, muestro una animacion del personaje disparando o usando su arma en la direccion a la que veo. Necesito el doble de imagenes para hacer esto.
+* El personaje, por defecto, tiene 1 punto de ataque. Cuando agarra el arma, se le suma al punto de ataque que tiene.
+* Al atacar suena un sonido.
 
-#### Frascos
+
+
+### Frascos
+* Los frascos aparecen en cofres.
 * Existen dos tipos de frascos: pociones (que curan) y venenos (que hacen daño).
 * Los efectos aplican al colisionar con el jugador.
 * Un frasco puede curar entre 2 y 5 puntos de vida. //falta discutir bien esto.
 * Un veneno hace daño de entre 2 y 5 puntos de vida. //falta discutir bien esto.
 
-#### Bombas
+
+### Llaves
+* Al colisionar con el jugador, desaparecen del tablero y pasan a estar en su inventario.
+
+
+### Puerta
+* Cuando el jugador intenta abrirla, verifica que tiene la cantidad de llaves necesaria para pasar de nivel.
+* Si no puede abrirla, le dice que le faltan "x" llaves.
+* Si puede abrirla, y es el ultimo nivel, se muestra una pantalla/animacion/loquesea de victoria.
+* Si puede abrirla, y no es el ultimo nivel, se escucha un sonido de una puerta abriendose y se genera el siguiente nivel.
+
+
+### Bombas
 * Una bomba puede aparecer en cofres.
 * Si el jugador se encuentra en una casilla adyacente o en diagonal a la bomba en el momento en que explota, SE MUERE.
 * La bomba explota luego de 500ms de aparecer.
 
-#### Cofres
+
+### Cofres
+* Al ser abiertos, desaparecen y revelan su contenido.
 
 
-#### Armas
+### Armas
+* Aparecen en cofres.
+* Pueden ser recogidas por el jugador. Si el jugador ya tenia un arma, la intercambia por la que recoge.
+* Cada arma tiene sus puntos de ataque que le sumarán al jugador según el arma que tenga en mano.
+* Existen cinco armas en el juego, que suman respectivamente 2, 3, 4, 5 y 6 puntos de ataque al jugador. En el primer nivel solo pueden encontrarse las primeras dos armas, en el segundo nivel las siguientes dos (más las dos primeras), y en el último nivel se puede encontrar cualquiera de las cinco.
 
 
+### Enemigos
+* Aparecen en cofres.
+* Todos los enemigos tienen diferentes puntos de ataque y de vida. No todos los enemigos tienen lo mismo, es aleatorio.
+* Solo atacan al jugador cuando son atacados por tercera vez por el mismo (OJO!! El ataque es con ESE enemigo, NO con todos los enemigos).
+* Pueden existir enemigos que mueran de uno o dos golpes.
+* Le quitan vida al jugador segun la cantidad de daño que pueden hacer.
+* El jugador no sabe cuanto daño hacen ni cuanta vida tienen.
+* En todos los niveles tienen entre 1 y 4 puntos de ataque.
+* En el nivel 1 aparecen enemigos de entre 4 y 12 puntos de vida.
+* En el nivel 2 aparecen enemigos de entre 6 y 15 puntos de vida.
+* En el nivel 3 aparecen enemigos de entre 8 y 22 puntos de vida.
+* Cada enemigo tiene su animación (se puede hacer con solo 2 imagenes por cada enemigo).
+* Aunque pueden existir diferentes imagenes para diferentes enemigos, eso no significa que existan tipos de enemigos específicos. Los unicos "tipos" de enemigos que hay se diferencian por el nivel en el que están, no por sus imágenes.
 
 
-
-#### Enemigos
-
-#### Niveles
+### Niveles
 * En total son tres.
 * Cada nivel cambia el tamaño del area de juego y la cantidad de cofres que se generan en el mismo.
-* En los
+* Cada nivel tiene una ambientación diferente.
+* <??> Podria ser que se necesiten diferentes cantidades de llaves por cada nivel.
 
-#### Menu
+
+### Menu
 * Una barra de estatus que se muestra por encima del area de juego.
 * Muestra el arma que llevo en el inventario (si tengo), la cantidad de vida que tengo representado con corazones y medio-corazones, la cantidad de daño que hago representado con <¿?>, alguna represenación del nivel en el que estoy jugando y un reloj que va pasando el tiempo.
 
-#### Otros
-* Si me quedo sin vida, o se me acaba el tiempo, pierdo el juego.
-* Si paso todos los niveles, gano.
+### Reloj
+* WIP
+* WIP
+
+### Otros
+* Si me quedo sin vida, o se me acaba el tiempo, pierdo el juego (y suena una fanfarria de derrota).
+* Si paso todos los niveles, gano (y suena una fanfarria de victoria).
 * Para avanzar de nivel, tengo que juntar las 3 llaves e interactuar con la puerta.
 * Hay dos llaves en cofres, la tercera la tiene un enemigo que esta dentro de un cofre.
+* OST del juego: Running in the 90s
 
 
+###  Direcciones
+* Una clase que ayuda a la implementación del personaje.
+* Guarda imágenes del personaje viendo en las diferentes orientaciones y métodos que ayuden a verificar la dirección en la que está mirando.
+
+### Colisionable y NoColisionable
+* Clases que le dan la propiedad a otras clases u objetos de que puedan ser colisionables o no (por medio de herencia).
+* Ser colisionable significa que el jugador puede caminar por encima de la posición en la que se encuentra el objeto.
 
 ___
-
-TRES niveles (vemos como va, por ahi ponemos mas)
-
-Bombassss!!! (al abrir cofres)
-
-Juego por tiempo
-
-Un boton para atacar, un boton para interactuar, botones de movimiento
-
-Enemigos tienen distinto tipo de ataque y distinta vida
-
-Un enemigo cada 3 ataques te saca una cierta cantidad. Cuando ataco 3 veces a un enemigo, ESE enemigo me ataca. Pueden existir enemigos que los mate de 2 ataques.
-
-El personaje que tenga 5 de vida.
-Maximo de vida: 5 corazones.
-
-Si el personaje tiene 5 corazones, no puedo agarrar pociones
-
-NO puedo saber cuanta vida y atk tienen los enemigos, es prueba y error
-
-Mecanismo de ataque todo igual (con estas modificaciones)
-
-ARMAS de FUEGO!! (igual sigue atacando al que tiene al lado, no a distancia)
-
-Atacar significa pararme al lado del enemigo y apretar un boton para atacar.
-Cuando ataco, le saco X cantidad de vida al enemigo que tengo en la direccion a la que estoy mirando (la celda adyacente al personaje). Despues de atacar al enemigo 3 veces, ese enemigo me ataca a mi y me hace daño. 
-
-El enemigo lo ataca solo cuando el jugador interactua con el por tercera vez. El calculo es el siguiente:
-
-vidaEnemigo = self.vida() - jugador.ataque()
-
-(si es la tercera vez que lo ataca)
-vidaJugador = self.vida() - enemigo.ataque()
-
-OJO!! El ataque es con ESE enemigo, NO con todos los enemigos.
-
-sugerencia: representar cada medio corazon con un punto de vida. 2 puntos de vida = 1 corazon. 10 puntos de vida = 5 corazones. Esto es para no tener que usar fracciones.
-
-No hace falta implementar algo que te guarde corazones, de eso se encarga la interfaz del juego. Con que sean puntos de vida basta.
-
-No todos los enemigos tienen la misma cantidad de vida y la misma cantidad de ataque. Ataques posibles del enemigo:
-entre 0.5 y 2 corazones (osea, entre 1 y 4 puntos de vida).
