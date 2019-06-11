@@ -124,3 +124,8 @@ ___
 * Ser colisionable significa que el jugador puede caminar por encima de la posición en la que se encuentra el objeto.
 
 ___
+
+## Cosas para preguntar
+
+- Hace falta hacer tests?
+- 
