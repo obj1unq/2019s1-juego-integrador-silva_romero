@@ -11,5 +11,5 @@ test "TEST DE PULL PRIEBA" {
 }
 
 test "si se borro el test de barbi esto es una kk" {
-	assert.that(false)
+
 }
