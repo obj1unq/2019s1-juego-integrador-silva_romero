@@ -68,7 +68,7 @@ ___
 
 ### Cofres
 * Al ser abiertos, desaparecen y revelan su contenido.
-
+* WIP
 
 ### Armas
 * Aparecen en cofres.
