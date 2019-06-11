@@ -1,6 +1,6 @@
 import wollok.game.*
 import direcciones.* // USABLE PARA ASIGNAR A OTROS METODOS
-
+//
 object personaje {
 	var property vida = 1000	
 	var property ataque = 300

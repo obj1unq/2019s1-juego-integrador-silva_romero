@@ -66,7 +66,7 @@ program Game {
 	game.whenCollideDo(personaje,{objeto => objeto.llevadoPor(personaje)}) // METODO MAS GENERAL Y SIN ERRORES PARA LLAVES Y FRASCOS(GT)
 																			
 	
-//Movimientos e interacciones
+//Movimientos e interacciones 
 	
 		keyboard.up().onPressDo { personaje.mover(personaje.position().up(1),arriba) }
 		keyboard.down().onPressDo { personaje.mover(personaje.position().down(1),abajo) }

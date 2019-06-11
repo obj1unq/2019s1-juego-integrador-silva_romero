@@ -8,7 +8,7 @@ import otros_obj.*
 
 
 class Enemigo inherits NoColisionable {
-	
+//	
 	var property hp
 	var property atk
 	var property position 
