@@ -112,7 +112,7 @@ ___
 * Si paso todos los niveles, gano (y suena una fanfarria de victoria).
 * Para avanzar de nivel, tengo que juntar las 3 llaves e interactuar con la puerta.
 * Hay dos llaves en cofres, la tercera la tiene un enemigo que esta dentro de un cofre.
-* OST del juego: Running in the 90s
+* OST del juego: Running in the 90s o Rasputin - Love the way you move
 
 
 ###  Direcciones
