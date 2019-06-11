@@ -4,13 +4,23 @@ import otros_obj.*
 class Cofre inherits NoColisionable {
 	
 	const property objeto
+	const armas = []
+	const posiones = []
+	const venenos = []
 	
 	method image()= "cofre1.jpg"
 
-		method serInteractuadoPor(jugador) {
-			//Si habia un cofre orientado con el jugador, ejecuta esto
-			//Por ahora es todo lo que hace. Ya se pone mas complicado cuando pasemos a la Etapa 2
-			game.removeVisual(self)
-		}
-
+	
+	method serInteractuadoPor(jugador) {
+		self.mostrarContenido()
+		game.removeVisual(self)
+	}
+	
+	
+	method mostrarContenido() {
+			game.addVisual(armas.get(0.randomUpTo(armas.size()-1)))
+			game.addVisual(posiones.get(0.randomUpTo(armas.size()-1)))
+			game.addVisual(venenos.get(0.randomUpTo(armas.size()-1)))
+	}
+		
 }
