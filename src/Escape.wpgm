@@ -82,6 +82,16 @@ program Game {
 		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
 		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
 		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
+
+///////visuales de menu
+game.addVisualIn(new Corazon(),game.at(11,11))
+
+
+
+
+
+
+
 // Inicio
 	game.start()
 	

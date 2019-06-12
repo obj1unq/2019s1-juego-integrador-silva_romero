@@ -15,13 +15,19 @@ import otros_obj.* //importa para conseguir el fondo negro
 //puntos de vida y de ataque estan representados en el personaje pero no estan representados con imagenes, asi que hay que crear clases
 //para representarlos
 
-class Corazon {
-	//representa 2 puntos de vida del personaje
-	
-	
+class Corazon{
+	var property puntosDelPersonaje
+	var image 
+	method imagenQueMostrar()= if (puntosDelPersonaje > 2){ image = "corazonEntero.png"  puntosDelPersonaje -= 2} 
+								else if (puntosDelPersonaje == 1){image = "medioCorazon.png" puntosDelPersonaje -=1}
+								else image="muro.png"  
+								
 }
+//object representacionVida{
+	//var property lista = [new Corazon = corazon1,corazon2,corazon3,corazon3,corazon5 ]
+	
+	//method ejecutarVida(vidaPersonaje){lista.all({corazon1.puntosDelPersonaje(vidaPersonaje) 
+	
+//}
 
-class MedioCorazon {
-	//representa 1 punto de vida del personaje
-}
-
+///Falta agregar las imagenes y el resto de menu
