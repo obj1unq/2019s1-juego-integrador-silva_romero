@@ -3,6 +3,8 @@ import otros_obj.*
 
 class Llave inherits Colisionable {
 	
+	var position
+	method position() = position
 	method image() = "llave.png"
 	
 	method colisionarCon(personaje) { // USADO EN LA COLISION (GT)

@@ -1,6 +1,7 @@
 import wollok.game.*
 import otros_obj.*
-import menu.* //vacio por ahora
+import menu.* 
+import reloj.* //vacio por ahora
 import obstaculos.*
 import puerta.*
 
@@ -14,10 +15,14 @@ import enemigo.*
 import arma.*
 import llave.*
 
+// DUDAS PARA PREGUNTAR A LOS PROFES::
+// Escape -> onTick (abajo de todo), musica (abajo de todo)
+
+
 program Game {
 	
 //	CONFIG	
-	game.title("Juego")
+	game.title("Keanu Reeves")
 	game.height(12)
 	game.width(12)
 	game.ground("concreto.png")
@@ -55,8 +60,17 @@ program Game {
 	game.addVisualIn(new Cofre(),game.at(6,6))
 	game.addVisualIn(new Cofre(),game.at(7,7))
 	
-	game.addVisualIn(new Enemigo(hp = 8, atk = 2), game.at(3,8)) //tira error porque no tiene definida posicion, pero despues se le define
 	
+	//Voy a crear enemigos con un metodo "crear" en lugar de usar directamente "addVisual" xq necesito que, en el momento en que los creo,
+	//se agreguen a una lista de otro obj (el observer para las animaciones).
+	
+	//enemigo.crear(hp,atk,posicion) - primero se me ocurrio hacer esto, peeero hay un problema
+	//enemigo.crear(8,2,game.at(3,8)) - esto no funciona xq "enemigo" no es un objeto en especifico, es una clase
+	//Entonces necesito un objeto adicional que me cree los objetos a partir de la clase. Eso es lo que hace el obj factory
+	
+	factory.crearEnemigo(8,2,game.at(3,8))
+	
+	factory.crearEnemigo(12,1,game.at(5,9))
 	
 // Colisiones 
 	
@@ -83,13 +97,24 @@ program Game {
 		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
 		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
 
+
+
+
+
 ///////visuales de menu
-game.addVisualIn(new Corazon(),game.at(11,11))
+	game.addVisualIn(new Corazon(),game.at(11,11))
 
 
 
+//Animaciones
 
+	game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} ) //<??> Si pongo esto sin un bloque, tira error del metodo (un bug?)
+	
+	game.onTick(15000,"actualiza el reloj cada 15 segundos", {reloj.update()}) //falta implementar
 
+//Musica
+
+	//game.sound("runninginthe90s.mp3") //<??> NO FUNCIONA
 
 
 // Inicio

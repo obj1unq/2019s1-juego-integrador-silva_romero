@@ -1,5 +1,5 @@
-import otros_obj.* //importa para conseguir el fondo negro
-
+import otros_obj.* //importar para conseguir el fondo negro
+import reloj.* //vacio por ahora
 
 //La barra de estatus que va sobre el area de juego
 //Muestra la vida, el ataque y la cantidad de llaves que tiene el jugador en el momento actual

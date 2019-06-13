@@ -13,9 +13,10 @@ class Enemigo inherits NoColisionable {
 	var property atk
 	var property position 
 	var contador = 0 //cuando el contador llega a 3, ataca al personaje y reinicia el contador. Va sumando uno cada vez que recibe un ataque.
-
-
-	method image() = "golum.jpeg"
+	
+	
+	var imagen = "golum.jpeg"
+	method image() = imagen
 	
 //	method colisionarCon(personaje){
 //		// no hace nada respeta el poliformismo (GT)
@@ -53,7 +54,17 @@ class Enemigo inherits NoColisionable {
 
 	method morir() {
 		game.removeVisual(self)
+		observerEnemigos.eliminar(self)
 	}
 
+	method animacion() {
+		
+		if(imagen == "golum.jpeg") {
+		imagen = "jack2.png"
+		} else {
+			imagen = "golum.jpeg"
+		}
+		
+	}
 
 }

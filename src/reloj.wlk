@@ -1,0 +1,6 @@
+object reloj {
+	
+	method update() {
+		
+	}
+}
