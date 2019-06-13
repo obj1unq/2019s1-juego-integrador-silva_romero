@@ -1,6 +1,8 @@
 import otros_obj.* //importar para conseguir el fondo negro
 import reloj.* //vacio por ahora
-
+import personaje.*
+import llave.*
+import wollok.game.*
 //La barra de estatus que va sobre el area de juego
 //Muestra la vida, el ataque y la cantidad de llaves que tiene el jugador en el momento actual
 
@@ -15,19 +17,46 @@ import reloj.* //vacio por ahora
 //puntos de vida y de ataque estan representados en el personaje pero no estan representados con imagenes, asi que hay que crear clases
 //para representarlos
 
+
 class Corazon{
-	var property puntosDelPersonaje
+	var property puntosDelPersonaje= personaje.vida()
 	var image 
-	method imagenQueMostrar()= if (puntosDelPersonaje > 2){ image = "corazonEntero.png"  puntosDelPersonaje -= 2} 
-								else if (puntosDelPersonaje == 1){image = "medioCorazon.png" puntosDelPersonaje -=1}
+	method imagenQueMostrar()= if (puntosDelPersonaje > 2){ image = "corazon.png"  puntosDelPersonaje -= 2} 
+								else if (puntosDelPersonaje == 1){image = "corazonMitad.png" puntosDelPersonaje -=1}
 								else image="muro.png"  
 								
 }
-//object representacionVida{
-	//var property lista = [new Corazon = corazon1,corazon2,corazon3,corazon3,corazon5 ]
+object representacionMenu{
+	const corazon1= new Corazon()
+	const corazon2= new Corazon()
+	const corazon3= new Corazon()
+	const corazon4= new Corazon()
+	const corazon5= new Corazon()
 	
-	//method ejecutarVida(vidaPersonaje){lista.all({corazon1.puntosDelPersonaje(vidaPersonaje) 
+	var property lista = [corazon1,corazon2,corazon3,corazon4,corazon5 ]
+	method actualizarVida(){
+		
+	}
+	/// falta metodo de vida
 	
-//}
+	
+	
+	
+	method llavesAquiridas(){
+		if (personaje.llavesObtenidas()  == 1){
+			game.addVisualIn(new Llave(),game.at(1,11))
+			}else if (personaje.llavesObtenidas() == 2){
+			game.addVisualIn(new Llave(),game.at(2,11))
+			}else if ((personaje.llavesObtenidas()) == 3) {
+			game.addVisualIn(new Llave(),game.at(3,11))
+			}
+	}
+}
+	
+	
 
-///Falta agregar las imagenes y el resto de menu
+	
+	
+
+
+

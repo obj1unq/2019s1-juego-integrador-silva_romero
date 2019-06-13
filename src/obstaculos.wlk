@@ -14,7 +14,7 @@ object muro inherits NoColisionable {
 	
 	method cargar() {
 		const ancho = game.width() - 1
-		const largo = game.height() - 1
+		const largo = game.height() - 4
 		var alrededores = []
 		
 		(0 .. ancho).forEach{ p => alrededores.add(new Position(p, largo))} // muros del lado superior

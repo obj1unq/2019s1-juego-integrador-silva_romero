@@ -1,6 +1,6 @@
 import wollok.game.*
 import otros_obj.*
-
+import menu.*
 class Llave inherits Colisionable {
 	
 	var position
@@ -10,6 +10,7 @@ class Llave inherits Colisionable {
 	method colisionarCon(personaje) { // USADO EN LA COLISION (GT)
 		game.removeVisual(self)
 		personaje.recogerLlave()
+		representacionMenu.llavesAquiridas()
 	}
 	
 	
