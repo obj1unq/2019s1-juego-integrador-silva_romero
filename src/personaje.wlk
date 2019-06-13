@@ -1,5 +1,5 @@
 import wollok.game.*
-import direcciones.* // USABLE PARA ASIGNAR A OTROS METODOS
+import direcciones.*
 //
 object personaje {
 	var property vida = 10	//Maximo 10. Ya esta implementado!!
@@ -7,7 +7,7 @@ object personaje {
 	
 
 	var property llavesObtenidas = 0
-	var property inventario = [] // Contiene solo un item de tipo arma
+	var property inventario = [] // Contiene solo un tipo arma
 
 	var orientacion = derecha
 	var property position = game.at(2,2)
@@ -42,11 +42,9 @@ object personaje {
 	method puedeMoverAl(dir) {
 		//Puede mover si no hay ningun obj en direccion dir o si el obj es colisionable
 		//Todos los obj entienden el mensaje esColisionable(). ver otros_obj.wlk
+		
 		return game.getObjectsIn(dir.posicionAl(self)).isEmpty() or 
 			game.getObjectsIn(dir.posicionAl(self)).all { obj => obj.esColisionable() }
-		
-		// game.colliders(self) sirve para obj que colisionen en misma posicion. Para comprobar en una direccion
-		// se usa game.getObjectsIn(posicion)
 	}
 	
 	method mover(nuevaPosicion, dir) {
@@ -62,25 +60,22 @@ object personaje {
 ///----------------------------------------------------------
 ///----------------------------------------------------------
 
-// Pociones
+// Frascos
 
 method aplicarEfecto(frasco) {
-	//Ejecuta cuando el frasco le envia este mensaje. El frasco se lo envia cuando es colisionado
 	
 	vida += frasco.efecto()
 	vida = 10.min(vida)
-
 }
 
 // Llaves
 
-method recogerLlave() { // USARLO DENTRO DE UN METODO MAS GENERAL.(GT)
-	//Ejecuta cuando la llave le envia este mensaje. La llave se lo envia cuando es colisionada.
+method recogerLlave() { 
 	llavesObtenidas ++
 }
 
 	
-// METODOS PARA LEVANTAR LAS ARMAS	
+// METODOS LAS ARMAS	
 
 	method llevarArma(arma){
 		if(inventario.isEmpty()){
@@ -114,12 +109,10 @@ method recogerLlave() { // USARLO DENTRO DE UN METODO MAS GENERAL.(GT)
 ///----------------------------------------------------------
 	
 	method interactuar() {
-		//Ejecuta al apretar un boton.
 		//Envia mensaje serInteractuadoPor(self) al objeto que tenga segun la orientacion
 		//Si es enemigo, lo ataca. Si es cofre, lo abre. Si es puerta, intenta abrirla.
 		//AHORA SE USA PARA ARMAS. (GT)
-		
-		//Si es muro, un frasco, llave (EN DIRECCION DE LA ORIENTACION) no deberia pasar nada
+		//Si es muro, un frasco, llave (EN DIRECCION DE LA ORIENTACION) no pasa nada
 		
 		if (not game.getObjectsIn(orientacion.posicionAl(self)).isEmpty()) {
 			game.getObjectsIn(orientacion.posicionAl(self)).all { obj => obj.serInteractuadoPor(self) }
@@ -127,6 +120,5 @@ method recogerLlave() { // USARLO DENTRO DE UN METODO MAS GENERAL.(GT)
 			game.say(self,"No hay nada para interactuar ):")
 		}
 	}
-
-
+	
 }

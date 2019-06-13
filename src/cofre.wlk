@@ -3,10 +3,10 @@ import otros_obj.*
 
 class Cofre inherits NoColisionable {
 	
-	const property objeto
-	const armas = []
-	const posiones = []
-	const venenos = []
+	const property position
+	var property contenido
+	//const posiones = [] // tal vez las use luego (GT)
+	//const venenos = [] // tal vez las use luego (GT)
 	
 	method image()= "cofre1.jpg"
 
@@ -16,11 +16,8 @@ class Cofre inherits NoColisionable {
 		game.removeVisual(self)
 	}
 	
-	
 	method mostrarContenido() {
-			game.addVisual(armas.get(0.randomUpTo(armas.size()-1)))
-			game.addVisual(posiones.get(0.randomUpTo(armas.size()-1)))
-			game.addVisual(venenos.get(0.randomUpTo(armas.size()-1)))
+			game.addVisualIn(contenido,self.position())
 	}
 		
 }

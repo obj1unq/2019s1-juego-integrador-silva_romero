@@ -15,6 +15,8 @@ import enemigo.*
 import arma.*
 import llave.*
 
+import tablero.*
+
 // DUDAS PARA PREGUNTAR A LOS PROFES::
 // Escape -> onTick (abajo de todo), musica (abajo de todo)
 
@@ -40,7 +42,10 @@ program Game {
 
 
 // "Mock Objects" - USADOS DE EJEMPLO PARA TESTEAR
-	const pocion= new Frasco(efecto = 8)
+	
+	tablero.cargarCofres()
+
+	/*const pocion= new Frasco(efecto = 8)
 	const veneno= new Frasco(efecto = -4)
 	
 	const palo= new Arma(mejoraAtk = 2,image = "palo.png" )
@@ -59,7 +64,7 @@ program Game {
 	 
 	game.addVisualIn(new Cofre(),game.at(6,6))
 	game.addVisualIn(new Cofre(),game.at(7,7))
-	
+	*/
 	
 	//Voy a crear enemigos con un metodo "crear" en lugar de usar directamente "addVisual" xq necesito que, en el momento en que los creo,
 	//se agreguen a una lista de otro obj (el observer para las animaciones).
@@ -68,9 +73,9 @@ program Game {
 	//enemigo.crear(8,2,game.at(3,8)) - esto no funciona xq "enemigo" no es un objeto en especifico, es una clase
 	//Entonces necesito un objeto adicional que me cree los objetos a partir de la clase. Eso es lo que hace el obj factory
 	
-	factory.crearEnemigo(8,2,game.at(3,8))
+	//factory.crearEnemigo(8,2,game.at(3,8))
 	
-	factory.crearEnemigo(12,1,game.at(5,9))
+	//factory.crearEnemigo(12,1,game.at(5,9))
 	
 // Colisiones 
 	

@@ -51,11 +51,15 @@ object observerEnemigos {
 object factory {
 	//simple factory. Por ahora solo se usa para crear enemigos pero podria usarse para crear mas cosas ;)
 	
-	method crearEnemigo(_hp,_atk,pos) {
-		const _enemigo = new Enemigo(hp = _hp, atk = _atk) //no importa que no reciba posicion, con addVisualIn se la doy.
-		game.addVisualIn(_enemigo,pos)
+	method crearEnemigo(){
+		
+		return new Enemigo(hp =4.randomUpTo(12).truncate(0),atk= 1.randomUpTo(4).truncate(0)) // lo inicie en 4 porque aparecian enemigos muy faciles (GT)
+		
+		//const _enemigo = new Enemigo(hp =1.randomUpTo(4).truncate(0),atk= 1.randomUpTo(12).truncate(0))
+		//game.addVisual(_enemigo)
 		//game.hideAttributes(_enemigo) //- NO SACAR ESTO, lo comente porque tests pero cuando terminemos todo descomentarlo
-		observerEnemigos.observar(_enemigo)
+	
+	//	observerEnemigos.observar(_enemigo) -> Comento esto porque al no tener un return no puedo asignar a los enemigos al cofre (GT)
 	}
 	
 	method crearBomba(pos) {
@@ -65,16 +69,20 @@ object factory {
 		game.onTick(500,"explosion muy explosionadora",_bomba.explotar())		
 	}
 	
-	method crearFrasco(_efecto) {
-		return new Frasco(efecto = _efecto)
+	method crearPocion() {
+		return new Pocion(efecto = 2.randomUpTo(5).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)
 	}
 	
-	method crearLlave(pos) {
-		return new Llave(position = pos)
+	method crearVeneno() {
+		return new Veneno(efecto = 2.invert().randomUpTo(5.invert()).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)
 	}
 	
-	method crearArma(img,atk) {
-		return new Arma(image = img, mejoraAtk = atk)
+	method crearLlave() {
+		return new Llave()
+	}
+	
+	method crearArma(img) {
+		return new Arma(image = img, mejoraAtk = 2.randomUpTo(6).truncate(0))// POR AHORA GENERAN CUALQUIER NIVEL DE ATK, DESPUES SE ESPECIFICA SEGUN LOS NIVELES DEL JUEGO (GT)
 		
 	}
 	
@@ -82,11 +90,47 @@ object factory {
 
 object factoryCofre {
 	
-	method crear(pos) {
-		//esta en otro factory xq este puede que sea mas complejo de crear que las otras cosas
-		//gonza modifica este y ponele los parametros que necesites <3 -leito
-		const _cofre = new Cofre()
-		game.addVisualIn(_cofre,pos)
+	method crearCofreEnemigo() { // Falta implementacion para que asigne imagenes
+		const _cofre = new Cofre(
+			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
+			contenido = factory.crearEnemigo()
+		)
+		game.addVisual(_cofre)
 	}
+	
+	method crearCofrePocion() {
+		const _cofre = new Cofre(
+			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
+			contenido = factory.crearPocion()
+		)
+		game.addVisual(_cofre)
+	}
+	
+	method crearCofreVeneno() {
+		const _cofre = new Cofre(
+			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
+			contenido = factory.crearVeneno()
+		)
+		game.addVisual(_cofre)
+	}
+	
+		method crearCofreLlave() {
+		const _cofre = new Cofre(
+			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
+			contenido = factory.crearLlave()
+		)
+		game.addVisual(_cofre)
+	}
+	
+	/* 
+	method crearCofreArma() { // Falta implementacion para que asigne imagenes
+		const _cofre = new Cofre(
+			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
+			contenido = factory.crearArma()
+		)
+		game.addVisual(_cofre)
+	}
+	*/
+	
 	
 }
