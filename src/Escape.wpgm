@@ -15,7 +15,7 @@ import enemigo.*
 import arma.*
 import llave.*
 
-import tablero.*
+import tablero.* // usado para crear los cofres que van aparecer en el tablero(GT)
 
 // DUDAS PARA PREGUNTAR A LOS PROFES::
 // Escape -> onTick (abajo de todo), musica (abajo de todo)
@@ -73,9 +73,7 @@ program Game {
 	//enemigo.crear(8,2,game.at(3,8)) - esto no funciona xq "enemigo" no es un objeto en especifico, es una clase
 	//Entonces necesito un objeto adicional que me cree los objetos a partir de la clase. Eso es lo que hace el obj factory
 	
-	//factory.crearEnemigo(8,2,game.at(3,8))
-	
-	//factory.crearEnemigo(12,1,game.at(5,9))
+
 	
 // Colisiones 
 	
@@ -92,10 +90,7 @@ program Game {
 		keyboard.e().onPressDo{personaje.ataque()}
 		keyboard.space().onPressDo{personaje.interactuar()} 
 		//Interactuar significa:
-		// - Abrir cofre segun la orientacion del personaje (abrir a la izquierda, a la derecha, etc)
-		// - Atacar un enemigo segun orientacion
-		// - Abrir puerta segun orientacion
-		// LAS ARMAS NO SON COLISIONABLES Y SE INTERACTUA CON ELLAS (GT)
+		// - Abrir cofres, atacar enemigos(por ahora con .space()), obtener o intercambiar armas.
 		
 		//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
 		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
@@ -112,7 +107,7 @@ program Game {
 
 //Animaciones
 
-	game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} ) //<??> Si pongo esto sin un bloque, tira error del metodo (un bug?)
+	game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} ) //<??> Si pongo esto sin un bloque, tira error del metodo (un bug?) -> Es asi como se escribe el onTick(GT)
 	
 	game.onTick(15000,"actualiza el reloj cada 15 segundos", {reloj.update()}) //falta implementar
 

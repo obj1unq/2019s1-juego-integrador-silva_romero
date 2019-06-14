@@ -8,19 +8,15 @@ import otros_obj.*
 
 
 class Enemigo inherits NoColisionable {
-//	
+
 	var property hp
 	var property atk
-	//var property position 
 	var contador = 0 //cuando el contador llega a 3, ataca al personaje y reinicia el contador. Va sumando uno cada vez que recibe un ataque.
 	
-	
-	var imagen = "golum.jpeg"
+	var imagen 
+	//var imagen = "golum.jpeg"
 	method image() = imagen
 	
-//	method colisionarCon(personaje){
-//		// no hace nada respeta el poliformismo (GT)
-//	} // <!!> no hace falta, nunca colisionara y nunca ejecuta. 
 
 	method serInteractuadoPor(jugador) {
 		self.reciboAtaque(jugador)
@@ -36,7 +32,6 @@ class Enemigo inherits NoColisionable {
 		}
 	}
 	
-
 	method atacoSiEsPosible(personaje){
 		if (contador == 3 ) {
 			self.ataco(personaje)
@@ -63,8 +58,7 @@ class Enemigo inherits NoColisionable {
 		imagen = "jack2.png"
 		} else {
 			imagen = "golum.jpeg"
-		}
-		
+		}	
 	}
 
 }

@@ -51,10 +51,12 @@ object observerEnemigos {
 object factory {
 	//simple factory. Por ahora solo se usa para crear enemigos pero podria usarse para crear mas cosas ;)
 	
-	method crearEnemigo(){
+	method crearEnemigo(imag){
 		
-		return new Enemigo(hp =4.randomUpTo(12).truncate(0),atk= 1.randomUpTo(4).truncate(0)) // lo inicie en 4 porque aparecian enemigos muy faciles (GT)
+		return new Enemigo(hp =4.randomUpTo(12).truncate(0),atk= 1.randomUpTo(4).truncate(0), imagen = imag) // lo inicie en 4 porque aparecian enemigos muy faciles (GT)
 		
+		
+		// PARA QUE PUEDA CREARCE EL ENEMIGO NECESITO UN RETURN, ESTO DEBERIA ESTAR EN OTRO LADO, RESOLVER (GT)
 		//const _enemigo = new Enemigo(hp =1.randomUpTo(4).truncate(0),atk= 1.randomUpTo(12).truncate(0))
 		//game.addVisual(_enemigo)
 		//game.hideAttributes(_enemigo) //- NO SACAR ESTO, lo comente porque tests pero cuando terminemos todo descomentarlo
@@ -62,11 +64,16 @@ object factory {
 	//	observerEnemigos.observar(_enemigo) -> Comento esto porque al no tener un return no puedo asignar a los enemigos al cofre (GT)
 	}
 	
-	method crearBomba(pos) {
+	method crearBomba() {
+		return new Bomba()
+		
+		// PARA QUE PUEDA CREARCE LA BOMBA NECESITO UN RETURN, ESTO DEBERIA ESTAR EN OTRO LADO, RESOLVER (GT)
+		/* 
 		const _bomba = new Bomba(position = pos)//Este crearBomba deberia llamarlo el cofre, el cual le pasa su posición
 		game.addVisual(_bomba)
 		game.say(_bomba,"CUIDADO!!!")
-		game.onTick(500,"explosion muy explosionadora",_bomba.explotar())		
+		game.onTick(500,"explosion muy explosionadora",_bomba.explotar())
+		*/		
 	}
 	
 	method crearPocion() {
@@ -89,12 +96,22 @@ object factory {
 }
 
 object factoryCofre {
+	// Notas GT:
+	// Las listas son para que al crear un arma o enemigo se asigne aleatoriamente las imagenes, asi como tambien los demas atributos.
+	// Esta es una face alpha, esta demaciado aleatorio, puede o no funcionar , ademas que en cada nivel se especificara el nivel de aleatoriedad.
+	// Todavia me falta resolver que no colicionen dos cofres en el mismo lugar.
+	// Las imagenes son de ejemplo.
+	
+	
+	
+	var imagenesEnemigos = ["golum.jpeg","jack2.png","dragon.png"] 
+	var imagenesArmas = ["espada1.png","espada2.png","palo.png","iron_sword.png"]
 	
 	method crearCofreEnemigo() { // Falta implementacion para que asigne imagenes
 		const _cofre = new Cofre(
 			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
-			contenido = factory.crearEnemigo()
-		)
+			contenido = factory.crearEnemigo(imagenesEnemigos.get(0.randomUpTo(imagenesEnemigos.size()).truncate(0)))
+		) 
 		game.addVisual(_cofre)
 	}
 	
@@ -114,7 +131,7 @@ object factoryCofre {
 		game.addVisual(_cofre)
 	}
 	
-		method crearCofreLlave() {
+	method crearCofreLlave() {
 		const _cofre = new Cofre(
 			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
 			contenido = factory.crearLlave()
@@ -122,15 +139,23 @@ object factoryCofre {
 		game.addVisual(_cofre)
 	}
 	
-	/* 
-	method crearCofreArma() { // Falta implementacion para que asigne imagenes
+	method crearCofreBomba() {
 		const _cofre = new Cofre(
 			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
-			contenido = factory.crearArma()
+			contenido = factory.crearBomba()
 		)
 		game.addVisual(_cofre)
 	}
-	*/
+	
+	
+	method crearCofreArma() { 
+		const _cofre = new Cofre(
+			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
+			contenido = factory.crearArma(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
+		)
+		game.addVisual(_cofre)
+	}
+	
 	
 	
 }

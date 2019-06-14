@@ -17,5 +17,9 @@ object tablero {
 	factoryCofre.crearCofreLlave()
 	factoryCofre.crearCofreLlave()
 	factoryCofre.crearCofreLlave()
+	factoryCofre.crearCofreArma()
+	factoryCofre.crearCofreArma()
+	factoryCofre.crearCofreArma()
+	factoryCofre.crearCofreArma()
 	}
 }
