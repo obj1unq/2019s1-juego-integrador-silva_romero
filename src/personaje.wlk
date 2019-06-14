@@ -5,7 +5,6 @@ object personaje {
 	var property vida = 10	//Maximo 10. Ya esta implementado!!
 	var property ataque = 1
 	
-
 	var property llavesObtenidas = 0
 	var property inventario = [] // Contiene solo un tipo arma
 
@@ -19,6 +18,7 @@ object personaje {
 		// Respeta el polimorfismo.
 		// Por algun motivo hay que ponerlo aca tambien para que no de error y no sabemos por que, es algo de Wollok.
 	}
+	
 	method ataqueA() {
 	//Ataque solo funciona con un enemigo en orientacion 
 		self.enemigo().reciboAtaque(self)

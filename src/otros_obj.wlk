@@ -56,7 +56,7 @@ object factory {
 		return new Enemigo(hp =4.randomUpTo(12).truncate(0),atk= 1.randomUpTo(4).truncate(0), imagen = imag) // lo inicie en 4 porque aparecian enemigos muy faciles (GT)
 		
 		
-		// PARA QUE PUEDA CREARCE EL ENEMIGO NECESITO UN RETURN, ESTO DEBERIA ESTAR EN OTRO LADO, RESOLVER (GT)
+		// PARA QUE PUEDA CREARSE EL ENEMIGO NECESITO UN RETURN, ESTO DEBERIA ESTAR EN OTRO LADO, RESOLVER (GT)
 		//const _enemigo = new Enemigo(hp =1.randomUpTo(4).truncate(0),atk= 1.randomUpTo(12).truncate(0))
 		//game.addVisual(_enemigo)
 		//game.hideAttributes(_enemigo) //- NO SACAR ESTO, lo comente porque tests pero cuando terminemos todo descomentarlo
@@ -67,7 +67,7 @@ object factory {
 	method crearBomba() {
 		return new Bomba()
 		
-		// PARA QUE PUEDA CREARCE LA BOMBA NECESITO UN RETURN, ESTO DEBERIA ESTAR EN OTRO LADO, RESOLVER (GT)
+		// PARA QUE PUEDA CREARSE LA BOMBA NECESITO UN RETURN, ESTO DEBERIA ESTAR EN OTRO LADO, RESOLVER (GT)
 		/* 
 		const _bomba = new Bomba(position = pos)//Este crearBomba deberia llamarlo el cofre, el cual le pasa su posición
 		game.addVisual(_bomba)
@@ -89,7 +89,7 @@ object factory {
 	}
 	
 	method crearArma(img) {
-		return new Arma(image = img, mejoraAtk = 2.randomUpTo(6).truncate(0))// POR AHORA GENERAN CUALQUIER NIVEL DE ATK, DESPUES SE ESPECIFICA SEGUN LOS NIVELES DEL JUEGO (GT)
+		return new Arma(image = img, mejoraAtk = 2.randomUpTo(6).truncate(0))// POR AHORA GENERAN CUALQUIER NIVEL DE ATK, DESPUES SE ESPECIFICARA SEGUN LOS NIVELES DEL JUEGO (GT)
 		
 	}
 	
@@ -98,16 +98,16 @@ object factory {
 object factoryCofre {
 	// Notas GT:
 	// Las listas son para que al crear un arma o enemigo se asigne aleatoriamente las imagenes, asi como tambien los demas atributos.
-	// Esta es una face alpha, esta demaciado aleatorio, puede o no funcionar , ademas que en cada nivel se especificara el nivel de aleatoriedad.
-	// Todavia me falta resolver que no colicionen dos cofres en el mismo lugar.
-	// Las imagenes son de ejemplo.
+	// Esta es una fase alpha, esta demasiado aleatorio, puede o no funcionar , ademas que en cada nivel se especificara el rango de valores que tendran los diferentes atributos.
+	// Todavia me falta resolver que no colisionen dos cofres en el mismo lugar.
+	// Las imagenes son de ejemplo. Definir las imagenes a utilizar y borrar las que ya no sirvan.
 	
 	
 	
 	var imagenesEnemigos = ["golum.jpeg","jack2.png","dragon.png"] 
 	var imagenesArmas = ["espada1.png","espada2.png","palo.png","iron_sword.png"]
 	
-	method crearCofreEnemigo() { // Falta implementacion para que asigne imagenes
+	method crearCofreEnemigo() { 
 		const _cofre = new Cofre(
 			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
 			contenido = factory.crearEnemigo(imagenesEnemigos.get(0.randomUpTo(imagenesEnemigos.size()).truncate(0)))
@@ -155,7 +155,5 @@ object factoryCofre {
 		)
 		game.addVisual(_cofre)
 	}
-	
-	
 	
 }

@@ -6,12 +6,8 @@ class Cofre inherits NoColisionable {
 	const property position
 	var property contenido
 	
-	//const posiones = [] // tal vez las use luego (GT)
-	//const venenos = [] // tal vez las use luego (GT)
-	
 	method image()= "cofre1.jpg"
 
-	
 	method serInteractuadoPor(jugador) {
 		self.mostrarContenido()
 		game.removeVisual(self)

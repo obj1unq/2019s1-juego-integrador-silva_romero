@@ -10,6 +10,8 @@ object tablero {
 	method cargarCofres(){
 	factoryCofre.crearCofreEnemigo()
 	factoryCofre.crearCofreEnemigo()
+	factoryCofre.crearCofreEnemigo()
+	factoryCofre.crearCofreEnemigo()
 	factoryCofre.crearCofrePocion()
 	factoryCofre.crearCofreVeneno()
 	factoryCofre.crearCofrePocion()
@@ -17,8 +19,6 @@ object tablero {
 	factoryCofre.crearCofreLlave()
 	factoryCofre.crearCofreLlave()
 	factoryCofre.crearCofreLlave()
-	factoryCofre.crearCofreArma()
-	factoryCofre.crearCofreArma()
 	factoryCofre.crearCofreArma()
 	factoryCofre.crearCofreArma()
 	}

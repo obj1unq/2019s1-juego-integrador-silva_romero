@@ -87,10 +87,14 @@ program Game {
 		keyboard.down().onPressDo { personaje.mover(personaje.position().down(1),abajo) }
 		keyboard.left().onPressDo { personaje.mover(personaje.position().left(1),izquierda) }
 		keyboard.right().onPressDo { personaje.mover(personaje.position().right(1),derecha) }
-		keyboard.e().onPressDo{personaje.ataque()}
+		
+		keyboard.e().onPressDo{personaje.ataqueA()} // NO FUNCIONA. aparece error: no entiene el mensaje "reciboAtaque(param1)" (GT)
+		
 		keyboard.space().onPressDo{personaje.interactuar()} 
 		//Interactuar significa:
 		// - Abrir cofres, atacar enemigos(por ahora con .space()), obtener o intercambiar armas.
+		
+		
 		
 		//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
 		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
