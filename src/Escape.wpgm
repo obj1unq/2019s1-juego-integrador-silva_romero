@@ -44,7 +44,8 @@ program Game {
 // "Mock Objects" - USADOS DE EJEMPLO PARA TESTEAR
 	
 	tablero.cargarCofres()
-
+	
+	
 	/*const pocion= new Frasco(efecto = 8)
 	const veneno= new Frasco(efecto = -4)
 	

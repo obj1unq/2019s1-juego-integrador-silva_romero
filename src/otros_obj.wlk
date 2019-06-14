@@ -49,11 +49,13 @@ object observerEnemigos {
 }
 
 object factory {
-	//simple factory. Por ahora solo se usa para crear enemigos pero podria usarse para crear mas cosas ;)
+	//simple factory. Se usa para crear enemigos, pociones, venenos, llaves bombas y mas! (GT)
+	// AUNQUE EN ALGUNOS DE ESTOS METODOS HAY QUE MODIFICARLOS PARA QUE SE PUEDAN LOGRAR LAS ANIMACIONES. 
+	// perdon leo... :)
 	
 	method crearEnemigo(imag){
 		
-		return new Enemigo(hp =4.randomUpTo(12).truncate(0),atk= 1.randomUpTo(4).truncate(0), imagen = imag) // lo inicie en 4 porque aparecian enemigos muy faciles (GT)
+		return new Enemigo(hp = 4.randomUpTo(12).truncate(0), atk= 1.randomUpTo(4).truncate(0), imagen = imag)
 		
 		
 		// PARA QUE PUEDA CREARSE EL ENEMIGO NECESITO UN RETURN, ESTO DEBERIA ESTAR EN OTRO LADO, RESOLVER (GT)
@@ -95,11 +97,15 @@ object factory {
 	
 }
 
+
+
+// OBJETO CON METODOS PARA CREAR LOS DISTINTOS TIPOS DE COFRES
+
 object factoryCofre {
 	// Notas GT:
 	// Las listas son para que al crear un arma o enemigo se asigne aleatoriamente las imagenes, asi como tambien los demas atributos.
 	// Esta es una fase alpha, esta demasiado aleatorio, puede o no funcionar , ademas que en cada nivel se especificara el rango de valores que tendran los diferentes atributos.
-	// Todavia me falta resolver que no colisionen dos cofres en el mismo lugar.
+	// Resolvi lo de los cofres colisionados(en teoria)
 	// Las imagenes son de ejemplo. Definir las imagenes a utilizar y borrar las que ya no sirvan.
 	
 	
@@ -107,53 +113,77 @@ object factoryCofre {
 	var imagenesEnemigos = ["golum.jpeg","jack2.png","dragon.png"] 
 	var imagenesArmas = ["espada1.png","espada2.png","palo.png","iron_sword.png"]
 	
-	method crearCofreEnemigo() { 
-		const _cofre = new Cofre(
-			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
-			contenido = factory.crearEnemigo(imagenesEnemigos.get(0.randomUpTo(imagenesEnemigos.size()).truncate(0)))
-		) 
-		game.addVisual(_cofre)
+	method crearCofreEnemigo(pos) { 
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearEnemigo(imagenesEnemigos.get(0.randomUpTo(imagenesEnemigos.size()).truncate(0)))
+			) 
+			game.addVisual(_cofre)
+		}else{
+			self.crearCofreEnemigo(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
 	}
 	
-	method crearCofrePocion() {
-		const _cofre = new Cofre(
-			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
-			contenido = factory.crearPocion()
-		)
-		game.addVisual(_cofre)
+	method crearCofrePocion(pos) {
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearPocion()
+			)
+			game.addVisual(_cofre)
+		}else{
+			self.crearCofrePocion(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
 	}
 	
-	method crearCofreVeneno() {
-		const _cofre = new Cofre(
-			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
-			contenido = factory.crearVeneno()
-		)
-		game.addVisual(_cofre)
+	method crearCofreVeneno(pos) {
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearVeneno()
+			)
+			game.addVisual(_cofre)
+		}else{
+			self.crearCofreVeneno(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
 	}
 	
-	method crearCofreLlave() {
-		const _cofre = new Cofre(
-			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
-			contenido = factory.crearLlave()
-		)
-		game.addVisual(_cofre)
+	method crearCofreLlave(pos) {
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearLlave()
+			)
+			game.addVisual(_cofre)
+		}else{
+			self.crearCofreLlave(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
 	}
 	
-	method crearCofreBomba() {
-		const _cofre = new Cofre(
-			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
-			contenido = factory.crearBomba()
+	method crearCofreBomba(pos) {
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearBomba()
 		)
-		game.addVisual(_cofre)
+			game.addVisual(_cofre)
+		}else{
+			self.crearCofreBomba(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
 	}
 	
 	
-	method crearCofreArma() { 
-		const _cofre = new Cofre(
-			position = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),
-			contenido = factory.crearArma(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
+	method crearCofreArma(pos) { 
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearArma(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
 		)
-		game.addVisual(_cofre)
+			game.addVisual(_cofre)
+		}else{
+			self.crearCofreArma(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
 	}
 	
 }
