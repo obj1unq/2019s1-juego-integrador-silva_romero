@@ -4,7 +4,7 @@ import menu.*
 import reloj.* //vacio por ahora
 import obstaculos.*
 import puerta.*
-
+import bomba.*
 import direcciones.*
 import personaje.*
 
@@ -23,6 +23,7 @@ import tablero.* // usado para crear los cofres que van aparecer en el tablero(G
 
 program Game {
 	
+	
 //	CONFIG	
 	game.title("Keanu Reeves")
 	game.height(14)
@@ -38,13 +39,12 @@ program Game {
 
 // Puerta
 	game.addVisualIn(new Puerta(nivelActual = 1),game.at(12,9)) //posicion siempre menor o igual a (height - 2) (width - 2) 
-
+	
 
 
 // "Mock Objects" - USADOS DE EJEMPLO PARA TESTEAR
 	
 	tablero.cargarCofres()
-	
 	
 	/*const pocion= new Frasco(efecto = 8)
 	const veneno= new Frasco(efecto = -4)
@@ -101,7 +101,7 @@ program Game {
 		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
 		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
 		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
-
+			
 
 
 

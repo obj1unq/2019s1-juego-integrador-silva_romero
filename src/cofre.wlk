@@ -6,7 +6,7 @@ class Cofre inherits NoColisionable {
 	const property position
 	var property contenido
 	
-	method image()= "cofre1.jpg"
+	method image()= "cofre1.png"
 
 	method serInteractuadoPor(jugador) {
 		self.mostrarContenido()
