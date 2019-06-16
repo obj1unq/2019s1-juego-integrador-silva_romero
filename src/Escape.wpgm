@@ -41,7 +41,6 @@ program Game {
 	game.addVisualIn(new Puerta(nivelActual = 1),game.at(11,8)) //posicion siempre menor o igual a (height - 2) (width - 2) 
 	
 
-
 // "Mock Objects" - USADOS DE EJEMPLO PARA TESTEAR
 	
 	tablero.cargarCofres()
@@ -107,9 +106,25 @@ program Game {
 //
 
 ///////visuales de menu
+
 	representacionMenu.actualizarVida()
   	representacionMenu.llavesAquiridas()
-	reloj.posicionar()
+	
+
+	representacionMenu.cargarCorazones()
+	representacionMenu.llavesAquiridas()
+	representacionMenu.actualizarVida() // para la inicializacion 
+	
+	keyboard.any().onPressDo{
+		representacionMenu.vida(personaje.vida())
+		representacionMenu.actualizarVida()
+		representacionMenu.armaActual()
+	}
+	
+	
+
+
+
 //Animaciones
 
 	game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} ) //<??> Si pongo esto sin un bloque, tira error del metodo (un bug?) -> Es asi como se escribe el onTick(GT)

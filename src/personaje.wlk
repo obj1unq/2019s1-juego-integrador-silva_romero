@@ -1,8 +1,9 @@
 import wollok.game.*
 import direcciones.*
+import menu.*
 //
 object personaje {
-	var property vida = 10	//Maximo 10. Ya esta implementado!!
+	var property vida = 5	//Maximo 10. Ya esta implementado!!
 	var property ataque = 1
 	
 	var property llavesObtenidas = 0
@@ -66,6 +67,9 @@ method aplicarEfecto(frasco) {
 	
 	vida += frasco.efecto()
 	vida = 10.min(vida)
+	///para que la representacion en el menu se ejecute justo despues de agarrar un frasco
+	representacionMenu.vida(self.vida())
+		representacionMenu.actualizarVida()
 }
 
 // Llaves
@@ -119,9 +123,12 @@ method recogerLlave() {
 		} else {
 			game.say(self,"No hay nada para interactuar ):")
 		}
+
 	}
+
 	method muerto(){
 		vida = 0
 		imagen = "pikachuMuerto.png"
 	}
+
 }

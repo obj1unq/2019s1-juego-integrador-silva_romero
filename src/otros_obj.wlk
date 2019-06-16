@@ -80,6 +80,7 @@ object factory {
 	
 	method crearPocion() {
 		return new Pocion(efecto = 2.randomUpTo(5).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)
+		
 	}
 	
 	method crearVeneno() {
@@ -123,6 +124,7 @@ object factoryCofre {
 		}else{
 			self.crearCofreEnemigo(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
+	
 	}
 	
 	method crearCofrePocion(pos) {
