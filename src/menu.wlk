@@ -23,34 +23,42 @@ class Corazon{
 	var property image = "corazon.png"
 	var property position  
 		
-	method corazonCompleto() {return game.addVisual(self.image("corazon.png"))		
+	method corazonCompleto() {image ="corazon.png"		
 	}
-	method corazonMitad(){return game.addVisual(self.image("corazonMitad.png")) }	
+	method corazonMitad(){ image= "corazonMitad.png" }	
 	
-	method corazonVacio(){return game.addVisual(self.image("corazonVacio.png"))}			
+	method corazonVacio(){image="corazonVacio.png"}			
 
 
 }
 
-
+//
 object representacionMenu{
-	const corazon1= game.addVisualIn(new Corazon(),game.at(6,11))
-	const corazon2= game.addVisualIn(new Corazon(),game.at(7,11))
-	const corazon3= game.addVisualIn(new Corazon(),game.at(8,11))
-	const corazon4= game.addVisualIn(new Corazon(),game.at(9,11))
-	const corazon5= game.addVisualIn(new Corazon(),game.at(10,11))
 	var property vida = personaje.vida()
-	var  corazones = [corazon1,corazon2,corazon3,corazon4,corazon5 ]
+	const corazon1= new Corazon()
+	const corazon2= new Corazon()
+	const corazon3= new Corazon()
+	const corazon4= new Corazon()
+	const corazon5= new Corazon()
+	const  corazones = [corazon1,corazon2,corazon3,corazon4,corazon5 ]
 	
 	
-//	method actualizarVida(){corazones.forEach { corazon => self.imagenQueMostrar(corazon)}}
-//	
-//	method imagenQueMostrar(corazon)= if (vida > 2){ corazon.corazonCompleto()
-//														vida-= 2
-//	 									}else if (vida== 1){corazon.corazonMitad()
-//	 														vida -=1
-//	 									}else corazon.corazonVacio()}
-//	
+	method cargarCorazones(){
+	game.addVisualIn(corazon1,game.at(6,11))
+	game.addVisualIn(corazon2,game.at(7,11))
+	game.addVisualIn(corazon3,game.at(8,11))
+	game.addVisualIn(corazon4,game.at(9,11))
+	game.addVisualIn(corazon5,game.at(10,11))
+	}
+	
+	method actualizarVida(){corazones.forEach { corazon => self.imagenQueMostrar(corazon)}}
+	
+	method imagenQueMostrar(corazon)= if (vida > 2){ corazon.corazonCompleto()
+														vida-= 2
+	 									}else if (vida== 1){corazon.corazonMitad()
+	 														vida -=1
+	 									}else corazon.corazonVacio()
+	
 	
 	
 	method llavesAquiridas(){
