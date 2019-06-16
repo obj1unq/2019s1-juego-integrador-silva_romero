@@ -32,7 +32,7 @@ class Corazon{
 
 }
 
-
+//
 object representacionMenu{
 	var property vida = personaje.vida()
 	const corazon1= new Corazon()
