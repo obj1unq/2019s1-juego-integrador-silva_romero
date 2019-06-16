@@ -120,5 +120,8 @@ method recogerLlave() {
 			game.say(self,"No hay nada para interactuar ):")
 		}
 	}
-	
+	method muerto(){
+		vida = 0
+		imagen = "pikachuMuerto.png"
+	}
 }

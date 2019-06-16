@@ -23,11 +23,11 @@ class Corazon{
 	var property image = "corazon.png"
 	var property position  
 		
-	method corazonCompleto() {image ="corazon.png"		
+	method corazonCompleto() {image  ="corazon.png"		
 	}
-	method corazonMitad(){ image= "corazonMitad.png" }	
+	method corazonMitad(){ image = "corazonMitad.png" }	
 	
-	method corazonVacio(){image="corazonVacio.png"}			
+	method corazonVacio(){image ="corazonVacio.png"}			
 
 
 }

@@ -22,7 +22,7 @@ import tablero.* // usado para crear los cofres que van aparecer en el tablero(G
 
 
 program Game {
-	
+
 	
 //	CONFIG	
 	game.title("Keanu Reeves")
@@ -32,13 +32,13 @@ program Game {
 	
 // Personaje	
 	game.addVisual(personaje)
-	
+//	game.addVisualIn(bomba,bomba.position())
 // Muros
 	muro.cargar() //En lugar de cargar los muros de una, deberia cargar el nivel1, y que el nivel1 sea el responsable de
 	//cargar los muros <!!>
 
 // Puerta
-	game.addVisualIn(new Puerta(nivelActual = 1),game.at(12,9)) //posicion siempre menor o igual a (height - 2) (width - 2) 
+	game.addVisualIn(new Puerta(nivelActual = 1),game.at(11,8)) //posicion siempre menor o igual a (height - 2) (width - 2) 
 	
 
 
@@ -101,20 +101,20 @@ program Game {
 		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
 		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
 		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
-			
+
 
 
 //
 
 ///////visuales de menu
 	representacionMenu.actualizarVida()
-  representacionMenu.llavesAquiridas()
-
+  	representacionMenu.llavesAquiridas()
+	reloj.posicionar()
 //Animaciones
 
 	game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} ) //<??> Si pongo esto sin un bloque, tira error del metodo (un bug?) -> Es asi como se escribe el onTick(GT)
 	
-	game.onTick(15000,"actualiza el reloj cada 15 segundos", {reloj.update()}) //falta implementar
+	game.onTick(1000,"actualiza el reloj cada 15 segundos", {reloj.update()}) //falta implementar
 
 //Musica
 
