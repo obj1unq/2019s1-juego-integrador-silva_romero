@@ -107,7 +107,7 @@ program Game {
 
 
 ///////visuales de menu
-	 //representacionMenu.actualizarVida()
+	representacionMenu.actualizarVida()
   representacionMenu.llavesAquiridas()
 
 //Animaciones
