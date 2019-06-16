@@ -53,7 +53,7 @@ object representacionMenu{
 	
 	method actualizarVida(){corazones.forEach { corazon => self.imagenQueMostrar(corazon)}}
 	
-	method imagenQueMostrar(corazon)= if (vida > 2){ corazon.corazonCompleto()
+	method imagenQueMostrar(corazon)= if (vida >= 2){ corazon.corazonCompleto()
 														vida-= 2
 	 									}else if (vida== 1){corazon.corazonMitad()
 	 														vida -=1
@@ -69,6 +69,10 @@ object representacionMenu{
 			}else if ((personaje.llavesObtenidas()) == 3) {
 			game.addVisualIn(new Llave(),game.at(3,11))
 			}
+	}
+	
+	method armaActual(){
+		game.addVisualIn(personaje.inventario().head(),game.at(1,13))
 	}
 }
 	

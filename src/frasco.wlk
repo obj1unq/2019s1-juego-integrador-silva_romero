@@ -13,6 +13,7 @@ class Frasco inherits Colisionable {
 			//self.efecto() > 0 significa que es una pocion curativa y no un veneno.
 		personaje.aplicarEfecto(self)
 		game.removeVisual(self)
+		
 		}
 	}
 	
