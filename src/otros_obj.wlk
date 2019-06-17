@@ -66,8 +66,8 @@ object factory {
 	//	observerEnemigos.observar(_enemigo) -> Comento esto porque al no tener un return no puedo asignar a los enemigos al cofre (GT)
 	}
 	
-	method crearBomba() {
-		return new Bomba()
+//	method crearBomba() {
+//		return new Bomba()
 		
 		// PARA QUE PUEDA CREARSE LA BOMBA NECESITO UN RETURN, ESTO DEBERIA ESTAR EN OTRO LADO, RESOLVER (GT)
 		/* 
@@ -76,7 +76,7 @@ object factory {
 		game.say(_bomba,"CUIDADO!!!")
 		game.onTick(500,"explosion muy explosionadora",_bomba.explotar())
 		*/		
-	}
+//	}
 	
 	method crearPocion() {
 		return new Pocion(efecto = 2.randomUpTo(5).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)
@@ -163,17 +163,17 @@ object factoryCofre {
 		}
 	}
 	
-	method crearCofreBomba(pos) {
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearBomba()
-		)
-			game.addVisual(_cofre)
-		}else{
-			self.crearCofreBomba(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
+//	method crearCofreBomba(pos) {
+//		if(game.getObjectsIn(pos).isEmpty()){
+//			const _cofre = new Cofre(
+//				position = pos,
+//				contenido = factory.crearBomba()
+//		)
+//			game.addVisual(_cofre)
+//		}else{
+//			self.crearCofreBomba(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+//		}
+//	}
 	
 	
 	method crearCofreArma(pos) { 
