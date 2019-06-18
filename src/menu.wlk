@@ -27,54 +27,54 @@ class Corazon{
 	method corazonMitad(){ image = "corazonMitad.png" }	
 	
 	method corazonVacio(){image ="corazonVacio.png"}			
-
-
 }
 
 //
 object representacionMenu{
-	var property vida = personaje.vida()
-	const corazon1= new Corazon()
-	const corazon2= new Corazon()
-	const corazon3= new Corazon()
-	const corazon4= new Corazon()
-	const corazon5= new Corazon()
-	const  corazones = [corazon1,corazon2,corazon3,corazon4,corazon5 ]
+	const corazones = (1..5).map { i => new Corazon() }
 	
-	
+	method actualizar() {
+		self.actualizarVida()
+		self.armaActual()
+	}
+		
 	method cargarCorazones(){
-	game.addVisualIn(corazon1,game.at(8,11))
-	game.addVisualIn(corazon2,game.at(9,11))
-	game.addVisualIn(corazon3,game.at(10,11))
-	game.addVisualIn(corazon4,game.at(11,11))
-	game.addVisualIn(corazon5,game.at(12,11))
+		var i = 8
+		corazones.forEach { 
+			corazon => game.addVisualIn(corazon, game.at(i,11))
+			i += 1 
+		}
 	}
 	
-	method actualizarVida(){corazones.forEach { corazon => self.imagenQueMostrar(corazon)}}
+	method actualizarVida() {
+		var vida = personaje.vida()
+		corazones.forEach{ corazon =>
+			if (vida >= 2) {
+				corazon.corazonCompleto()
+				vida -= 2
+			} else if (vida == 1) {
+				corazon.corazonMitad()
+				vida -= 1
+			} else corazon.corazonVacio()
+		}
+	}
 	
-	method imagenQueMostrar(corazon)= if (vida >= 2){ corazon.corazonCompleto()
-														vida-= 2
-	 									}else if (vida== 1){corazon.corazonMitad()
-	 														vida -=1
-	 									}else corazon.corazonVacio()
-	
-	
-	
-	method llavesAquiridas(){
-		if (personaje.llavesObtenidas()  == 1){
-			game.addVisualIn(new Llave(),game.at(0,11))
-			}else if (personaje.llavesObtenidas() == 2){
-			game.addVisualIn(new Llave(),game.at(1,11))
-			}else if ((personaje.llavesObtenidas()) == 3) {
-			game.addVisualIn(new Llave(),game.at(2,11))
-			}
+	method llavesAquiridas() {
+		if (personaje.llavesObtenidas() == 1) {
+			game.addVisualIn(new Llave(), game.at(0, 11))
+		} else if (personaje.llavesObtenidas() == 2) {
+			game.addVisualIn(new Llave(), game.at(1, 11))
+		} else if ((personaje.llavesObtenidas()) == 3) {
+			game.addVisualIn(new Llave(), game.at(2, 11))
+		}
 	}
 	
 	method armaActual(){
-		
-		game.addVisualIn(personaje.inventario().head(),game.at(4,11))
+		if (not (personaje.inventario().isEmpty()) ){
+		personaje.inventario().head().cambiarPosicionDelArma(game.at(4,11))
+		//game.addVisualIn(personaje.inventario().head(),)
 	}
-	
+	}
 	method juegoTermino (){
 		if (personaje.vida() <= 0){
 			game.stop()

@@ -27,7 +27,7 @@ program Game {
 //	CONFIG	
 	game.title("Keanu Reeves")
 	game.height(14)
-	game.width(14)
+	game.width(22)
 	game.ground("concreto.png")
 	
 // Personaje	
@@ -40,7 +40,7 @@ program Game {
 // Puerta
 	game.addVisualIn(new Puerta(nivelActual = 1),game.at(11,8)) //posicion siempre menor o igual a (height - 2) (width - 2) 
 	
-
+	
 // "Mock Objects" - USADOS DE EJEMPLO PARA TESTEAR
 	
 	tablero.cargarCofres()
@@ -101,7 +101,7 @@ program Game {
 		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
 		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
 
-
+	keyboard.o().onPressDo {game.say(personaje,personaje.position().up(1).allElements().toString())}
 
 //
 
@@ -113,9 +113,7 @@ program Game {
 	
 	// ejecuta cada vez que el personaje realice una accion 
 	keyboard.any().onPressDo{
-		representacionMenu.vida(personaje.vida())
-		representacionMenu.actualizarVida()
-		representacionMenu.armaActual()
+		representacionMenu.actualizar()
 	
 		//representacionMenu.juegoTermino()
 	}

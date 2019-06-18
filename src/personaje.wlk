@@ -58,7 +58,7 @@ object personaje {
 		self.actualizarImagen()
 		if (vida > 0 && self.puedeMoverAl(dir)  ) {
 			self.position(nuevaPosicion)
-		} else {}
+		} 
 	}
 	
 ///----------------------------------------------------------
@@ -71,8 +71,7 @@ method aplicarEfecto(frasco) {
 	vida += frasco.efecto()
 	vida = 10.min(vida)
 	///para que la representacion en el menu se ejecute justo despues de agarrar un frasco
-	representacionMenu.vida(self.vida())
-		representacionMenu.actualizarVida()
+	representacionMenu.actualizarVida()
 }
 
 // Llaves
@@ -97,6 +96,8 @@ method recogerLlave() {
 		}
 	
 	}
+	
+	//nada -> palo -> espada -> palo -> espada?
 	
 	method tirarArmaActual(){
 			game.addVisualIn(inventario.head(),orientacion.posicionAl(self)) 

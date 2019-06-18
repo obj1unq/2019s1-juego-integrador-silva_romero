@@ -21,6 +21,7 @@ class Bomba inherits NoColisionable {
 		self.eliminarAlrededor()
 		}
 		
+		
 		method eliminarAlrededor(){
 			self.aContinuacion(derecha)
 			self.aContinuacion(izquierda)
@@ -40,8 +41,10 @@ class Bomba inherits NoColisionable {
 							{	game.removeTickEvent("explotar")
 								game.removeVisual(self)	
 												
-							}	else
+							}	else{
 					self.image(imagenes.first())
 					imagenes.remove(imagenes.first())
+					}
+					}
 	}
-}	//
+	//
