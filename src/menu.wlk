@@ -23,8 +23,7 @@ class Corazon{
 	var property image = "corazon.png"
 	var property position  
 		
-	method corazonCompleto() {image  ="corazon.png"		
-	}
+	method corazonCompleto() {image  ="corazon.png"	}
 	method corazonMitad(){ image = "corazonMitad.png" }	
 	
 	method corazonVacio(){image ="corazonVacio.png"}			
@@ -44,11 +43,11 @@ object representacionMenu{
 	
 	
 	method cargarCorazones(){
-	game.addVisualIn(corazon1,game.at(6,11))
-	game.addVisualIn(corazon2,game.at(7,11))
-	game.addVisualIn(corazon3,game.at(8,11))
-	game.addVisualIn(corazon4,game.at(9,11))
-	game.addVisualIn(corazon5,game.at(10,11))
+	game.addVisualIn(corazon1,game.at(8,11))
+	game.addVisualIn(corazon2,game.at(9,11))
+	game.addVisualIn(corazon3,game.at(10,11))
+	game.addVisualIn(corazon4,game.at(11,11))
+	game.addVisualIn(corazon5,game.at(12,11))
 	}
 	
 	method actualizarVida(){corazones.forEach { corazon => self.imagenQueMostrar(corazon)}}
@@ -63,19 +62,28 @@ object representacionMenu{
 	
 	method llavesAquiridas(){
 		if (personaje.llavesObtenidas()  == 1){
-			game.addVisualIn(new Llave(),game.at(1,11))
+			game.addVisualIn(new Llave(),game.at(0,11))
 			}else if (personaje.llavesObtenidas() == 2){
-			game.addVisualIn(new Llave(),game.at(2,11))
+			game.addVisualIn(new Llave(),game.at(1,11))
 			}else if ((personaje.llavesObtenidas()) == 3) {
-			game.addVisualIn(new Llave(),game.at(3,11))
+			game.addVisualIn(new Llave(),game.at(2,11))
 			}
 	}
 	
 	method armaActual(){
-		game.addVisualIn(personaje.inventario().head(),game.at(1,13))
+		
+		game.addVisualIn(personaje.inventario().head(),game.at(4,11))
+	}
+	
+	method juegoTermino (){
+		if (personaje.vida() <= 0){
+			game.stop()
+			///cierra todo el juego. Buscar imagen que represente que perdio el juego 
+			//clear() no funciono.
+		}
 	}
 }
-	
+////cuando el personaje pierda o gane, que solo se muestre en el menu 
 	
 
 	

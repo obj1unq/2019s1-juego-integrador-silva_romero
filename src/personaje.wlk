@@ -3,7 +3,7 @@ import direcciones.*
 import menu.*
 //
 object personaje {
-	var property vida = 5	//Maximo 10. Ya esta implementado!!
+	var property vida = 3	//Maximo 10. Ya esta implementado!!
 	var property ataque = 1
 	
 	var property llavesObtenidas = 0
@@ -36,6 +36,9 @@ object personaje {
 
 	method actualizarImagen() {
 		//Ejecuta cada vez que se intenta mover
+		if(vida <= 0){
+			self.muerto()
+		}else
 		imagen = orientacion.imagenDelPersonaje()
 		game.addVisual(self)
 	}
@@ -53,7 +56,7 @@ object personaje {
 		
 		orientacion = dir //Actualiza la variable del personaje
 		self.actualizarImagen()
-		if (self.puedeMoverAl(dir)) {
+		if (vida > 0 && self.puedeMoverAl(dir)  ) {
 			self.position(nuevaPosicion)
 		} else {}
 	}
@@ -92,6 +95,7 @@ method recogerLlave() {
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
 		}
+	
 	}
 	
 	method tirarArmaActual(){
@@ -127,8 +131,10 @@ method recogerLlave() {
 	}
 
 	method muerto(){
-		vida = 0
+		//if (vida==0){
 		imagen = "pikachuMuerto.png"
+	//}
+	
 	}
 
 }

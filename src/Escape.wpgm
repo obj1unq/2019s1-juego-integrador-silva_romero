@@ -106,19 +106,18 @@ program Game {
 //
 
 ///////visuales de menu
-
+	//para inicializar los puntos del personaje 
+	representacionMenu.cargarCorazones()
 	representacionMenu.actualizarVida()
   	representacionMenu.llavesAquiridas()
 	
-
-	representacionMenu.cargarCorazones()
-	representacionMenu.llavesAquiridas()
-	representacionMenu.actualizarVida() // para la inicializacion 
-	
+	// ejecuta cada vez que el personaje realice una accion 
 	keyboard.any().onPressDo{
 		representacionMenu.vida(personaje.vida())
 		representacionMenu.actualizarVida()
 		representacionMenu.armaActual()
+	
+		//representacionMenu.juegoTermino()
 	}
 	
 	
