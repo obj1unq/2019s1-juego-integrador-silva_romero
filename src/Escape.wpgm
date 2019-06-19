@@ -109,7 +109,7 @@ program Game {
 	//para inicializar los puntos del personaje 
 	representacionMenu.cargarCorazones()
 	representacionMenu.actualizarVida()
-  	representacionMenu.llavesAquiridas()
+  
 	
 	// ejecuta cada vez que el personaje realice una accion 
 	keyboard.any().onPressDo{
