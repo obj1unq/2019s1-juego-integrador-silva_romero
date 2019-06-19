@@ -1,30 +1,37 @@
 import wollok.game.*
 object reloj {
+	var	image
+	var numeroP = uno
+	
+	var numeroS = cero
+	// agregar otro onTick
 	method posicionar(){
-		game.addVisualIn(cero,game.at(14,1))
-		game.addVisualIn(nueve,game.at(14,2))
+		game.addVisualIn(numeroP,game.at(1,13))
+		game.addVisualIn(numeroS,game.at(2,13))
 	}
-	method probar(){
-	// probar 10 
-	game.onTick(1000,"actualiza el reloj cada 10 segundos", {self.contador()})
-	 game.removeTickEvent("actualiza el reloj cada 10 segundos")
+	method update(){
+	//game.removeVisual(numeroP)
+//		self.posicionar()	
+//		
+//		numeroP= numeroP.contador()
+//		numeroS = numeroS.siguiente()
 	}
-	method segundo(){
-	game.addVisualIn(cero.contador().image(),game.at(14,2))
-	}
-	method segundos(){
-	game.addVisualIn(uno.anterior().image(),game.at(14,2))
-	}
+	
+	
+
 ////
 }
 class Numeros{
 	method image()
 	method anterior() 
 	method tipo()
-	method segundoAlLado() = game.getObjectsIn(game.at(14,1))and game.getObjectsIn(game.at(14,1)).tipo() > 0
-	method contador() = if (self.segundoAlLado())
-								self.anterior()
-								else cero
+	method segundoAlLado() =  game.getObjectsIn(game.at(1,13)).first().tipo() > 0 and game.getObjectsIn(game.at(2,13)).first().tipo() == 0
+	method contador()=self.anterior()
+							
+								
+								
+	method siguiente() =self.anterior()
+					
 	}
 
 object cero inherits Numeros {
