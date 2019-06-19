@@ -36,12 +36,12 @@ class Corazon {
 
 //
 object representacionMenu {
-
+//	const arma= []
 	const corazones = (1 .. 5).map{ i => new Corazon()}
 
 	method actualizar() {
 		self.actualizarVida()
-		self.armaActual()
+		//self.armaActualMenu()
 		self.llavesAquiridas()
 	}
 
@@ -51,6 +51,7 @@ object representacionMenu {
 		corazones.forEach{ corazon =>
 			game.addVisualIn(corazon, game.at(i, 11))
 			i += 1
+			game.hideAttributes(corazon)
 		}
 	}
 
@@ -77,12 +78,18 @@ object representacionMenu {
 		}
 	}
 
-method armaActual(){
-		if (not (personaje.inventario().isEmpty()) ){
-		personaje.inventario().head().cambiarPosicionDelArma(game.at(4,11))
-		//game.addVisualIn(personaje.inventario().head(),)
-	}
-	}
+//	method armaActualMenu(){
+//	var armasPer= personaje.inventario()
+//		if (not arma.isEmpty() ){
+//			game.removeVisual(arma.head())
+//			game.addVisualIn(armasPer.head(), game.at(4, 11))
+//		}
+//		else {game.addVisualIn(armasPer.head(), game.at(4, 11))}
+//		}
+		
+		
+		
+		
 	method juegoTermino (){
 		if (personaje.vida() <= 0){
 			game.stop()

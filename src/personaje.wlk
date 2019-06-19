@@ -27,6 +27,7 @@ object personaje {
 	}
 	method esAtacado(ataqueEnemigo){
 		vida -= ataqueEnemigo
+		representacionMenu.actualizarVida()
 	}
 	
 	method enemigo() = game.getObjectsIn(orientacion.posicionAl(self))
@@ -89,18 +90,22 @@ method recogerLlave() {
 			inventario.add(arma)
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
+			game.addVisualIn(arma,game.at(4,11)) // agrega la imagen al menu 
 		}else{
 			self.tirarArmaActual()				
 			inventario.add(arma)
 			game.removeVisual(arma)
+			game.addVisualIn(arma,game.at(4,11))//agrega la imagen al menu 
 			self.aplicarMejora(arma)
 		}
+		
 	
 	}
 	
 	//nada -> palo -> espada -> palo -> espada?
 	
 	method tirarArmaActual(){
+			game.removeVisual(inventario.head())//elimina la imagen del menu 
 			game.addVisualIn(inventario.head(),orientacion.posicionAl(self)) 
 			self.quitarMejora(inventario.head())							
 			inventario.remove(inventario.head())

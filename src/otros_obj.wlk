@@ -121,6 +121,7 @@ object factoryCofre {
 				contenido = factory.crearEnemigo(imagenesEnemigos.get(0.randomUpTo(imagenesEnemigos.size()).truncate(0)))
 			) 
 			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
 		}else{
 			self.crearCofreEnemigo(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
@@ -134,6 +135,7 @@ object factoryCofre {
 				contenido = factory.crearPocion()
 			)
 			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
 		}else{
 			self.crearCofrePocion(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
@@ -146,6 +148,7 @@ object factoryCofre {
 				contenido = factory.crearVeneno()
 			)
 			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
 		}else{
 			self.crearCofreVeneno(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
@@ -158,6 +161,7 @@ object factoryCofre {
 				contenido = factory.crearLlave()
 			)
 			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
 		}else{
 			self.crearCofreLlave(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
@@ -183,6 +187,7 @@ object factoryCofre {
 				contenido = factory.crearArma(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
 		)
 			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
 		}else{
 			self.crearCofreArma(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
