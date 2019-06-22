@@ -43,6 +43,7 @@ object representacionMenu {
 		self.actualizarVida()
 		//self.armaActualMenu()
 		self.llavesAquiridas()
+		numberConverter.actualizarAtaque()
 	}
 
 	method cargarCorazones() {
@@ -78,18 +79,7 @@ object representacionMenu {
 		}
 	}
 
-//	method armaActualMenu(){
-//	var armasPer= personaje.inventario()
-//		if (not arma.isEmpty() ){
-//			game.removeVisual(arma.head())
-//			game.addVisualIn(armasPer.head(), game.at(4, 11))
-//		}
-//		else {game.addVisualIn(armasPer.head(), game.at(4, 11))}
-//		}
-		
-		
-		
-		
+	
 	method juegoTermino (){
 		if (personaje.vida() <= 0){
 			game.stop()
@@ -99,7 +89,26 @@ object representacionMenu {
 	}
 }
 ////cuando el personaje pierda o gane, que solo se muestre en el menu 
+	object numberConverter{
+
+	var property ultimoNumero
+	const imageNumber = [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
 	
+
+    method getNumberImage(number){
+    	ultimoNumero = imageNumber.get(number)
+    	return ultimoNumero
+    }
+    method actualizarAtaque(){
+    	self.uwu_xd()
+    	game.addVisualIn(self.getNumberImage(personaje.ataque()),game.at(5,11))
+    }
+
+	method uwu_xd() {
+		game.removeVisual(ultimoNumero)	
+	}
+}
+
 
 	
 	

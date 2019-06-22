@@ -102,15 +102,15 @@ program Game {
 		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
 
 	keyboard.o().onPressDo {game.say(personaje,personaje.position().up(1).allElements().toString())}
-
+	keyboard.g().onPressDo {game.say(personaje,numberConverter.ultimoNumero().toString())}
 //
 
 ///////visuales de menu
 	//para inicializar los puntos del personaje 
 	representacionMenu.cargarCorazones()
 	representacionMenu.actualizarVida()
-  
-	
+  	game.addVisualIn(numberConverter.getNumberImage(personaje.ataque()),game.at(5,11))
+	// hacer en otro metodo 
 	// ejecuta cada vez que el personaje realice una accion 
 	keyboard.any().onPressDo{
 		representacionMenu.actualizar()

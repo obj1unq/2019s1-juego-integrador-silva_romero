@@ -90,13 +90,15 @@ method recogerLlave() {
 			inventario.add(arma)
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
-			game.addVisualIn(arma,game.at(4,11)) // agrega la imagen al menu 
+			game.addVisualIn(arma,game.at(4,11)) // agrega la imagen al menu
+			//numberConverter.uwu_xd() 
 		}else{
 			self.tirarArmaActual()				
 			inventario.add(arma)
 			game.removeVisual(arma)
 			game.addVisualIn(arma,game.at(4,11))//agrega la imagen al menu 
 			self.aplicarMejora(arma)
+			//numberConverter.uwu_xd()
 		}
 		
 	
