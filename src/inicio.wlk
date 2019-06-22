@@ -20,3 +20,4 @@ object inicioDelJuego {
 	var property position = game.at(1,1)
 
 }
+//

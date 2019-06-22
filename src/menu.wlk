@@ -34,7 +34,6 @@ class Corazon {
 
 }
 
-//
 object representacionMenu {
 
 	const corazones = (1 .. 5).map{ i => new Corazon()}

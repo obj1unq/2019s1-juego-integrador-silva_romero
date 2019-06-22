@@ -56,7 +56,7 @@ class Nivel {
 		keyboard.r().onPressDo{ self.reiniciar()}
 	}
 		method menu() {
-		game.addVisualIn(convertirNumero.obtenerNumero(personaje.ataque()),game.at(5,11))
+		game.addVisualIn(convertirNumero.obtenerNumero(personaje.ataque()),game.at(5,11)) //inicializa los valores de ataque 
 		representacionMenu.cargarCorazones()
 		representacionMenu.actualizarVida()
 		keyboard.any().onPressDo{ representacionMenu.actualizar()}
