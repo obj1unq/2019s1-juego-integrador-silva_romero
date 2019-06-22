@@ -62,3 +62,41 @@ class Enemigo inherits NoColisionable {
 	}
 
 }
+
+
+// Estos objetos son para que los diferentes enemigos hereden sus respectivas imagenes para usar de animaciones.
+
+object bowser {
+	method imagen1() = "bowser1.png"
+	method imagen2() = "bowser2.png"
+	method imagenAtk() = "bowser_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+}
+
+object zelda {
+	method imagen1() = "zelda1.png"
+	method imagen2() = "zelda2.png"
+	method imagenAtk() = "zelda_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+
+}
+
+object pacman {
+	method imagen1() = "pacman1.png"
+	method imagen2() = "pacman2.png"
+	method imagenAtk() = "pacman_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+}
+
+object metroid {
+	method imagen1() = "metroid1.png"
+	method imagen2() = "metroid2.png"
+	method imagenAtk() = "metroid_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+}
+
+object donkey {
+	method imagen1() = "donkey1.png"
+	method imagen2() = "donkey2.png"
+	method imagenAtk() = "donkey_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+}
