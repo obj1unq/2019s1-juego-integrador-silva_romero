@@ -1,0 +1,17 @@
+import reloj.*
+describe "funcionamiento de reloj"{
+
+
+
+
+
+test "cant segundos " {
+	segundos.cant(nueve)
+	assert.notThat(segundo.seAcabo())
+}
+test "no es cero"{
+	segundos.cant(cero)
+	segundo.cant(nueve)
+assert.notThat(segundo.seAcabo())
+}
+}
