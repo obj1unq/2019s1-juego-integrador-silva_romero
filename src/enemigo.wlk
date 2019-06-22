@@ -53,8 +53,12 @@ class Enemigo inherits NoColisionable {
 	}
 
 	method animacion() {}
+	method tipo() {return ""}
 	
-
+	method nacer(_hp,_atk) {
+		hp = _hp
+		atk = _atk
+	}
 }
 
 
@@ -64,6 +68,7 @@ class Bowser inherits Enemigo {
 	
 	method imagenAtk() = "bowser_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
+	override method tipo() = "bowser"
 	
 	override method animacion() {
 		if(imagen == "bowser1.png") {
@@ -77,6 +82,8 @@ class Bowser inherits Enemigo {
 class Zelda inherits Enemigo {
 
 	method imagenAtk() = "zelda_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+	override method tipo() = "zelda"
 	
 	override method animacion() {
 		if(imagen == "zelda1.png") {
@@ -92,6 +99,7 @@ class Pacman inherits Enemigo {
 
 	method imagenAtk() = "pacman_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
+	override method tipo() = "pacman"
 	
 	override method animacion() {
 		if(imagen == "pacman1.png") {
@@ -106,6 +114,7 @@ class Metroid inherits Enemigo {
 
 	method imagenAtk() = "metroid_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
+	override method tipo() = "metroid"
 	
 	override method animacion() {
 		if(imagen == "metroid1.png") {
@@ -120,6 +129,7 @@ class Donkey inherits Enemigo {
 
 	method imagenAtk() = "donkey_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
+	override method tipo() = "donkey"
 	
 	override method animacion() {
 		if(imagen == "donkey1.png") {
