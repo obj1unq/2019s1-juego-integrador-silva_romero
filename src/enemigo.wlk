@@ -52,51 +52,79 @@ class Enemigo inherits NoColisionable {
 		observerEnemigos.eliminar(self)
 	}
 
-	method animacion() {
-		
-		if(imagen == "golum.jpeg") {
-		imagen = "jack2.png"
-		} else {
-			imagen = "golum.jpeg"
-		}	
-	}
+	
 
 }
 
 
 // Estos objetos son para que los diferentes enemigos hereden sus respectivas imagenes para usar de animaciones.
 
-object bowser {
-	method imagen1() = "bowser1.png"
-	method imagen2() = "bowser2.png"
+class Bowser inherits Enemigo {
+	
 	method imagenAtk() = "bowser_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+	
+	method animacion() {
+		if(imagen == "bowser1.png") {
+		imagen = "bowser2.png"
+		} else {
+			imagen = "bowser1.png"
+		}	
+	}
 }
 
-object zelda {
-	method imagen1() = "zelda1.png"
-	method imagen2() = "zelda2.png"
+class Zelda inherits Enemigo {
+
 	method imagenAtk() = "zelda_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
+	method animacion() {
+		if(imagen == "zelda1.png") {
+		imagen = "zelda2.png"
+		} else {
+			imagen = "zelda1.png"
+		}	
+	}
 
 }
 
-object pacman {
-	method imagen1() = "pacman1.png"
-	method imagen2() = "pacman2.png"
+class Pacman inherits Enemigo {
+
 	method imagenAtk() = "pacman_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
+	
+	method animacion() {
+		if(imagen == "pacman1.png") {
+		imagen = "pacman2.png"
+		} else {
+			imagen = "pacman1.png"
+		}	
+	}
 }
 
-object metroid {
-	method imagen1() = "metroid1.png"
-	method imagen2() = "metroid2.png"
+class Metroid inherits Enemigo {
+
 	method imagenAtk() = "metroid_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
+	
+	method animacion() {
+		if(imagen == "metroid1.png") {
+		imagen = "metroid2.png"
+		} else {
+			imagen = "metroid1.png"
+		}	
+	}
 }
 
-object donkey {
-	method imagen1() = "donkey1.png"
-	method imagen2() = "donkey2.png"
+class Donkey inherits Enemigo {
+
 	method imagenAtk() = "donkey_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
+	
+	method animacion() {
+		if(imagen == "donkey1.png") {
+		imagen = "donkey2.png"
+		} else {
+			imagen = "donkey1.png"
+		}	
+	}
 }
