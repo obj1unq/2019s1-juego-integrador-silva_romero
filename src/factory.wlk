@@ -10,13 +10,41 @@ import arma.*
 import cofre.*
 
 
+object factoryEnemigos {
+	
+	
+}
+
 object factory {
 	//simple factory. Se usa para crear enemigos, pociones, venenos, llaves bombas y mas! (GT)
 	// AUNQUE EN ALGUNOS DE ESTOS METODOS HAY QUE MODIFICARLOS PARA QUE SE PUEDAN LOGRAR LAS ANIMACIONES. 
 	// perdon leo... :)
 	
-	method crearEnemigo(imag){
-		const _enemigo = new Enemigo(hp = 4.randomUpTo(12).truncate(0), atk= 1.randomUpTo(4).truncate(0), imagen = imag)
+	method crearEnemigoDeTipo(tipo){
+		var _enemigo
+		
+		if(tipo=="bowser") {
+			_enemigo = new Bowser()
+		}
+		
+		if(tipo=="metroid") {
+			_enemigo = new Metroid()
+		}
+		
+		if(tipo=="zelda") {
+			_enemigo = new Zelda()
+		}
+		
+		if(tipo=="pacman") {
+			_enemigo = new Pacman()
+		}
+		
+		if(tipo=="donkey") {
+			_enemigo = new Donkey()
+		}
+		
+		//_enemigo.nacer ( hp , ataque )
+		_enemigo.nacer( 4.randomUpTo(12).truncate(0), 1.randomUpTo(4).truncate(0) )
 		//game.hideAttributes(_enemigo)
 		observerEnemigos.observar(_enemigo) 
 		return _enemigo
@@ -64,14 +92,18 @@ object factoryCofre {
 	
 	// para los niveles
 	
-	var property imagenesEnemigos = ["bowser1.png","pacman1.png","donkey1.png"] 
+	var property enemigosPosibles = ["metroid","pacman"] 
 	var property imagenesArmas = ["espada1.png","espada2.png","palo.png","iron_sword.png"]
+	
+	method enemigosPosibles(lista) {
+		enemigosPosibles.addAll(lista)
+	}
 	
 	method crearCofreEnemigo(pos) { 
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
-				contenido = factory.crearEnemigo(imagenesEnemigos.get(0.randomUpTo(imagenesEnemigos.size()).truncate(0)))
+				contenido = factory.crearEnemigoDeTipo(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
 			) 
 			game.addVisual(_cofre)
 			game.hideAttributes(_cofre)
@@ -145,3 +177,5 @@ object factoryCofre {
 			self.crearCofreArma(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
 	}
+}
+	
