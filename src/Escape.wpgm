@@ -1,18 +1,14 @@
 import wollok.game.*
 import niveles.*
-
-
+import inicio.*
+import menu.*
 
 
 program Game {
-
+//inicio.portada()	
 		
-
-					
-		
-
-nivel1.start()
-
+		nivel1.start()
+	
 
 	
 	

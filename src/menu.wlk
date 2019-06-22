@@ -36,19 +36,18 @@ class Corazon {
 
 //
 object representacionMenu {
-//	const arma= []
+
 	const corazones = (1 .. 5).map{ i => new Corazon()}
 
 	method actualizar() {
 		self.actualizarVida()
-		//self.armaActualMenu()
 		self.llavesAquiridas()
-		numberConverter.actualizarAtaque()
+		reloj.funcionando(nueve,cero)
+		convertirNumero.actualizarAtaque()
 	}
 
 	method cargarCorazones() {
 		var i = 8
-		
 		corazones.forEach{ corazon =>
 			game.addVisualIn(corazon, game.at(i, 11))
 			i += 1
@@ -79,35 +78,24 @@ object representacionMenu {
 		}
 	}
 
-	
-	method juegoTermino (){
-		if (personaje.vida() <= 0){
-			game.stop()
-			///cierra todo el juego. Buscar imagen que represente que perdio el juego 
-			//clear() no funciono.
-		}
-	}
 }
-////cuando el personaje pierda o gane, que solo se muestre en el menu 
-	object numberConverter{
+//cuando el personaje pierda o gane, que solo se muestre en el menu 
+	object convertirNumero{
 
 	var property ultimoNumero
 	const imageNumber = [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve]
 	
 
-    method getNumberImage(number){
+    method obtenerNumero(number){
     	ultimoNumero = imageNumber.get(number)
     	return ultimoNumero
     }
     method actualizarAtaque(){
-    	self.uwu_xd()
-    	game.addVisualIn(self.getNumberImage(personaje.ataque()),game.at(5,11))
+    	game.removeVisual(ultimoNumero)	
+    	game.addVisualIn(self.obtenerNumero(personaje.ataque()),game.at(5,11))
     }
 
-	method uwu_xd() {
-		game.removeVisual(ultimoNumero)	
-	}
-	///
+	
 }
 
 

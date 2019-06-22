@@ -24,9 +24,9 @@ class Nivel {
 
 	method start() {
 			self.configuraciones()
+			//self.menu()
 			self.personaje()
 			self.movimientos()
-			self.menu()
 			self.animaciones() 													
 			self.visuales()	// para cada nivel
 		}
@@ -42,26 +42,24 @@ class Nivel {
 		game.whenCollideDo(personaje,{objeto => objeto.colisionarCon(personaje)})
 		//Los unicos obj. con los que puede colisionar son llaves o frascos.	
 		}		 
-		method movimientos(){
-		keyboard.up().onPressDo { personaje.mover(personaje.position().up(1),arriba) }
-		keyboard.down().onPressDo { personaje.mover(personaje.position().down(1),abajo) }
-		keyboard.left().onPressDo { personaje.mover(personaje.position().left(1),izquierda) }
-		keyboard.right().onPressDo { personaje.mover(personaje.position().right(1),derecha) }
-		keyboard.e().onPressDo{personaje.ataqueA()} 
-		keyboard.space().onPressDo{personaje.interactuar()} 
-		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
-		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
-		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
-		keyboard.o().onPressDo {game.say(personaje,personaje.position().up(1).allElements().toString())}
-		keyboard.r().onPressDo { self.reiniciar()}
+		method movimientos() {
+		keyboard.up().onPressDo{ personaje.mover(personaje.position().up(1), arriba)}
+		keyboard.down().onPressDo{ personaje.mover(personaje.position().down(1), abajo)}
+		keyboard.left().onPressDo{ personaje.mover(personaje.position().left(1), izquierda)}
+		keyboard.right().onPressDo{ personaje.mover(personaje.position().right(1), derecha)}
+		keyboard.e().onPressDo{ personaje.ataqueA()}
+		keyboard.space().onPressDo{ personaje.interactuar()}
+		keyboard.a().onPressDo{ game.say(personaje, personaje.ataque().toString())} // Para testings
+		keyboard.v().onPressDo{ game.say(personaje, personaje.vida().toString())} // Para testings
+		keyboard.l().onPressDo{ game.say(personaje, personaje.llavesObtenidas().toString())} // Para testings
+		keyboard.o().onPressDo{ game.say(personaje, personaje.position().up(1).allElements().toString())}
+		keyboard.r().onPressDo{ self.reiniciar()}
 	}
-		method menu(){
+		method menu() {
 		representacionMenu.cargarCorazones()
 		representacionMenu.actualizarVida()
-  		keyboard.any().onPressDo{
-		representacionMenu.actualizar()}
-		reloj.funcionando(nueve,cero)
-		}
+		keyboard.any().onPressDo{ representacionMenu.actualizar()}
+	}
 		method animaciones(){
 		game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} ) //<??> Si pongo esto sin un bloque, tira error del metodo (un bug?) -> Es asi como se escribe el onTick(GT)
 		}
