@@ -107,6 +107,7 @@ object representacionMenu {
 	method uwu_xd() {
 		game.removeVisual(ultimoNumero)	
 	}
+	///
 }
 
 

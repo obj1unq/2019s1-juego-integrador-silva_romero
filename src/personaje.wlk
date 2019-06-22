@@ -145,5 +145,5 @@ method recogerLlave() {
 	//}
 	
 	}
-
+//
 }
