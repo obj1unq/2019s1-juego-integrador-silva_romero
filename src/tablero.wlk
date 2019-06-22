@@ -2,6 +2,7 @@ import wollok.game.*
 import personaje.*
 import otros_obj.*
 import reloj.*
+import factory.*
 // OBJETO USADO PARA CREAR TODOS LOS COFRES QUE VAN A APARECER EN EL JUEGO(CANTIDAD A DETERMINAR) (GT)
 
 object tablero {

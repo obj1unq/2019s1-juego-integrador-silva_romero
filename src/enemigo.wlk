@@ -52,6 +52,7 @@ class Enemigo inherits NoColisionable {
 		observerEnemigos.eliminar(self)
 	}
 
+	method animacion() {}
 	
 
 }
@@ -64,7 +65,7 @@ class Bowser inherits Enemigo {
 	method imagenAtk() = "bowser_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	
-	method animacion() {
+	override method animacion() {
 		if(imagen == "bowser1.png") {
 		imagen = "bowser2.png"
 		} else {
@@ -77,7 +78,7 @@ class Zelda inherits Enemigo {
 
 	method imagenAtk() = "zelda_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
-	method animacion() {
+	override method animacion() {
 		if(imagen == "zelda1.png") {
 		imagen = "zelda2.png"
 		} else {
@@ -92,7 +93,7 @@ class Pacman inherits Enemigo {
 	method imagenAtk() = "pacman_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	
-	method animacion() {
+	override method animacion() {
 		if(imagen == "pacman1.png") {
 		imagen = "pacman2.png"
 		} else {
@@ -106,7 +107,7 @@ class Metroid inherits Enemigo {
 	method imagenAtk() = "metroid_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	
-	method animacion() {
+	override method animacion() {
 		if(imagen == "metroid1.png") {
 		imagen = "metroid2.png"
 		} else {
@@ -120,7 +121,7 @@ class Donkey inherits Enemigo {
 	method imagenAtk() = "donkey_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	
-	method animacion() {
+	override method animacion() {
 		if(imagen == "donkey1.png") {
 		imagen = "donkey2.png"
 		} else {
