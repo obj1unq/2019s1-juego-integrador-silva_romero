@@ -140,10 +140,10 @@ method recogerLlave() {
 	}
 
 	method muerto(){
-		//if (vida==0){
+		vida=0
 		imagen = "pikachuMuerto.png"
-	//}
+	
 	
 	}
-//
+
 }

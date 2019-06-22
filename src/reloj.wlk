@@ -1,9 +1,10 @@
+
 import wollok.game.*
 object reloj {
 	var sgds 
 	var sgd
 	var contador = 10
-	// agregar otro onTick
+		// el reloj funciona con decenas por el contador 
 	
 	method preparar(nro,obj){
 		obj.cant(nro)
@@ -23,8 +24,8 @@ object reloj {
 		}
 // pensar alguna manera para que quede mejor :? 
 	method temporizador(nro, nro2) {
-		if (segundos.seAcabo()and segundo.esCero())
-				game.removeTickEvent("actualiza cada segundo")			
+						if (segundos.seAcabo()and segundo.esCero())
+							game.removeTickEvent("actualiza cada segundo")			
 								else if (contador == 10)
 									{segundos.cant(nro.anterior())
 							sgds = nro.anterior()

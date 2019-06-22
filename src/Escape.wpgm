@@ -1,140 +1,19 @@
 import wollok.game.*
-import otros_obj.*
-import menu.* 
-import reloj.* //vacio por ahora
-import obstaculos.*
-import puerta.*
-import bomba.*
-import direcciones.*
-import personaje.*
+import niveles.*
 
-import cofre.*
 
-import frasco.*
-import enemigo.*
-import arma.*
-import llave.*
-
-import tablero.* // usado para crear los cofres que van aparecer en el tablero(GT)
-
-// DUDAS PARA PREGUNTAR A LOS PROFES::
-// Escape -> onTick (abajo de todo), musica (abajo de todo)
 
 
 program Game {
 
-	
-//	CONFIG	
-	game.title("Keanu Reeves")
-	game.height(14)
-	game.width(22)
-	game.ground("concreto.png")
-	
-// Personaje	
-	game.addVisual(personaje)
-//	game.addVisualIn(bomba,bomba.position())
-// Muros
-	muro.cargar() //En lugar de cargar los muros de una, deberia cargar el nivel1, y que el nivel1 sea el responsable de
-	//cargar los muros <!!>
-
-// Puerta
-	game.addVisualIn(new Puerta(nivelActual = 1),game.at(11,8)) //posicion siempre menor o igual a (height - 2) (width - 2) 
-	
-	
-// "Mock Objects" - USADOS DE EJEMPLO PARA TESTEAR
-	
-	tablero.cargarCofres()
-	
-	/*const pocion= new Frasco(efecto = 8)
-	const veneno= new Frasco(efecto = -4)
-	
-	const palo= new Arma(mejoraAtk = 2,image = "palo.png" )
-	const espada= new Arma(mejoraAtk = 3, image = "iron_sword.png")
-	
-	
-	game.addVisualIn(pocion,game.at(3,3))
-	game.addVisualIn(veneno,game.at(8,3)) 
-	
-	game.addVisualIn(palo,game.at(5,6))
-	game.addVisualIn(espada,game.at(5,2))
-	
-	game.addVisualIn(new Llave(),game.at(7,2))
-	game.addVisualIn(new Llave(),game.at(7,3))
-	game.addVisualIn(new Llave(),game.at(7,4))
-	 
-	game.addVisualIn(new Cofre(),game.at(6,6))
-	game.addVisualIn(new Cofre(),game.at(7,7))
-	*/
-	
-	//Voy a crear enemigos con un metodo "crear" en lugar de usar directamente "addVisual" xq necesito que, en el momento en que los creo,
-	//se agreguen a una lista de otro obj (el observer para las animaciones).
-	
-	//enemigo.crear(hp,atk,posicion) - primero se me ocurrio hacer esto, peeero hay un problema
-	//enemigo.crear(8,2,game.at(3,8)) - esto no funciona xq "enemigo" no es un objeto en especifico, es una clase
-	//Entonces necesito un objeto adicional que me cree los objetos a partir de la clase. Eso es lo que hace el obj factory
-	
-
-	
-// Colisiones 
-	
-	game.whenCollideDo(personaje,{objeto => objeto.colisionarCon(personaje)})
-	//Los unicos obj. con los que puede colisionar son llaves o frascos.												
-	
-	
-//Movimientos e interacciones 
-	
-		keyboard.up().onPressDo { personaje.mover(personaje.position().up(1),arriba) }
-		keyboard.down().onPressDo { personaje.mover(personaje.position().down(1),abajo) }
-		keyboard.left().onPressDo { personaje.mover(personaje.position().left(1),izquierda) }
-		keyboard.right().onPressDo { personaje.mover(personaje.position().right(1),derecha) }
 		
-		keyboard.e().onPressDo{personaje.ataqueA()} // NO FUNCIONA. aparece error: no entiene el mensaje "reciboAtaque(param1)" (GT)
+
+					
 		
-		keyboard.space().onPressDo{personaje.interactuar()} 
-		//Interactuar significa:
-		// - Abrir cofres, atacar enemigos(por ahora con .space()), obtener o intercambiar armas.
-		
-		
-		
-		//keyboard.x().onPressDo { unObjeto.avanzarFrame() } //super hack con lo de los ticks. TESTEAR
-		keyboard.a().onPressDo { game.say(personaje,personaje.ataque().toString()) } //Para testings
-		keyboard.v().onPressDo { game.say(personaje,personaje.vida().toString()) } //Para testings
-		keyboard.l().onPressDo { game.say(personaje,personaje.llavesObtenidas().toString()) } //Para testings
 
-	keyboard.o().onPressDo {game.say(personaje,personaje.position().up(1).allElements().toString())}
-	keyboard.g().onPressDo {game.say(personaje,numberConverter.ultimoNumero().toString())}
-//
-
-///////visuales de menu
-	//para inicializar los puntos del personaje 
-	representacionMenu.cargarCorazones()
-	representacionMenu.actualizarVida()
-  	game.addVisualIn(numberConverter.getNumberImage(personaje.ataque()),game.at(5,11))
-	// hacer en otro metodo 
-	// ejecuta cada vez que el personaje realice una accion 
-	keyboard.any().onPressDo{
-		representacionMenu.actualizar()
-	
-		//representacionMenu.juegoTermino()
-	}
-	
-	reloj.funcionando(nueve,cero)
+nivel1.start()
 
 
-
-//Animaciones
-
-	game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} ) //<??> Si pongo esto sin un bloque, tira error del metodo (un bug?) -> Es asi como se escribe el onTick(GT)
-	
-	 //falta implementar
-
-//Musica
-
-	//game.sound("runninginthe90s.mp3") //<??> NO FUNCIONA
-
-//
-// Inicio
-	game.start()
 	
 	
 }

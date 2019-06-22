@@ -1,10 +1,11 @@
 import wollok.game.*
 import personaje.*
 import otros_obj.*
-
+import reloj.*
 // OBJETO USADO PARA CREAR TODOS LOS COFRES QUE VAN A APARECER EN EL JUEGO(CANTIDAD A DETERMINAR) (GT)
 
 object tablero {
+	// ver como meterle el parametro 
 	
 	
 	method cargarCofres(){
