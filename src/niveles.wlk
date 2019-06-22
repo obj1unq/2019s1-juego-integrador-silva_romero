@@ -24,7 +24,7 @@ class Nivel {
 
 	method start() {
 			self.configuraciones()
-			//self.menu()
+			self.menu()
 			self.personaje()
 			self.movimientos()
 			self.animaciones() 													
@@ -56,9 +56,11 @@ class Nivel {
 		keyboard.r().onPressDo{ self.reiniciar()}
 	}
 		method menu() {
+		game.addVisualIn(convertirNumero.obtenerNumero(personaje.ataque()),game.at(5,11))
 		representacionMenu.cargarCorazones()
 		representacionMenu.actualizarVida()
 		keyboard.any().onPressDo{ representacionMenu.actualizar()}
+		reloj.funcionando(nueve,cero)
 	}
 		method animaciones(){
 		game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} ) //<??> Si pongo esto sin un bloque, tira error del metodo (un bug?) -> Es asi como se escribe el onTick(GT)

@@ -42,7 +42,7 @@ object representacionMenu {
 	method actualizar() {
 		self.actualizarVida()
 		self.llavesAquiridas()
-		reloj.funcionando(nueve,cero)
+		
 		convertirNumero.actualizarAtaque()
 	}
 
