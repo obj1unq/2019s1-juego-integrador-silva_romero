@@ -6,7 +6,7 @@ import menu.*
 
 program Game {
 //inicio.portada()	
-		
+
 		nivel1.start()
 	
 

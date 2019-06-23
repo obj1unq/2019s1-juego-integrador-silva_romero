@@ -35,9 +35,9 @@ class Corazon {
 }
 
 object representacionMenu {
-
+	
 	const corazones = (1 .. 5).map{ i => new Corazon()}
-
+		
 	method actualizar() {
 		self.actualizarVida()
 		self.llavesAquiridas()
@@ -46,6 +46,7 @@ object representacionMenu {
 	}
 
 	method cargarCorazones() {
+	
 		var i = 8
 		corazones.forEach{ corazon =>
 			game.addVisualIn(corazon, game.at(i, 11))
@@ -91,13 +92,21 @@ object representacionMenu {
     }
     method actualizarAtaque(){
     	game.removeVisual(ultimoNumero)	
-    	game.addVisualIn(self.obtenerNumero(personaje.ataque()),game.at(5,11))
+    	game.addVisualIn(self.obtenerNumero(personaje.ataque()),game.at(8,12))
     }
 
 	
 }
 
+object imagenDeVida{
+	var property position = game.at(7,11)
+	var property imagen = "hp.png"
+}
 
+object imagenDeAtk{
+	var property position = game.at(7,12)
+	var property imagen = "atk.png"
+}
 	
 	
 
