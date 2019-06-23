@@ -11,7 +11,7 @@ import cofre.*
 
 
 object factory {
-	//simple factory. Se usa para crear enemigos, pociones, venenos, llaves, bombas y mas!
+	// Se usa para crear enemigos, pociones, venenos, llaves y bombas
 	
 	method crearEnemigo(tipo,vidaMin,vidaMax){
 		var _enemigo
@@ -83,18 +83,9 @@ object factory {
 	
 }
 
-
-
 // OBJETO CON METODOS PARA CREAR LOS DISTINTOS TIPOS DE COFRES
 
 object factoryCofre {
-	// Notas GT:
-	// Las listas son para que al crear un arma o enemigo se asigne aleatoriamente las imagenes, asi como tambien los demas atributos.
-	// Esta es una fase alpha, esta demasiado aleatorio, puede o no funcionar , ademas que en cada nivel se especificara el rango de valores que tendran los diferentes atributos.
-	// Resolvi lo de los cofres colisionados(en teoria)
-	// Las imagenes son de ejemplo. Definir las imagenes a utilizar y borrar las que ya no sirvan.
-	
-	// para los niveles
 	
 	var property enemigosPosibles = ["metroid","pacman"] 
 	var property imagenesArmas = ["espada1.png","espada2.png","palo.png","iron_sword.png"]
@@ -110,7 +101,7 @@ object factoryCofre {
 				contenido = factory.crearEnemigo(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)),vidaMin,vidaMax)
 			) 
 			game.addVisual(_cofre)
-			//game.hideAttributes(_cofre)
+			game.hideAttributes(_cofre)
 		}else{
 			self.crearCofreEnemigo(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),vidaMin,vidaMax)
 		}
