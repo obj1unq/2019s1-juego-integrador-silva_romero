@@ -18,15 +18,24 @@ class Enemigo inherits NoColisionable {
 	//var imagen = "golum.jpeg"
 	method image() = imagen
 	
-	
+	method imagenAtk()
 
 	method serInteractuadoPor(jugador) {
 		self.reciboAtaque(jugador)
 	}
 	
 	method reciboAtaque(personaje) {
+		var _imagen = imagen
+		imagen = self.imagenAtk()
+		game.onTick(200,"animacion ataque enemigo",{
+			imagen = _imagen
+			game.removeTickEvent("animacion ataque enemigo")
+		})
+		
 		hp -= personaje.ataque()
 		contador += 1
+		
+
 		self.atacoSiEsPosible(personaje)
 
 		if (not self.sigoVivo()) {
@@ -68,7 +77,7 @@ class Enemigo inherits NoColisionable {
 
 class Bowser inherits Enemigo {
 	
-	method imagenAtk() = "bowser_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	override method imagenAtk() = "bowser_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	override method tipo() = "bowser"
 	
@@ -83,7 +92,7 @@ class Bowser inherits Enemigo {
 
 class Zelda inherits Enemigo {
 
-	method imagenAtk() = "zelda_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	override method imagenAtk() = "zelda_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	override method tipo() = "zelda"
 	
@@ -99,7 +108,7 @@ class Zelda inherits Enemigo {
 
 class Pacman inherits Enemigo {
 
-	method imagenAtk() = "pacman_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	override method imagenAtk() = "pacman_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	override method tipo() = "pacman"
 	
@@ -114,7 +123,7 @@ class Pacman inherits Enemigo {
 
 class Metroid inherits Enemigo {
 
-	method imagenAtk() = "metroid_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	override method imagenAtk() = "metroid_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	override method tipo() = "metroid"
 	
@@ -129,7 +138,7 @@ class Metroid inherits Enemigo {
 
 class Donkey inherits Enemigo {
 
-	method imagenAtk() = "donkey_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	override method imagenAtk() = "donkey_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	override method tipo() = "donkey"
 	
