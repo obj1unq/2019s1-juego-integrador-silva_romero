@@ -13,8 +13,13 @@ class Cofre inherits NoColisionable {
 		game.removeVisual(self)
 	}
 	
-	method mostrarContenido() {
+	method mostrarContenido() {	
 			game.addVisualIn(contenido,self.position())
+			
+			if (contenido.tipo() == "bomba") {
+				game.say(contenido,"CUIDADO!!!")
+				contenido.explotar()
+			}
 	}
 		
 }

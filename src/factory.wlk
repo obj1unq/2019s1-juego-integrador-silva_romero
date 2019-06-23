@@ -10,15 +10,8 @@ import arma.*
 import cofre.*
 
 
-object factoryEnemigos {
-	
-	
-}
-
 object factory {
-	//simple factory. Se usa para crear enemigos, pociones, venenos, llaves bombas y mas! (GT)
-	// AUNQUE EN ALGUNOS DE ESTOS METODOS HAY QUE MODIFICARLOS PARA QUE SE PUEDAN LOGRAR LAS ANIMACIONES. 
-	// perdon leo... :)
+	//simple factory. Se usa para crear enemigos, pociones, venenos, llaves, bombas y mas!
 	
 	method crearEnemigoDeTipo(tipo){
 		var _enemigo

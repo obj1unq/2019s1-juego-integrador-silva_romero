@@ -29,5 +29,9 @@ object tablero {
 	
 	factoryCofre.crearCofreArma(pos)
 	factoryCofre.crearCofreArma(pos)
+	
+	factoryCofre.crearCofreBomba(pos)
+	factoryCofre.crearCofreBomba(pos)
+	factoryCofre.crearCofreBomba(pos)
 	}
 }

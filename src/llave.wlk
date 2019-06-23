@@ -7,6 +7,8 @@ class Llave inherits Colisionable {
 	method position() = position
 	method image() = "llave.png"
 	
+	method tipo() = "llave" //tipo de contenido en un cofre
+	
 	method colisionarCon(personaje) { // USADO EN LA COLISION (GT)
 		game.removeVisual(self)
 		personaje.recogerLlave()

@@ -13,9 +13,11 @@ class Enemigo inherits NoColisionable {
 	var property atk
 	var contador = 0 //cuando el contador llega a 3, ataca al personaje y reinicia el contador. Va sumando uno cada vez que recibe un ataque.
 	
+	
 	var imagen 
 	//var imagen = "golum.jpeg"
 	method image() = imagen
+	
 	
 
 	method serInteractuadoPor(jugador) {

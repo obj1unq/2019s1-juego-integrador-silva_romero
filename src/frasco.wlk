@@ -8,6 +8,8 @@ class Frasco inherits Colisionable {
 	
 	method image() = "potion.png"
 	
+	method tipo() = ""
+	
 	 method colisionarCon(personaje) {  
 		if (personaje.vida() != 10 or self.efecto() < 0) {
 			//self.efecto() > 0 significa que es una pocion curativa y no un veneno.
@@ -24,8 +26,12 @@ class Frasco inherits Colisionable {
 
 class Pocion inherits Frasco{
 	//La pocion es un frasco que suma vida al jugador (su efecto es positivo)	
+	
+	override method tipo() = "pocion" //tipo de contenido en un cofre
 }
 
 class Veneno inherits Frasco{
 	// El veneno es un frasco que resta vida al jugador (su efecto es negativo)
+
+	override method tipo() = "veneno" //tipo de contenido en un cofre
 }
