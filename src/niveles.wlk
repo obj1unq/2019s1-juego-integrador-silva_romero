@@ -12,7 +12,7 @@ import personaje.*
 
 import cofre.*
 
-import frasco.*
+import hongos.*
 import enemigo.*
 import arma.*
 import llave.*

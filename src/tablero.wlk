@@ -14,7 +14,7 @@ object tablero {
 		
 		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
 		
-		repeat.cant(2, { factoryCofre.crearCofrePocion(pos)})
+		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
 		
 		repeat.cant(2, { factoryCofre.crearCofreLlave(pos)})
@@ -30,7 +30,7 @@ object tablero {
 		
 		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 8, 15)})
 		
-		repeat.cant(2, { factoryCofre.crearCofrePocion(pos)})
+		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
 		
 		repeat.cant(2, { factoryCofre.crearCofreLlave(pos)})
@@ -46,7 +46,7 @@ object tablero {
 		
 		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 10, 22)})
 		
-		repeat.cant(2, { factoryCofre.crearCofrePocion(pos)})
+		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
 		
 		repeat.cant(2, { factoryCofre.crearCofreLlave(pos)})

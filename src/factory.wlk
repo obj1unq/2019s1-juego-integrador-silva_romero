@@ -4,7 +4,7 @@ import otros_obj.*
 import enemigo.*
 import bomba.*
 import llave.*
-import frasco.*
+import hongos.*
 import arma.*
 
 import cofre.*
@@ -57,12 +57,12 @@ object factory {
 		*/		
 }	
 
-	method crearPocion() {
-		return new Pocion(efecto = 2.randomUpTo(5).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)		
+	method crearSalud() {
+		return new HongoSalud(efecto = 2.randomUpTo(5).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)		
 	}
 	
 	method crearVeneno() {
-		return new Veneno(efecto = 2.invert().randomUpTo(5.invert()).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)
+		return new HongoVeneno(efecto = 2.invert().randomUpTo(5.invert()).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)
 	}
 	
 	method crearLlave() {
@@ -117,16 +117,16 @@ object factoryCofre {
 	}
 	
 	
-	method crearCofrePocion(pos) {
+	method crearCofreSalud(pos) {
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
-				contenido = factory.crearPocion()
+				contenido = factory.crearSalud()
 			)
 			game.addVisual(_cofre)
 			game.hideAttributes(_cofre)
 		}else{
-			self.crearCofrePocion(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+			self.crearCofreSalud(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
 	}
 	
