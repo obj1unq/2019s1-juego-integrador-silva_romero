@@ -69,16 +69,8 @@ object factory {
 		return new Llave()
 	}
 	
-	method crearArmaNivel1(img) {
-		return new Arma(image = img, mejoraAtk = 1.randomUpTo(3).truncate(0))
-	}
-	
-	method crearArmaNivel2(img) {
-		return new Arma(image = img, mejoraAtk = 2.randomUpTo(4).truncate(0))
-	}
-	
-	method crearArmaNivel3(img) {
-		return new Arma(image = img, mejoraAtk = 4.randomUpTo(6).truncate(0))
+	method crearArma(img,atkMin,atkMax) {
+		return new Arma(image = img, mejoraAtk = atkMin.randomUpTo(atkMax).truncate(0))
 	}
 	
 }
@@ -161,43 +153,18 @@ object factoryCofre {
 	}
 	
 	
-	method crearCofreArmaNivel1(pos) { 
+	method crearCofreArma(pos,atkMin,atkMax) { 
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
-				contenido = factory.crearArmaNivel1(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
+				contenido = factory.crearArma(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)),atkMin,atkMax)
 		)
 			game.addVisual(_cofre)
 			game.hideAttributes(_cofre)
 		}else{
-			self.crearCofreArmaNivel1(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+			self.crearCofreArma(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),atkMin,atkMax)
 		}
 	}
 	
-		method crearCofreArmaNivel2(pos) { 
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearArmaNivel2(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
-		)
-			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
-		}else{
-			self.crearCofreArmaNivel2(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
-	
-		method crearCofreArmaNivel3(pos) { 
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearArmaNivel3(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
-		)
-			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
-		}else{
-			self.crearCofreArmaNivel3(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
 }
 	
