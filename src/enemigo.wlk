@@ -12,10 +12,9 @@ class Enemigo inherits NoColisionable {
 	var property hp
 	var property atk
 	var contador = 0 //cuando el contador llega a 3, ataca al personaje y reinicia el contador. Va sumando uno cada vez que recibe un ataque.
-	
-	
+	const inventario = [] // GT
 	var imagen 
-	//var imagen = "golum.jpeg"
+	
 	method image() = imagen
 	
 	method imagenAtk()
@@ -61,8 +60,11 @@ class Enemigo inherits NoColisionable {
 	method morir() {
 		game.removeVisual(self)
 		observerEnemigos.eliminar(self)
+		//game.addVisual(inventario.head()) // GT
 	}
-
+	
+	
+	
 	method animacion() {}
 	method tipo() {return ""}
 	

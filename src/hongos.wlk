@@ -2,7 +2,7 @@ import wollok.game.*
 import otros_obj.*
 
 
-class Frasco inherits Colisionable {
+class Hongo inherits Colisionable {
 	 
 	const property efecto
 	
@@ -24,13 +24,13 @@ class Frasco inherits Colisionable {
 	}
 }
 
-class Pocion inherits Frasco{
+class HongoSalud inherits Hongo{
 	//La pocion es un frasco que suma vida al jugador (su efecto es positivo)	
 	
 	override method tipo() = "pocion" //tipo de contenido en un cofre
 }
 
-class Veneno inherits Frasco{
+class HongoVeneno inherits Hongo{
 	// El veneno es un frasco que resta vida al jugador (su efecto es negativo)
 
 	override method tipo() = "veneno" //tipo de contenido en un cofre

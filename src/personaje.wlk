@@ -4,7 +4,7 @@ import menu.*
 import llave.*
 //
 object personaje {
-	var property vida = 3	//Maximo 10. Ya esta implementado!!
+	var property vida = 10	
 	var property ataque = 1
 	
 	var property llavesObtenidas = []
@@ -18,7 +18,6 @@ object personaje {
 	
 	method colisionarCon(personaje){
 		// Respeta el polimorfismo.
-		// Por algun motivo hay que ponerlo aca tambien para que no de error y no sabemos por que, es algo de Wollok.
 	}
 	
 	method ataqueA() {
@@ -47,7 +46,7 @@ object personaje {
 	
 	method puedeMoverAl(dir) {
 		//Puede mover si no hay ningun obj en direccion dir o si el obj es colisionable
-		//Todos los obj entienden el mensaje esColisionable(). ver otros_obj.wlk
+		//Todos los obj entienden el mensaje esColisionable()
 		
 		return game.getObjectsIn(dir.posicionAl(self)).isEmpty() or 
 			game.getObjectsIn(dir.posicionAl(self)).all { obj => obj.esColisionable() }
@@ -104,7 +103,7 @@ method recogerLlave() {
 	
 	}
 	
-	//nada -> palo -> espada -> palo -> espada?
+	
 	
 	method tirarArmaActual(){
 			game.removeVisual(inventario.head())//elimina la imagen del menu 
@@ -128,7 +127,6 @@ method recogerLlave() {
 	method interactuar() {
 		//Envia mensaje serInteractuadoPor(self) al objeto que tenga segun la orientacion
 		//Si es enemigo, lo ataca. Si es cofre, lo abre. Si es puerta, intenta abrirla.
-		//AHORA SE USA PARA ARMAS. (GT)
 		//Si es muro, un frasco, llave (EN DIRECCION DE LA ORIENTACION) no pasa nada
 		
 		if (not game.getObjectsIn(orientacion.posicionAl(self)).isEmpty()) {
@@ -142,8 +140,6 @@ method recogerLlave() {
 	method muerto() {
 		vida=0
 		imagen = "pikachuMuerto.png"
-		
-	
 	}
 
 }

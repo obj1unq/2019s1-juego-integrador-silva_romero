@@ -3,7 +3,7 @@ import wollok.game.*
 import enemigo.*
 import bomba.*
 import llave.*
-import frasco.*
+import hongos.*
 import arma.*
 
 import cofre.*
@@ -44,8 +44,6 @@ object repeat {
 		}
 		
 	}
-	
-
 }
 
 
