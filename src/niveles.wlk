@@ -83,8 +83,7 @@ object nivel1 inherits Nivel {
 	var cantCofres = 16 //falta decidir cuantos, no es definitivo
 	var armasPosibles = []
 		
-	var rangoHpEnemigosMin = 4
-	var rangoHpEnemigosMax = 12
+	
 override method tipo() = 1
 override method ganaste() {nivel2.start()}
 override method start() {
@@ -97,7 +96,7 @@ override method visuales(){
 				muro.cargar() 
 				// Puerta
 				game.addVisualIn(new Puerta(nivelActual = self),game.at(19,8)) //posicion siempre menor o igual a (height - 2) (width - 2) 
-				tablero.cargarCofres()
+				tablero.cargarCofresDelNivel1()
 				}	
 				method comienzo(){
 				game.start()

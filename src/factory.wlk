@@ -13,7 +13,7 @@ import cofre.*
 object factory {
 	//simple factory. Se usa para crear enemigos, pociones, venenos, llaves, bombas y mas!
 	
-	method crearEnemigoDeTipo(tipo){
+	method crearEnemigoDelNivel1(tipo){
 		var _enemigo
 		
 		if(tipo=="bowser") {
@@ -36,12 +36,71 @@ object factory {
 			_enemigo = new Donkey()
 		}
 		
-		//_enemigo.nacer ( hp , ataque )
-		_enemigo.nacer( 4.randomUpTo(12).truncate(0), 1.randomUpTo(4).truncate(0) )
-		//game.hideAttributes(_enemigo)
+		_enemigo.nacer( 6.randomUpTo(12).truncate(0), 2.randomUpTo(5).truncate(0) )
+		game.hideAttributes(_enemigo)
 		observerEnemigos.observar(_enemigo) 
 		return _enemigo
 	}
+	
+		method crearEnemigoDelNivel2(tipo){
+		var _enemigo
+		
+		if(tipo=="bowser") {
+			_enemigo = new Bowser()
+		}
+		
+		if(tipo=="metroid") {
+			_enemigo = new Metroid()
+		}
+		
+		if(tipo=="zelda") {
+			_enemigo = new Zelda()
+		}
+		
+		if(tipo=="pacman") {
+			_enemigo = new Pacman()
+		}
+		
+		if(tipo=="donkey") {
+			_enemigo = new Donkey()
+		}
+		
+		_enemigo.nacer( 8.randomUpTo(15).truncate(0), 2.randomUpTo(5).truncate(0) )
+		game.hideAttributes(_enemigo)
+		observerEnemigos.observar(_enemigo) 
+		return _enemigo
+	}
+	
+		method crearEnemigoDelNivel3(tipo){
+		var _enemigo
+		
+		if(tipo=="bowser") {
+			_enemigo = new Bowser()
+		}
+		
+		if(tipo=="metroid") {
+			_enemigo = new Metroid()
+		}
+		
+		if(tipo=="zelda") {
+			_enemigo = new Zelda()
+		}
+		
+		if(tipo=="pacman") {
+			_enemigo = new Pacman()
+		}
+		
+		if(tipo=="donkey") {
+			_enemigo = new Donkey()
+		}
+		
+		_enemigo.nacer( 10.randomUpTo(22).truncate(0), 2.randomUpTo(5).truncate(0) )
+		game.hideAttributes(_enemigo)
+		observerEnemigos.observar(_enemigo) 
+		return _enemigo
+	}
+	
+	
 	
 	
 	method crearBomba() {
@@ -66,8 +125,16 @@ object factory {
 		return new Llave()
 	}
 	
-	method crearArma(img) {
-		return new Arma(image = img, mejoraAtk = 2.randomUpTo(6).truncate(0))// POR AHORA GENERAN CUALQUIER NIVEL DE ATK, DESPUES SE ESPECIFICARA SEGUN LOS NIVELES DEL JUEGO (GT)
+	method crearArmaNivel1(img) {
+		return new Arma(image = img, mejoraAtk = 1.randomUpTo(3).truncate(0))
+	}
+	
+	method crearArmaNivel2(img) {
+		return new Arma(image = img, mejoraAtk = 2.randomUpTo(4).truncate(0))
+	}
+	
+	method crearArmaNivel3(img) {
+		return new Arma(image = img, mejoraAtk = 4.randomUpTo(6).truncate(0))
 	}
 	
 }
@@ -92,18 +159,43 @@ object factoryCofre {
 		enemigosPosibles.addAll(lista)
 	}
 	
-	method crearCofreEnemigo(pos) { 
+	method crearCofreEnemigoNivel1(pos) { 
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
-				contenido = factory.crearEnemigoDeTipo(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
+				contenido = factory.crearEnemigoDelNivel1(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
 			) 
 			game.addVisual(_cofre)
 			game.hideAttributes(_cofre)
 		}else{
-			self.crearCofreEnemigo(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+			self.crearCofreEnemigoNivel1(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
+	}
 	
+		method crearCofreEnemigoNivel2(pos) { 
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearEnemigoDelNivel2(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
+			) 
+			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
+		}else{
+			self.crearCofreEnemigoNivel2(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
+	}
+	
+		method crearCofreEnemigoNivel3(pos) { 
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearEnemigoDelNivel3(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
+			) 
+			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
+		}else{
+			self.crearCofreEnemigoNivel3(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
 	}
 	
 	method crearCofrePocion(pos) {
@@ -152,22 +244,49 @@ object factoryCofre {
 				contenido = factory.crearBomba()
 		)
 			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
 		}else{
 			self.crearCofreBomba(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
 	}
 	
 	
-	method crearCofreArma(pos) { 
+	method crearCofreArmaNivel1(pos) { 
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
-				contenido = factory.crearArma(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
+				contenido = factory.crearArmaNivel1(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
 		)
 			game.addVisual(_cofre)
 			game.hideAttributes(_cofre)
 		}else{
-			self.crearCofreArma(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+			self.crearCofreArmaNivel1(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
+	}
+	
+		method crearCofreArmaNivel2(pos) { 
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearArmaNivel2(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
+		)
+			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
+		}else{
+			self.crearCofreArmaNivel2(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
+	}
+	
+		method crearCofreArmaNivel3(pos) { 
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearArmaNivel3(imagenesArmas.get(0.randomUpTo(imagenesArmas.size()).truncate(0)))
+		)
+			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
+		}else{
+			self.crearCofreArmaNivel3(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
 	}
 }
