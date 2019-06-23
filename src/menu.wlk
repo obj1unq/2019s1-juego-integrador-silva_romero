@@ -41,8 +41,12 @@ object representacionMenu {
 	method actualizar() {
 		self.actualizarVida()
 		self.llavesAquiridas()
-		
 		convertirNumero.actualizarAtaque()
+	}
+	method cargarObj(){
+		self.cargarCorazones()
+		game.addVisual(imagenDeVida)
+		game.addVisual(imagenDeAtk)
 	}
 
 	method cargarCorazones() {
