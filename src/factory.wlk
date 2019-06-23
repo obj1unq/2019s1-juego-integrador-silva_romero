@@ -13,7 +13,7 @@ import cofre.*
 object factory {
 	//simple factory. Se usa para crear enemigos, pociones, venenos, llaves, bombas y mas!
 	
-	method crearEnemigoDelNivel1(tipo){
+	method crearEnemigo(tipo,vidaMin,vidaMax){
 		var _enemigo
 		
 		if(tipo=="bowser") {
@@ -36,69 +36,13 @@ object factory {
 			_enemigo = new Donkey()
 		}
 		
-		_enemigo.nacer( 6.randomUpTo(12).truncate(0), 2.randomUpTo(5).truncate(0) )
-		game.hideAttributes(_enemigo)
+		//_enemigo.nacer ( hp, atk )
+		_enemigo.nacer( vidaMin.randomUpTo(vidaMax).truncate(0) , 2.randomUpTo(5).truncate(0) )
 		observerEnemigos.observar(_enemigo) 
 		return _enemigo
 	}
 	
-		method crearEnemigoDelNivel2(tipo){
-		var _enemigo
 		
-		if(tipo=="bowser") {
-			_enemigo = new Bowser()
-		}
-		
-		if(tipo=="metroid") {
-			_enemigo = new Metroid()
-		}
-		
-		if(tipo=="zelda") {
-			_enemigo = new Zelda()
-		}
-		
-		if(tipo=="pacman") {
-			_enemigo = new Pacman()
-		}
-		
-		if(tipo=="donkey") {
-			_enemigo = new Donkey()
-		}
-		
-		_enemigo.nacer( 8.randomUpTo(15).truncate(0), 2.randomUpTo(5).truncate(0) )
-		game.hideAttributes(_enemigo)
-		observerEnemigos.observar(_enemigo) 
-		return _enemigo
-	}
-	
-		method crearEnemigoDelNivel3(tipo){
-		var _enemigo
-		
-		if(tipo=="bowser") {
-			_enemigo = new Bowser()
-		}
-		
-		if(tipo=="metroid") {
-			_enemigo = new Metroid()
-		}
-		
-		if(tipo=="zelda") {
-			_enemigo = new Zelda()
-		}
-		
-		if(tipo=="pacman") {
-			_enemigo = new Pacman()
-		}
-		
-		if(tipo=="donkey") {
-			_enemigo = new Donkey()
-		}
-		
-		_enemigo.nacer( 10.randomUpTo(22).truncate(0), 2.randomUpTo(5).truncate(0) )
-		game.hideAttributes(_enemigo)
-		observerEnemigos.observar(_enemigo) 
-		return _enemigo
-	}
 	
 	
 	
@@ -159,44 +103,19 @@ object factoryCofre {
 		enemigosPosibles.addAll(lista)
 	}
 	
-	method crearCofreEnemigoNivel1(pos) { 
+	method crearCofreEnemigo(pos,vidaMin,vidaMax) { 
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
-				contenido = factory.crearEnemigoDelNivel1(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
+				contenido = factory.crearEnemigo(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)),vidaMin,vidaMax)
 			) 
 			game.addVisual(_cofre)
 			//game.hideAttributes(_cofre)
 		}else{
-			self.crearCofreEnemigoNivel1(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+			self.crearCofreEnemigo(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),vidaMin,vidaMax)
 		}
 	}
 	
-		method crearCofreEnemigoNivel2(pos) { 
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearEnemigoDelNivel2(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
-			) 
-			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
-		}else{
-			self.crearCofreEnemigoNivel2(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
-	
-		method crearCofreEnemigoNivel3(pos) { 
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearEnemigoDelNivel3(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
-			) 
-			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
-		}else{
-			self.crearCofreEnemigoNivel3(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
 	
 	method crearCofrePocion(pos) {
 		if(game.getObjectsIn(pos).isEmpty()){
