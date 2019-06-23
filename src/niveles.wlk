@@ -38,6 +38,7 @@ class Nivel {
 		method personaje(){
 		// Personaje
 	 	game.addVisual(personaje)
+	 	game.hideAttributes(personaje)
 		// Colisiones 
 		game.whenCollideDo(personaje,{objeto => objeto.colisionarCon(personaje)})
 		//Los unicos obj. con los que puede colisionar son llaves o frascos.	
@@ -47,7 +48,6 @@ class Nivel {
 		keyboard.down().onPressDo{ personaje.mover(personaje.position().down(1), abajo)}
 		keyboard.left().onPressDo{ personaje.mover(personaje.position().left(1), izquierda)}
 		keyboard.right().onPressDo{ personaje.mover(personaje.position().right(1), derecha)}
-		keyboard.e().onPressDo{ personaje.ataqueA()}
 		keyboard.space().onPressDo{ personaje.interactuar()}
 		keyboard.a().onPressDo{ game.say(personaje, personaje.ataque().toString())} // Para testings
 		keyboard.v().onPressDo{ game.say(personaje, personaje.vida().toString())} // Para testings

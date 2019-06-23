@@ -13,10 +13,10 @@ object tablero {
 		
 		var pos = game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0))
 		
-	factoryCofre.crearCofreEnemigoNivel1(pos)
-	factoryCofre.crearCofreEnemigoNivel1(pos)
-	factoryCofre.crearCofreEnemigoNivel1(pos)
-	factoryCofre.crearCofreEnemigoNivel1(pos)
+	//factoryCofre.crearCofreEnemigoNivel1(pos)
+	//factoryCofre.crearCofreEnemigoNivel1(pos)
+	//factoryCofre.crearCofreEnemigoNivel1(pos)
+	//factoryCofre.crearCofreEnemigoNivel1(pos)
 	
 	factoryCofre.crearCofrePocion(pos)
 	factoryCofre.crearCofrePocion(pos)

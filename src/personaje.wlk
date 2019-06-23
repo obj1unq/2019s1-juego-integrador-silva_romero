@@ -4,7 +4,7 @@ import menu.*
 import llave.*
 //
 object personaje {
-	var property vida = 3	//Maximo 10. Ya esta implementado!!
+	var property vida = 10	//Maximo 10. Ya esta implementado!!
 	var property ataque = 1
 	
 	var property llavesObtenidas = []

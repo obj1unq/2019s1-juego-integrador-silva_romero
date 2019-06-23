@@ -166,7 +166,7 @@ object factoryCofre {
 				contenido = factory.crearEnemigoDelNivel1(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)))
 			) 
 			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
+			//game.hideAttributes(_cofre)
 		}else{
 			self.crearCofreEnemigoNivel1(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
