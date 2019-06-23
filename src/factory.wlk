@@ -13,7 +13,7 @@ import cofre.*
 object factory {
 	// Se usa para crear enemigos, pociones, venenos, llaves y bombas
 	
-	method crearEnemigo(tipo,vidaMin,vidaMax){
+	method crearEnemigo(tipo,vidaMin,vidaMax,objeto,pos){
 		var _enemigo
 		
 		if(tipo=="bowser") {
@@ -38,14 +38,11 @@ object factory {
 		
 		//_enemigo.nacer ( hp, atk )
 		_enemigo.nacer( vidaMin.randomUpTo(vidaMax).truncate(0) , 2.randomUpTo(5).truncate(0) )
+		_enemigo.aniadir(objeto)
+		_enemigo.asignarPosicion(pos)
 		observerEnemigos.observar(_enemigo) 
 		return _enemigo
 	}
-	
-		
-	
-	
-	
 	
 	method crearBomba() {
 			return new Bomba() 		
@@ -81,16 +78,14 @@ object factoryCofre {
 	
 	var property enemigosPosibles = ["metroid","pacman"] 
 	var property imagenesArmas = ["espada1.png","espada2.png","palo.png","iron_sword.png"]
-	
-	method enemigosPosibles(lista) {
-		enemigosPosibles.addAll(lista)
-	}
+	var hongo = factory.crearSalud()
+	var llave = factory.crearLlave()
 	
 	method crearCofreEnemigo(pos,vidaMin,vidaMax) { 
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
-				contenido = factory.crearEnemigo(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)),vidaMin,vidaMax)
+				contenido = factory.crearEnemigo(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)),vidaMin,vidaMax,hongo,pos)
 			) 
 			game.addVisual(_cofre)
 			game.hideAttributes(_cofre)
@@ -99,6 +94,18 @@ object factoryCofre {
 		}
 	}
 	
+		method crearCofreEnemigoConLlave(pos,vidaMin,vidaMax) { 
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = factory.crearEnemigo(enemigosPosibles.get(0.randomUpTo(enemigosPosibles.size()).truncate(0)),vidaMin,vidaMax,llave,pos)
+			) 
+			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
+		}else{
+			self.crearCofreEnemigoConLlave(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),vidaMin,vidaMax)
+		}
+	}
 	
 	method crearCofreSalud(pos) {
 		if(game.getObjectsIn(pos).isEmpty()){
@@ -151,7 +158,6 @@ object factoryCofre {
 			self.crearCofreBomba(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
 		}
 	}
-	
 	
 	method crearCofreArma(pos,atkMin,atkMax) { 
 		if(game.getObjectsIn(pos).isEmpty()){

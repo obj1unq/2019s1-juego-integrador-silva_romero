@@ -11,10 +11,11 @@ object tablero {
 	method cargarCofresDelNivel1() {
 		// vida de enemigo: 6 a 12
 		// nivel de  ataque del arma: 1 a 3
+		
 		var pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		
-		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
-		
+		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
+		factoryCofre.crearCofreEnemigoConLlave(pos,6,12)
 		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
 		
@@ -30,8 +31,8 @@ object tablero {
 		// nivel de  ataque del arma: 2 a 4
 		var pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		
-		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 8, 15)})
-		
+		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 8, 15)})
+		factoryCofre.crearCofreEnemigoConLlave(pos,8,15)
 		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
 		
@@ -47,8 +48,8 @@ object tablero {
 		// nivel de  ataque del arma: 3 a 6
 		var pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		
-		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 10, 22)})
-		
+		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 10, 22)})
+		factoryCofre.crearCofreEnemigoConLlave(pos,10,22)
 		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
 		
