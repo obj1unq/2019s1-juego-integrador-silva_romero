@@ -45,7 +45,7 @@ class Nivel {
 	}
 
 	method movimientos() {
-		keyboard.r().onPressDo{ nivel.reiniciar()}
+		keyboard.r().onPressDo{ self.reiniciar()}
 	}
 
 	method menu() {
