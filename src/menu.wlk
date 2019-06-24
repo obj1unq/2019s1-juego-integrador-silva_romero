@@ -103,12 +103,15 @@ object representacionMenu {
 
 object imagenDeVida{
 	var property position = game.at(7,11)
-	var property image = "hp.png"
-}
 
+	var property image = "hp.png"
+
+}
 object imagenDeAtk{
 	var property position = game.at(7,12)
+
 	var property image = "atk.png"
+
 }
 	
 object relojRef{

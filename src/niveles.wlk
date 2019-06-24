@@ -9,7 +9,7 @@ import puerta.*
 import bomba.*
 import direcciones.*
 import personaje.*
-
+import resultado.*
 import cofre.*
 
 import hongos.*
@@ -72,7 +72,7 @@ class Nivel {
 		game.addVisual(relojRef)
 	
 		keyboard.any().onPressDo{ representacionMenu.actualizar()}
-		reloj.funcionando(nueve,cero)
+		reloj.funcionando(seis,cero)
 	}
 		method animaciones(){
 		game.onTick(1000,"animacion enemigos", {observerEnemigos.update()} )
@@ -84,10 +84,20 @@ class Nivel {
 		method ganaste(){}	// cada nivel maneja su propio ganaste 
 		 
 		method reiniciar(){
+			self.siPerdio()
 			game.clear()
+			reloj.reiniciar()
 			self.start()
 		}
-		method perdiste(){}
+		method siPerdio(){
+			if (resultado.perdio())
+				game.removeVisual(resultado)
+		}
+		method perdiste(){
+			
+			game.clear()
+			game.boardGround("gameOver.jpg")
+		}
 }
 
 
@@ -109,8 +119,9 @@ override method visuales(){
 				tablero.cargarCofresDelNivel1()
 				}	
 				method comienzo(){
-				game.start()
-				}
+				
+				game.start()}
+				
 }
 
 object nivel2 inherits Nivel {
