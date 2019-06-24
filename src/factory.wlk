@@ -36,6 +36,10 @@ object factory {
 			_enemigo = new Donkey()
 		}
 		
+		if(tipo=="link") {
+			_enemigo = new Link()
+		}
+		
 		//_enemigo.nacer ( vida, ataque )
 		_enemigo.nacer( vidaMin.randomUpTo(vidaMax).truncate(0) , 2.randomUpTo(5).truncate(0) )
 		_enemigo.aniadir(objeto)
@@ -70,7 +74,7 @@ object factory {
 
 object factoryCofre {
 	
-	var property enemigosPosibles = ["bowser","metroid","zelda","pacman","donkey"] 
+	var property enemigosPosibles = [] 
 	var property imagenesArmas = []
 	var hongo = factory.crearHongoSeguro()
 	var llave = factory.crearLlave()
