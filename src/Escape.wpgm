@@ -9,5 +9,5 @@ import direcciones.*
 program Game {
 	//inicio.portada()	
 	nivel1.start()
-	game.start()
+	/// el game start esta en nivel 1 
 }

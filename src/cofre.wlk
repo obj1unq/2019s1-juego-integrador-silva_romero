@@ -18,10 +18,10 @@ class Cofre inherits NoColisionable {
 	method mostrarContenido() {	
 			game.addVisualIn(contenido,self.position())
 			
-			if (contenido.tipo() == "bomba") {
-				game.say(contenido,"CUIDADO!!!")
-				contenido.explotar()
-			}
+//			if (contenido.tipo() == "bomba") {
+//				game.say(contenido,"CUIDADO!!!")
+//				contenido.explotar()
+//			}
 	}
 		
 }

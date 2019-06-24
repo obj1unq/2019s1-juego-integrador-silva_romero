@@ -107,7 +107,7 @@ object nivel1 inherits Nivel {
 
 	override method start() {
 		super()
-		self.comienzo() // sin el nivel 1 no hay comienzo 
+		self.comienzo() // sin el nivel 1 no hay comienzo aca tiene el start
 	}
 
 	override method visuales() {

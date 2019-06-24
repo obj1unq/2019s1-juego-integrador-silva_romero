@@ -14,14 +14,14 @@ object tablero {
 		
 		const pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		
-		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
-		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
-		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
-		
+//		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
+//		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
+//		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
+//		
 		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)})// no se olviden de descomentar todos :)
-		factoryCofre.crearCofreEnemigoConLlave(pos,6,12)
+//		factoryCofre.crearCofreEnemigoConLlave(pos,6,12)
 		
-		repeat.cant(2, { factoryCofre.crearCofreArma(pos,1,3)})
+//		repeat.cant(2, { factoryCofre.crearCofreArma(pos,1,3)})
 		
 		//repeat.cant(3, { factoryCofre.crearCofreBomba(pos)})
 	}
