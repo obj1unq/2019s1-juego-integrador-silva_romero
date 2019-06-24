@@ -45,8 +45,7 @@ object representacionMenu {
 	}
 	method cargarObj(){
 		self.cargarCorazones()
-		game.addVisual(imagenDeVida)
-		game.addVisual(imagenDeAtk)
+		
 	}
 
 	method cargarCorazones() {
@@ -104,15 +103,21 @@ object representacionMenu {
 
 object imagenDeVida{
 	var property position = game.at(7,11)
-	method image() = "hp.png"
-}
 
+	var property image = "hp.png"
+
+}
 object imagenDeAtk{
 	var property position = game.at(7,12)
-	method image() = "atk.png"
+
+	var property image = "atk.png"
+
 }
 	
-	
+object relojRef{
+	var property position = game.at(0,13)
+	var property image = "timeA.png"
+}	
 
 
 
