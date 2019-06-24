@@ -7,9 +7,9 @@ class Llave inherits Colisionable {
 	method position() = position
 	method image() = "llave.png"
 	
-	method tipo() = "llave" //tipo de contenido en un cofre
+	method tipo() = "llave" 
 	
-	method colisionarCon(personaje) { // USADO EN LA COLISION (GT)
+	method colisionarCon(personaje) { 
 		game.removeVisual(self)
 		personaje.recogerLlave()
 		representacionMenu.llavesAquiridas()
@@ -18,6 +18,6 @@ class Llave inherits Colisionable {
 	
 	
 	method serInteractuadoPor(jugador) {
-		//Esto esta aca porque polimorfismo, esta nomas para que no se rompa todo
+		//Respeta el polimorfismo
 	}
 }

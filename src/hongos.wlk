@@ -25,13 +25,13 @@ class Hongo inherits Colisionable {
 }
 
 class HongoSalud inherits Hongo{
-	//La pocion es un frasco que suma vida al jugador (su efecto es positivo)	
+	//Le suma vida al jugador (su efecto es positivo)	
 	
-	override method tipo() = "pocion" //tipo de contenido en un cofre
+	override method tipo() = "pocion" 
 }
 
 class HongoVeneno inherits Hongo{
-	// El veneno es un frasco que resta vida al jugador (su efecto es negativo)
+	// Le resta vida al jugador (su efecto es negativo)
 
-	override method tipo() = "veneno" //tipo de contenido en un cofre
+	override method tipo() = "veneno" 
 }

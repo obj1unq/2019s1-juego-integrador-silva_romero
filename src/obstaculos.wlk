@@ -7,9 +7,6 @@ import wollok.game.*
 //se posicionan los muros.
 object muro inherits NoColisionable {
 		var image
-	// <??> Esto es un obj, no una clase. Cuando voy creando posiciones nuevas en el tablero, cada nueva posicion crea un obj nuevo
-	// o el muro entero es un solo obj???
-	
 
 	method cargar(imagen) {
 		 image = imagen
@@ -20,14 +17,17 @@ object muro inherits NoColisionable {
 		(0 .. largo).forEach{ p => alrededores.add(new Position(ancho, p))} // muros del lado derecho
 		(0 .. ancho).forEach{ p => alrededores.add(new Position(p, 0))} // muros del lado inferior
 		(0 .. largo).forEach{ p => alrededores.add(new Position(0, p))} // muros del lado izquierdo
+		
+
+		alrededores.forEach{ direccion => game.addVisualIn(self, direccion)}
+		
 			// SIRVE PARA AÑADIR COSAS EN POSICIONES ESPECIFICAS 
 			// USARLO DESPUES PARA DISEÑAR MAS VISUALES EN EL TABLERO 
-			// alrededores.addAll([new Position(3,5), new Position(4,5), new Position(5,5)])
-		alrededores.forEach{ direccion => game.addVisualIn(self, direccion)}
+			// EJEMPLO : alrededores.addAll([new Position(3,5), new Position(4,5), new Position(5,5)])
 	}
 
 	method serInteractuadoPor(jugador) {
-	// Esto esta aca porque polimorfismo, esta nomas para que no se rompa todo
+	//Respeta el polimorfismo
 	}
 
 }
@@ -37,7 +37,7 @@ class Obstaculo inherits NoColisionable {
 	// Otros obstaculos que se generan en el tablero, aparte de los cofres.
 	
 	method serInteractuadoPor(jugador) {
-	// Esto esta aca porque polimorfismo, esta nomas para que no se rompa todo
+		//Respeta el polimorfismo
 	}
 	
 	method crear(pos) {

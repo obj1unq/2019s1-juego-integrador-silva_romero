@@ -5,7 +5,7 @@ import niveles.*
 object inicio {
 
 	method portada() {
-		game.title("smash bros")
+		game.title("Escape : the pikachu's dungeon")
 		game.height(14)
 		game.width(22)
 		game.ground("celda.png")

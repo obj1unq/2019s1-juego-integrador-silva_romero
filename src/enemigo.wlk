@@ -4,7 +4,7 @@ import otros_obj.*
 // NOTAS:
 
 // Estos enemigos comparten las mismas caracteristicas pero van a diferir en la cantidad de vida y ataque que tienen, asi como tambien el objeto que 
-// guarden. Uno de ellos va a tener una llave , para que el jugador se vea obligado a atacarlos.
+// guardan, que puede ser un "HongoSalud" que varia en efecto o una llave , para que el jugador se vea obligado a atacarlos.
 
 
 class Enemigo inherits NoColisionable {

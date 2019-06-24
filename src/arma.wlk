@@ -7,12 +7,10 @@ class Arma inherits NoColisionable {
 	var property mejoraAtk
 	var property image
 	
-	method tipo() = "arma" //tipo de contenido en un cofre
+	method tipo() = "arma"
 	
 	method serInteractuadoPor(jugador) {
 		jugador.llevarArma(self)
-		
-	}
-	
+	}	
 	
 }

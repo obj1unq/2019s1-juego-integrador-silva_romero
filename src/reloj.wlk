@@ -21,11 +21,11 @@ object reloj {
 		self.definir(nro, nro2)
 		self.preparar(nro2, segundo)
 		self.preparar(nro, segundos)
-			// game.onTick(10000,"actualiza la centena de segundo",{self.posicionar(sgds,segundos,"actualiza la centena de segundo")})
+		// game.onTick(10000,"actualiza la centena de segundo",{self.posicionar(sgds,segundos,"actualiza la centena de segundo")})
 		game.onTick(1000, "actualiza cada segundo", { self.temporizador(sgds, sgd)})
 	}
 
-// pensar alguna manera para que quede mejor :? 
+
 	method temporizador(nro, nro2) {
 		if (self.termino()) 
 			{game.removeTickEvent("actualiza cada segundo")

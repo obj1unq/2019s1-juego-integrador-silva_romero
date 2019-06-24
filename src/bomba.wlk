@@ -9,9 +9,7 @@ class Bomba inherits NoColisionable {
 	var property image = "bomba1.png"
 	var property position
 
-	method tipo() = "bomba" //tipo de contenido
-
-	//method position() = position
+	method tipo() = "bomba"
 
 	method explotar() {
 		game.onTick(300, "explotar", { self.explotarbomba()})
@@ -42,5 +40,3 @@ class Bomba inherits NoColisionable {
 	method personajeEnDireccion(direccion) = not game.getObjectsIn(direccion.posicionAl(self)).isEmpty() and game.getObjectsIn(direccion.posicionAl(self)).contains(personaje)
 
 }
-
-// 

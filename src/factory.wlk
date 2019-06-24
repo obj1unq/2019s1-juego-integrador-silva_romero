@@ -36,7 +36,7 @@ object factory {
 			_enemigo = new Donkey()
 		}
 		
-		//_enemigo.nacer ( hp, atk )
+		//_enemigo.nacer ( vida, ataque )
 		_enemigo.nacer( vidaMin.randomUpTo(vidaMax).truncate(0) , 2.randomUpTo(5).truncate(0) )
 		_enemigo.aniadir(objeto)
 		_enemigo.asignarPosicion(pos)
@@ -48,11 +48,11 @@ object factory {
 		
 
 	method crearSalud() {
-		return new HongoSalud(efecto = 2.randomUpTo(5).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)		
+		return new HongoSalud(efecto = 2.randomUpTo(5).truncate(0))	
 	}
 	
 	method crearVeneno() {
-		return new HongoVeneno(efecto = 2.invert().randomUpTo(5.invert()).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)
+		return new HongoVeneno(efecto = 2.invert().randomUpTo(5.invert()).truncate(0)) 
 	}
 	
 	method crearLlave() = new Llave()
@@ -68,7 +68,7 @@ object factory {
 
 object factoryCofre {
 	
-	var property enemigosPosibles = ["metroid","pacman"] 
+	var property enemigosPosibles = ["bowser","metroid","zelda","pacman","donkey"] 
 	var property imagenesArmas = ["espada1.png","espada2.png","palo.png","iron_sword.png"]
 	var hongo = factory.crearSalud()
 	var llave = factory.crearLlave()
@@ -165,4 +165,3 @@ object factoryCofre {
 	}
 	
 }
-	

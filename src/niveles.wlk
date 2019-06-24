@@ -47,8 +47,6 @@ class Nivel {
 
 	method movimientos() {
 		
-		
-		
 		keyboard.up().onPressDo{ personaje.mover(personaje.position().up(1), arriba)}
 		keyboard.down().onPressDo{ personaje.mover(personaje.position().down(1), abajo)}
 		keyboard.left().onPressDo{ personaje.mover(personaje.position().left(1), izquierda)}
@@ -122,13 +120,10 @@ object nivel1 inherits Nivel {
 		tablero.cargarCofresDelNivel1()
 	}
 
-	
-
 }
 
 object nivel2 inherits Nivel {
 
-	// Leo no rompas nada 
 	override method tipo() = 2
 
 	override method cargar() {
@@ -145,13 +140,11 @@ object nivel2 inherits Nivel {
 		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel2()
 	}
-
 }
 
 object nivel3 inherits Nivel {
 
 	override method tipo() = 3
-
 
 	override method visuales() {
 		game.ground("suelo2.jpg") //CAMBIAR
