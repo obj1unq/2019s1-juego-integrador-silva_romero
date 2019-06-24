@@ -19,7 +19,7 @@ class Cofre inherits NoColisionable {
 		game.addVisualIn(contenido,self.position())
 			
 		if (contenido.tipo() == "bomba") { // bomba mortal, si explota perdes automaticamente(ver de implentar otra bomba que solo saque la mitad de la vida)GT
-			game.say(contenido,"CUIDADO!!!")
+			game.say(contenido,"BOOOOM!!!")
 			contenido.explotar()
 		}
 	}

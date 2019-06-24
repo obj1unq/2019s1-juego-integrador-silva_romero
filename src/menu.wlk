@@ -46,7 +46,7 @@ object representacionMenu {
 	method cargarObj(){
 		
 		self.cargarCorazones()
-		game.addVisualIn(convertirNumero.obtenerNumero(personaje.ataque()),game.at(8,12)) //inicializa los valores de ataque 
+		game.addVisualIn(convertirNumero.obtenerNumero(personaje.ataque()),game.at(11,12)) //inicializa los valores de ataque 
 		game.addVisual(imagenDeVida)
 		game.addVisual(imagenDeAtk)
 		game.addVisual(relojRef)
@@ -56,7 +56,7 @@ object representacionMenu {
 
 	method cargarCorazones() {
 	
-		var i = 8
+		var i = 11
 		corazones.forEach{ corazon =>
 			game.addVisualIn(corazon, game.at(i, 11))
 			i += 1
@@ -78,7 +78,7 @@ object representacionMenu {
 	}
 
 	method llavesAquiridas() {
-		var i = 0
+		var i = 6
 		if (not personaje.llavesObtenidas().isEmpty()) {
 			personaje.llavesObtenidas().forEach{ llave =>
 				game.addVisualIn(llave, game.at(i, 11))
@@ -115,27 +115,27 @@ class FondoMenu{
     }
     method actualizarAtaque(){
     	game.removeVisual(ultimoNumero)	
-    	game.addVisualIn(self.obtenerNumero(personaje.ataque()),game.at(8,12))
+    	game.addVisualIn(self.obtenerNumero(personaje.ataque()),game.at(11,12))
     }
 
 	
 }
 
 object imagenDeVida{
-	var property position = game.at(6,11)
+	var property position = game.at(10,11)
 
 	var property image = "hp.png"
 
 }
 object imagenDeAtk{
-	var property position = game.at(6,12)
+	var property position = game.at(10,12)
 
 	var property image = "atk.png"
 
 }
 	
 object relojRef{
-	var property position = game.at(0,13)
+	var property position = game.at(6,12)
 	var property image = "timeA.png"
 }	
 
