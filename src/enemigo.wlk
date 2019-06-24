@@ -113,6 +113,8 @@ class Zelda inherits Enemigo {
 
 }
 
+
+
 class Pacman inherits Enemigo {
 
 	override method imagenAtk() = "pacman_atk.png" //la imagen que se muestra cuando es atacado por el jugador
@@ -154,6 +156,21 @@ class Donkey inherits Enemigo {
 		imagen = "donkey2.png"
 		} else {
 			imagen = "donkey1.png"
+		}	
+	}
+}
+
+class Link inherits Enemigo {
+	
+	override method imagenAtk() = "link_atk.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+	override method tipo() = "link"
+	
+	override method animacion() {
+		if(imagen == "link1.png") {
+		imagen = "link2.png"
+		} else {
+			imagen = "link1.png"
 		}	
 	}
 }
