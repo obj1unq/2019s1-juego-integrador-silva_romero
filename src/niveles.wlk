@@ -32,9 +32,6 @@ class Nivel {
 
 
 	method configuraciones() {
-//		game.title("Escape : the pikachu's dungeon")
-//		game.height(14)
-//		game.width(22)		
 		representacionMenu.generarFondo()
 	}
 
@@ -56,18 +53,13 @@ class Nivel {
 		keyboard.left().onPressDo{ personaje.mover(personaje.position().left(1), izquierda)}
 		keyboard.right().onPressDo{ personaje.mover(personaje.position().right(1), derecha)}
 		keyboard.space().onPressDo{ personaje.interactuar()}
-//		keyboard.a().onPressDo{ game.say(personaje, personaje.ataque().toString())} // Para testings
-//		keyboard.v().onPressDo{ game.say(personaje, personaje.vida().toString())} // Para testings
-//		keyboard.l().onPressDo{ game.say(personaje, personaje.llavesObtenidas().toString())} // Para testings
-//		keyboard.o().onPressDo{ game.say(personaje, personaje.position().up(1).allElements().toString())}
-//		keyboard.r().onPressDo{ self.reiniciar()}
+
 	}
 
 	method menu() {
 		representacionMenu.actualizarVida()
 		representacionMenu.cargarObj()
 		
-		//keyboard.any().onPressDo{ }
 		reloj.funcionando(seis, cero)
 	}
 
