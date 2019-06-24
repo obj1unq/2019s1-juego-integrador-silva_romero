@@ -15,6 +15,7 @@ import enemigo.*
 import arma.*
 import llave.*
 import tablero.*
+import inicio.*
 
 class Nivel {
 
@@ -31,9 +32,9 @@ class Nivel {
 
 
 	method configuraciones() {
-		game.title("Escape : the pikachu's dungeon")
-		game.height(14)
-		game.width(22)		
+//		game.title("Escape : the pikachu's dungeon")
+//		game.height(14)
+//		game.width(22)		
 		representacionMenu.generarFondo()
 	}
 
@@ -42,7 +43,10 @@ class Nivel {
 		game.addVisual(personaje)
 		game.hideAttributes(personaje)
 		// Colisiones 
-		game.whenCollideDo(personaje, { objeto => objeto.colisionarCon(personaje)}) // Los unicos obj. con los que puede colisionar son llaves o hongos.	
+		game.whenCollideDo(personaje, { 
+			objeto => objeto.colisionarCon(personaje)
+			
+		}) // Los unicos obj. con los que puede colisionar son llaves o hongos.	
 	}
 
 	method movimientos() {
@@ -52,23 +56,23 @@ class Nivel {
 		keyboard.left().onPressDo{ personaje.mover(personaje.position().left(1), izquierda)}
 		keyboard.right().onPressDo{ personaje.mover(personaje.position().right(1), derecha)}
 		keyboard.space().onPressDo{ personaje.interactuar()}
-		keyboard.a().onPressDo{ game.say(personaje, personaje.ataque().toString())} // Para testings
-		keyboard.v().onPressDo{ game.say(personaje, personaje.vida().toString())} // Para testings
-		keyboard.l().onPressDo{ game.say(personaje, personaje.llavesObtenidas().toString())} // Para testings
-		keyboard.o().onPressDo{ game.say(personaje, personaje.position().up(1).allElements().toString())}
-		keyboard.r().onPressDo{ self.reiniciar()}
+//		keyboard.a().onPressDo{ game.say(personaje, personaje.ataque().toString())} // Para testings
+//		keyboard.v().onPressDo{ game.say(personaje, personaje.vida().toString())} // Para testings
+//		keyboard.l().onPressDo{ game.say(personaje, personaje.llavesObtenidas().toString())} // Para testings
+//		keyboard.o().onPressDo{ game.say(personaje, personaje.position().up(1).allElements().toString())}
+//		keyboard.r().onPressDo{ self.reiniciar()}
 	}
 
 	method menu() {
 		representacionMenu.actualizarVida()
 		representacionMenu.cargarObj()
 		
-		keyboard.any().onPressDo{ representacionMenu.actualizar()}
+		//keyboard.any().onPressDo{ }
 		reloj.funcionando(seis, cero)
 	}
 
 	method animaciones() {
-		game.onTick(1000, "animacion enemigos", { observerEnemigos.update()})
+		game.onTick(500, "animacion enemigos", { observerEnemigos.update()})
 	}
 
 	method visuales() {
@@ -131,8 +135,8 @@ object nivel2 inherits Nivel {
 		super()
 	}
 	override method configuraciones(){
-		super()
 		game.ground("suelo2.jpg")
+		super()
 	}
 	override method visuales() {
 		
@@ -150,9 +154,15 @@ object nivel3 inherits Nivel {
 
 	override method tipo() = 3
 	override method configuraciones(){
-		super()
 		game.ground("suelo3.jpg") 
+		super()
 	}
+	
+	override method cargar() {
+		game.clear()
+		super()
+	}
+	
 	override method visuales() {
 		
 		muro.cargar("muro3.jpeg") 

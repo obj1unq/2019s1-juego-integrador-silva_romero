@@ -1,6 +1,7 @@
 import wollok.game.*
 import personaje.*
 import otros_obj.*
+import menu.*
 
 class Arma inherits NoColisionable {
 	
@@ -11,6 +12,7 @@ class Arma inherits NoColisionable {
 	
 	method serInteractuadoPor(jugador) {
 		jugador.llevarArma(self)
+		representacionMenu.actualizar()
 	}	
 	
 }

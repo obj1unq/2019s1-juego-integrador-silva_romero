@@ -1,6 +1,6 @@
 import wollok.game.*
 import otros_obj.*
-
+import menu.*
 
 class Hongo inherits Colisionable {
 	 
@@ -15,7 +15,7 @@ class Hongo inherits Colisionable {
 			//self.efecto() > 0 significa que es una pocion curativa y no un veneno.
 		personaje.aplicarEfecto(self)
 		game.removeVisual(self)
-		
+		representacionMenu.actualizar()
 		}
 	}
 	

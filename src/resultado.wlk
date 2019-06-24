@@ -2,7 +2,7 @@ import wollok.game.*
 object resultado {
 	var position = game.at(0,0)
 	var property perdio = false
-	var image
+	var property image
 	 // pierde pero no deja sacar la imagen
 	 method perdiste()
 	 		{game.clear()
@@ -14,4 +14,8 @@ object resultado {
 		image= "ganaste.jpg"
 		game.addVisual(self)
 	}
+}
+
+object gameOver {
+	method image() ="gameOver.jpg"
 }

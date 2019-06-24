@@ -5,6 +5,9 @@ import bomba.*
 import llave.*
 import hongos.*
 import arma.*
+import personaje.*
+
+import inicio.*
 
 import cofre.*
 
@@ -23,6 +26,15 @@ class NoColisionable {
 class Colisionable {
 	method esColisionable() = true
 	
+}
+
+object control {
+	
+	method reiniciar() = keyboard.r().onPressDo { 
+			game.clear()
+			personaje.restart()
+			inicio.portada()
+		}
 }
 
 

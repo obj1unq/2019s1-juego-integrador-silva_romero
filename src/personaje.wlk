@@ -3,6 +3,9 @@ import direcciones.*
 import menu.*
 import llave.*
 import resultado.*
+import inicio.* 
+
+import otros_obj.*
 
 //
 object personaje {
@@ -21,6 +24,16 @@ object personaje {
 
 	method colisionarCon(personaje) {
 	// Respeta el polimorfismo.
+	}
+	
+	method restart() {
+		position = game.at(2,2)
+		llavesObtenidas = []
+		inventario = []
+		orientacion = derecha
+		ataque = 1
+		vida = 10
+		imagen = orientacion.imagenDelPersonaje()
 	}
 
 	method ataqueA() {
@@ -83,12 +96,12 @@ object personaje {
 			inventario.add(arma)
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
-			game.addVisualIn(arma, game.at(10, 12)) // agrega la imagen al menu
+			game.addVisualIn(arma, game.at(12, 12)) // agrega la imagen al menu
 		} else {
 			self.tirarArmaActual()
 			inventario.add(arma)
 			game.removeVisual(arma)
-			game.addVisualIn(arma, game.at(10, 12)) // agrega la imagen al menu 
+			game.addVisualIn(arma, game.at(12, 12)) // agrega la imagen al menu 
 			self.aplicarMejora(arma)
 		}
 	}
@@ -126,14 +139,25 @@ object personaje {
 	method explotado() {
 		if (self.vida() > 0) {
 			vida -= 4
+			representacionMenu.actualizar()
 		} else {
 			self.muerto()
+			representacionMenu.actualizar()
 		}
 	}
 
 	method muerto() {
 		vida = 0
 		imagen = "pikachuMuerto.png"
+		
+		
+		game.onTick(1500,"self",{
+			game.clear()
+			game.addVisualIn(gameOver,game.origin())
+			control.reiniciar()
+		})
+		
+		
 	}
 
 // Pasar de Nivel 

@@ -12,7 +12,7 @@ class Bomba inherits NoColisionable {
 	method tipo() = "bomba"
 
 	method explotar() {
-		game.onTick(300, "explotar", { self.explotarbomba()})
+		game.onTick(40, "explotar", { self.explotarbomba()})
 		self.eliminarAlrededor()
 	}
 	
