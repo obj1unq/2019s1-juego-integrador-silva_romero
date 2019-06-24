@@ -12,21 +12,14 @@ object tablero {
 	method cargarCofresDelNivel1() {
 		// vida de enemigo: 6 a 12
 		// nivel de  ataque del arma: 1 a 3
-		factoryCofre.imagenesArmas(["martillo.png","hoz.png","arco1.png"])
+		factoryCofre.imagenesArmas([ "martillo.png", "hoz.png", "arco1.png" ])
 		const pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
-		
-	//	repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
-		
-		//factoryCofre.crearCofreEnemigoConLlave(pos,6,12)
-		
-	//	repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
-	//	repeat.cant(3, { factoryCofre.crearCofreVeneno(pos)})
-	
-		
+		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
+		factoryCofre.crearCofreEnemigoConLlave(pos, 6, 12)
+		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
+		repeat.cant(3, { factoryCofre.crearCofreVeneno(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreLlave(pos)})
-		
-		repeat.cant(3, { factoryCofre.crearCofreArma(pos,1,3)})
-		
+		repeat.cant(3, { factoryCofre.crearCofreArma(pos, 1, 3)})
 		//repeat.cant(3, { factoryCofre.crearCofreBomba(pos)})
 	}
 

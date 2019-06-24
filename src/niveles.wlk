@@ -147,7 +147,7 @@ object nivel3 inherits Nivel {
 	override method tipo() = 3
 
 	override method visuales() {
-		game.ground("suelo2.jpg") //CAMBIAR
+		game.ground("suelo3.jpg") //CAMBIAR
 		muro.cargar("muro2.jpg") //CAMBIAR
 		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel3()

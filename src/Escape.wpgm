@@ -7,9 +7,11 @@ import personaje.*
 import direcciones.*
 
 program Game {
-	//inicio.portada()	
+	inicio.portada()
 	
-	nivel1.cargar()
+	
+	//nivel1.cargar()
+	//nivel3.cargar()
 	game.start()
 	
 }

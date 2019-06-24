@@ -8,11 +8,10 @@ object inicio {
 		game.title("Escape : the pikachu's dungeon")
 		game.height(14)
 		game.width(22)
-		game.ground("celda.png")
+		game.ground("concreto.png")
 		game.addVisual(inicioDelJuego)
-		keyboard.s().onPressDo{ 
-		game.clear()
-		nivel1.cargar()
+		keyboard.s().onPressDo{ game.clear()
+			nivel1.cargar()
 		}
 	}
 
