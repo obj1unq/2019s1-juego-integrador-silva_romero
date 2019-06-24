@@ -46,6 +46,7 @@ object factory {
 	
 	method crearBomba(pos) = new Bomba(position = pos) 		
 		
+	method crearHongoSeguro() = new HongoSeguro(efecto = 2.randomUpTo(5).truncate(0))	
 
 	method crearSalud() {
 		return new HongoSalud(efecto = 2.randomUpTo(5).truncate(0))	
@@ -70,7 +71,7 @@ object factoryCofre {
 	
 	var property enemigosPosibles = ["bowser","metroid","zelda","pacman","donkey"] 
 	var property imagenesArmas = []
-	var hongo = factory.crearSalud()
+	var hongo = factory.crearHongoSeguro()
 	var llave = factory.crearLlave()
 	
 	method crearCofreEnemigo(pos,vidaMin,vidaMax) { 

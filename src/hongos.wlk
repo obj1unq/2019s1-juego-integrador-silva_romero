@@ -30,6 +30,10 @@ class HongoSalud inherits Hongo{
 	override method tipo() = "pocion" 
 }
 
+class HongoSeguro inherits HongoSalud {
+	override method image() = "hongoSeguro.png"
+}
+
 class HongoVeneno inherits Hongo{
 	// Le resta vida al jugador (su efecto es negativo)
 
