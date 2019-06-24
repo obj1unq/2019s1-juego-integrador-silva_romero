@@ -164,6 +164,7 @@ object personaje {
 	method pasoDeNivel() {
 		llavesObtenidas = []
 		inventario = []
+		ataque = 1
 	}
 
 // reiniciar
