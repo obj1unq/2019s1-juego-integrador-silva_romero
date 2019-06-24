@@ -44,7 +44,13 @@ object representacionMenu {
 		convertirNumero.actualizarAtaque()
 	}
 	method cargarObj(){
+		self.generarFondo()
 		self.cargarCorazones()
+		game.addVisualIn(convertirNumero.obtenerNumero(personaje.ataque()),game.at(8,12)) //inicializa los valores de ataque 
+		game.addVisual(imagenDeVida)
+		game.addVisual(imagenDeAtk)
+		game.addVisual(relojRef)
+		
 		
 	}
 
@@ -80,9 +86,23 @@ object representacionMenu {
 			}
 		}
 	}
+	method generarFondo() {
+		const posiciones = []
+		const ancho = game.width() - 1
+		const alto = game.height() - 1
+		(0 .. ancho).forEach{ n => posiciones.add(new Position(n, alto))}
+		(0 .. ancho).forEach{ n => posiciones.add(new Position(n, alto - 1))}
+		(0 .. ancho).forEach{ n => posiciones.add(new Position(n, alto - 2))}
+		posiciones.forEach{ pos => game.addVisualIn(new Fondo(), pos)}
+	}
 
 }
-//cuando el personaje pierda o gane, que solo se muestre en el menu 
+
+class Fondo{
+	method image() = "fondoMenu3.jpeg"
+}
+
+
 	object convertirNumero{
 
 	var property ultimoNumero
@@ -102,13 +122,13 @@ object representacionMenu {
 }
 
 object imagenDeVida{
-	var property position = game.at(7,11)
+	var property position = game.at(6,11)
 
 	var property image = "hp.png"
 
 }
 object imagenDeAtk{
-	var property position = game.at(7,12)
+	var property position = game.at(6,12)
 
 	var property image = "atk.png"
 
@@ -119,5 +139,9 @@ object relojRef{
 	var property image = "timeA.png"
 }	
 
+class Letra{
+	var property position 
+	var property image 
+}
 
 
