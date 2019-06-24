@@ -7,7 +7,9 @@ import factory.*
 // OBJETO USADO PARA CREAR TODOS LOS COFRES QUE VAN A APARECER EN EL JUEGO
 object tablero {
 	
+	
 	// Aqui se asigna la cantidad de cofres que va a tener cada nivel y los cofres de armas y enemigos especificos por cada nivel.
+	
 	method cargarCofresDelNivel1() {
 		// vida de enemigo: 6 a 12
 		// nivel de  ataque del arma: 1 a 3
@@ -15,6 +17,7 @@ object tablero {
 		const pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		
 		factoryCofre.imagenesArmas([ "martillo.png", "hoz.png", "arco1.png" ])
+		factoryCofre.enemigosPosibles(["pacman","donkey"])
 		
 //		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)}) // borrar esta linea solo es para testear el paso de nivel
 		
@@ -37,9 +40,11 @@ object tablero {
 	method cargarCofresDelNivel2() {
 		// vida de enemigo: 8 a 15
 		// nivel de  ataque del arma: 3 a 5
+		const pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		
 		factoryCofre.imagenesArmas([ "arma.png", "maso.png", "espada.png" ])
-		const pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
+		factoryCofre.enemigosPosibles(["bowser","metroid"])
+		
 		
 //		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)}) // borrar esta linea solo es para testear el paso de nivel
 		
@@ -64,6 +69,7 @@ object tablero {
 		// nivel de  ataque del arma: 6 a 8
 		const pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		factoryCofre.imagenesArmas(["palo3.png","Labrys.png","espada3.png"])
+		factoryCofre.enemigosPosibles(["zelda","link"])
 		
 //		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)}) // borrar esta linea solo es para testear el paso de nivel
 		
