@@ -41,7 +41,7 @@ class Nivel {
 		// Personaje
 		game.addVisual(personaje)
 		game.hideAttributes(personaje)
-			// Colisiones 
+		// Colisiones 
 		game.whenCollideDo(personaje, { objeto => objeto.colisionarCon(personaje)}) // Los unicos obj. con los que puede colisionar son llaves o hongos.	
 	}
 
