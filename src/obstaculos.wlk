@@ -6,12 +6,13 @@ import wollok.game.*
 //Dependiendo el nivel, es que tan grande es el espacio de juego, cuantos obstaculos se generan en el mapa y desde donde hasta donde
 //se posicionan los muros.
 object muro inherits NoColisionable {
-
+		var image
 	// <??> Esto es un obj, no una clase. Cuando voy creando posiciones nuevas en el tablero, cada nueva posicion crea un obj nuevo
 	// o el muro entero es un solo obj???
-	method image() = "muro.png"
+	
 
-	method cargar() {
+	method cargar(imagen) {
+		 image = imagen
 		const ancho = game.width() - 1
 		const largo = game.height() - 4
 		var alrededores = []

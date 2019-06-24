@@ -2,23 +2,29 @@ import wollok.game.*
 import personaje.*
 import niveles.*
 
-object inicio{
-	
+object inicio {
+
 	method portada() {
 		game.title("smash bros")
-		game.width(14)
-		game.height(22)
-		game.ground("Celda.png")
+		game.height(14)
+		game.width(22)
+
+		game.ground("celda.png")
 		game.addVisual(inicioDelJuego)
-		keyboard.s().onPressDo{ game.clear()
-		nivel1.start()
+		keyboard.s().onPressDo{ 
+			game.clear()
+			nivel1.start()
 		}
+		
 	}
 
 }
-	
+
 object inicioDelJuego {
-	var image = "gameOver.png"
-	var property position = game.at(1,1)
+
+	var property position = game.origin()
+
+	method image() = "gameOver.jpg"
 
 }
+

@@ -15,6 +15,8 @@ object personaje {
 	var imagen = orientacion.imagenDelPersonaje()
 	
 	method image()= imagen 
+
+	method tipo() = "personaje"
 	
 	method colisionarCon(personaje){
 		// Respeta el polimorfismo.

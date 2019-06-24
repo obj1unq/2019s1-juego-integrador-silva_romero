@@ -46,6 +46,15 @@ object repeat {
 	}
 }
 
+object remove {
+	
+	method allIn(pos) {
+		//Remueve todos los objetos que esten en la posicion
+		
+		pos.allElements().forEach { obj => game.removeVisual(obj) }
+	}
+}
+
 
 object observerEnemigos {
 	//Mantiene un registro de todos los enemigos que se van creando.
