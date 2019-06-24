@@ -69,7 +69,7 @@ object factory {
 object factoryCofre {
 	
 	var property enemigosPosibles = ["bowser","metroid","zelda","pacman","donkey"] 
-	var property imagenesArmas 
+	var property imagenesArmas = []
 	var hongo = factory.crearSalud()
 	var llave = factory.crearLlave()
 	
@@ -86,7 +86,7 @@ object factoryCofre {
 		}
 	}
 	
-		method crearCofreEnemigoConLlave(pos,vidaMin,vidaMax) { 
+	method crearCofreEnemigoConLlave(pos,vidaMin,vidaMax) { 
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
