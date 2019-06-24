@@ -1,5 +1,6 @@
 import wollok.game.*
 import resultado.*
+import otros_obj.*
 object reloj {
 
 	var sgds
@@ -29,7 +30,10 @@ object reloj {
 	method temporizador(nro, nro2) {
 		if (self.termino()) 
 			{game.removeTickEvent("actualiza cada segundo")
-			resultado.perdiste()}
+			game.clear()
+			game.addVisualIn(gameOver,game.origin())
+			control.reiniciar()
+			}
 			else if (contador == 10) {
 			segundos.cant(nro.anterior())
 			sgds = nro.anterior()
