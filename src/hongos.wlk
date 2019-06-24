@@ -6,7 +6,7 @@ class Hongo inherits Colisionable {
 	 
 	const property efecto
 	
-	method image() = "potion.png"
+	method image() = "hongo.png"
 	
 	method tipo() = ""
 	

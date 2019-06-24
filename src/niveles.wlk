@@ -109,7 +109,7 @@ override method start() {
 override method visuales(){
 				game.ground("concreto.png")
 				// Muros
-				muro.cargar() 
+				muro.cargar("muro.png") 
 				// Puerta
 				game.addVisualIn(new Puerta(nivelActual = self),game.at(19,8)) //posicion siempre menor o igual a (height - 2) (width - 2) 
 				tablero.cargarCofresDelNivel1()
@@ -121,14 +121,21 @@ override method visuales(){
 }
 
 object nivel2 inherits Nivel {
-	
+	// Leo no rompas nada 
+
 
 	override method tipo() = 2
 	override method start(){
 	game.clear()
-	game.ground("cinco.png")
+	super()
+	
 	game.start()
 	}
+override method visuales(){
+		game.ground("suelo2.jpg")
+		muro.cargar("muro2.jpg")
+	}
+
 }
 
 object nivel3 inherits Nivel {
