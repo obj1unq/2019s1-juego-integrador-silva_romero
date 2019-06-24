@@ -8,14 +8,12 @@ object inicio {
 		game.title("smash bros")
 		game.height(14)
 		game.width(22)
-
 		game.ground("celda.png")
 		game.addVisual(inicioDelJuego)
 		keyboard.s().onPressDo{ 
-			game.clear()
-			nivel1.start()
+		game.clear()
+		nivel1.start()
 		}
-		
 	}
 
 }

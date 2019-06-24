@@ -44,7 +44,7 @@ object representacionMenu {
 		convertirNumero.actualizarAtaque()
 	}
 	method cargarObj(){
-		self.generarFondo()
+		
 		self.cargarCorazones()
 		game.addVisualIn(convertirNumero.obtenerNumero(personaje.ataque()),game.at(8,12)) //inicializa los valores de ataque 
 		game.addVisual(imagenDeVida)
@@ -93,12 +93,12 @@ object representacionMenu {
 		(0 .. ancho).forEach{ n => posiciones.add(new Position(n, alto))}
 		(0 .. ancho).forEach{ n => posiciones.add(new Position(n, alto - 1))}
 		(0 .. ancho).forEach{ n => posiciones.add(new Position(n, alto - 2))}
-		posiciones.forEach{ pos => game.addVisualIn(new Fondo(), pos)}
+		posiciones.forEach{ pos => game.addVisualIn(new FondoMenu(), pos)}
 	}
 
 }
 
-class Fondo{
+class FondoMenu{
 	method image() = "fondoMenu3.jpeg"
 }
 

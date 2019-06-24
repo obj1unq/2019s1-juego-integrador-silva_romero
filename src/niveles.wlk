@@ -23,8 +23,8 @@ class Nivel {
 	method start() {
 		self.configuraciones()
 		self.menu()
-		self.personaje()
 		self.movimientos()
+		self.personaje()
 		self.animaciones()
 		self.visuales() // para cada nivel
 	}
@@ -34,6 +34,7 @@ class Nivel {
 		game.title("Escape : the pikachu's dungeon")
 		game.height(14)
 		game.width(22)
+		representacionMenu.generarFondo()
 	}
 
 	method personaje() {
@@ -46,11 +47,22 @@ class Nivel {
 
 	method movimientos() {
 		keyboard.r().onPressDo{ self.reiniciar()}
+		keyboard.up().onPressDo{ personaje.mover(personaje.position().up(1), arriba)}
+		keyboard.down().onPressDo{ personaje.mover(personaje.position().down(1), abajo)}
+		keyboard.left().onPressDo{ personaje.mover(personaje.position().left(1), izquierda)}
+		keyboard.right().onPressDo{ personaje.mover(personaje.position().right(1), derecha)}
+		keyboard.space().onPressDo{ personaje.interactuar()}
+		keyboard.a().onPressDo{ game.say(personaje, personaje.ataque().toString())} // Para testings
+		keyboard.v().onPressDo{ game.say(personaje, personaje.vida().toString())} // Para testings
+		keyboard.l().onPressDo{ game.say(personaje, personaje.llavesObtenidas().toString())} // Para testings
+		keyboard.o().onPressDo{ game.say(personaje, personaje.position().up(1).allElements().toString())}
+		
 	}
 
 	method menu() {
 		representacionMenu.actualizarVida()
 		representacionMenu.cargarObj()
+		
 		keyboard.any().onPressDo{ representacionMenu.actualizar()}
 		reloj.funcionando(seis, cero)
 	}
