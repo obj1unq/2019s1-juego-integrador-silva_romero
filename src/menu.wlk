@@ -104,12 +104,12 @@ object representacionMenu {
 
 object imagenDeVida{
 	var property position = game.at(7,11)
-	var property imagen = "hp.png"
+	method image() = "hp.png"
 }
 
 object imagenDeAtk{
 	var property position = game.at(7,12)
-	var property imagen = "atk.png"
+	method image() = "atk.png"
 }
 	
 	
