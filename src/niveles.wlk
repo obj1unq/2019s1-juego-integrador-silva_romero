@@ -21,8 +21,9 @@ import tablero.*
 
 class Nivel {	
 	method tipo()
-
+	
 	method start() {
+			
 			self.configuraciones()
 			self.menu()
 			self.personaje()
@@ -66,6 +67,9 @@ class Nivel {
 		game.addVisualIn(convertirNumero.obtenerNumero(personaje.ataque()),game.at(8,12)) //inicializa los valores de ataque 
 		representacionMenu.actualizarVida()
 		representacionMenu.cargarObj()
+		game.addVisual(imagenDeVida)
+		game.addVisual(imagenDeAtk)
+		game.addVisual(relojRef)
 	
 		keyboard.any().onPressDo{ representacionMenu.actualizar()}
 		reloj.funcionando(nueve,cero)
