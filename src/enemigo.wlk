@@ -70,7 +70,7 @@ class Enemigo inherits NoColisionable {
 		
 	}
 	
-	method animacion() {}
+	method animacion() 
 	method tipo() {return ""}
 	
 	method nacer(_hp,_atk) {

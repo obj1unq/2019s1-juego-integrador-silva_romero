@@ -27,10 +27,10 @@ object personaje {
 		self.enemigo().reciboAtaque(self)
 	}
 	method esAtacado(ataqueEnemigo){
+		imagen = orientacion.imagenDelPersonajeAtacado()
 		vida -= ataqueEnemigo
 		representacionMenu.actualizarVida()
 	}
-	
 	method enemigo() = game.getObjectsIn(orientacion.posicionAl(self))
 
 ///----------------------------------------------------------
