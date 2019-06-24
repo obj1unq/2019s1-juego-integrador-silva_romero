@@ -95,6 +95,18 @@ object representacionMenu {
 		(0 .. ancho).forEach{ n => posiciones.add(new Position(n, alto - 2))}
 		posiciones.forEach{ pos => game.addVisualIn(new FondoMenu(), pos)}
 	}
+	method teclasParaJugar(){
+		var lsImg = []
+		var lsPos = [game.at(11,12) ,game.at(11,12),game.at(11,12),game.at(11,12),game.at(11,12)]
+		
+		lsImg.forEach { 
+			game.addVisualIn(lsImg.head(),lsPos.head())
+			lsImg.tail()
+			lsPos.tail()
+		}
+		
+	}
+		
 
 }
 
@@ -139,9 +151,10 @@ object relojRef{
 	var property image = "timeA.png"
 }	
 
-class Letra{
+class Tecla{
 	var property position 
 	var property image 
 }
 
 
+ 

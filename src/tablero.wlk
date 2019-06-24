@@ -25,7 +25,7 @@ object tablero {
 		factoryCofre.crearCofreEnemigoConLlave(pos,6,12)
 		
 		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
-		repeat.cant(3, { factoryCofre.crearCofreVeneno(pos)})
+		//repeat.cant(3, { factoryCofre.crearCofreVeneno(pos)})
 	
 		
 		repeat.cant(2, { factoryCofre.crearCofreLlave(pos)})

@@ -41,6 +41,7 @@ object factory {
 		_enemigo.aniadir(objeto)
 		_enemigo.asignarPosicion(pos)
 		observerEnemigos.observar(_enemigo) 
+		
 		return _enemigo
 	}
 	
