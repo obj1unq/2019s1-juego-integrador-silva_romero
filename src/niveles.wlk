@@ -81,7 +81,7 @@ class Nivel {
 		self.siPerdio()
 		game.clear()
 		reloj.reiniciar()
-		personaje.reinicio()
+		personaje.reiniciar()
 		self.cargar()
 	}
 

@@ -2,6 +2,7 @@ import wollok.game.*
 import direcciones.*
 import menu.*
 import llave.*
+import resultado.*
 //
 object personaje {
 	var property vida = 10	
@@ -138,10 +139,28 @@ method recogerLlave() {
 		}
 
 	}
-
+	
 	method muerto() {
 		vida=0
 		imagen = "pikachuMuerto.png"
+		
 	}
+// SI SU VIDA ESTA 	
+	
+	
+// Pasar de Nivel 
+method pasoDeNivel(){
+	llavesObtenidas = []
+	inventario = []
+}	
+// reiniciar
+method reiniciar(){
+	vida = 10 
+	imagen = orientacion.imagenDelPersonaje()
+	ataque = 1
+	llavesObtenidas = []
+	inventario = []
+}
+
 
 }

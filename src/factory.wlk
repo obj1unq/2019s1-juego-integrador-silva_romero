@@ -69,7 +69,7 @@ object factory {
 object factoryCofre {
 	
 	var property enemigosPosibles = ["bowser","metroid","zelda","pacman","donkey"] 
-	var property imagenesArmas = ["espada1.png","espada2.png","palo.png","iron_sword.png"]
+	var property imagenesArmas 
 	var hongo = factory.crearSalud()
 	var llave = factory.crearLlave()
 	
