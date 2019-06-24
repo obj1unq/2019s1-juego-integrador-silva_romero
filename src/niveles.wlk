@@ -103,6 +103,7 @@ object nivel1 inherits Nivel {
 
 	override method ganaste() {
 		nivel2.cargar()
+		personaje.pasoDeNivel()
 	}
 	override method configuraciones(){
 		super()
@@ -141,6 +142,7 @@ object nivel2 inherits Nivel {
 	}
 	override method ganaste() {
 		nivel3.cargar()
+		personaje.pasoDeNivel()
 	}
 }
 
