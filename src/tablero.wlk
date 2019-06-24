@@ -18,12 +18,12 @@ object tablero {
 //		repeat.cant(2, { factoryCofre.crearCofreSalud(pos)})
 //		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
 //		
-		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)})// no se olviden de descomentar todos :)
+		//repeat.cant(3, { factoryCofre.crearCofreLlave(pos)})// no se olviden de descomentar todos :)
 //		factoryCofre.crearCofreEnemigoConLlave(pos,6,12)
 		
 //		repeat.cant(2, { factoryCofre.crearCofreArma(pos,1,3)})
 		
-		//repeat.cant(3, { factoryCofre.crearCofreBomba(pos)})
+		repeat.cant(3, { factoryCofre.crearCofreBomba(pos)})
 	}
 
 	method cargarCofresDelNivel2() {

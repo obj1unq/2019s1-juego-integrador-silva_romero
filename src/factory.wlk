@@ -44,15 +44,8 @@ object factory {
 		return _enemigo
 	}
 	
-	method crearBomba() {
-			return new Bomba() 		
-		/* 
-		const _bomba = new Bomba(position = pos)//Este crearBomba deberia llamarlo el cofre, el cual le pasa su posición
-		game.addVisual(_bomba)
-		game.say(_bomba,"CUIDADO!!!")
-		game.onTick(500,"explosion muy explosionadora",_bomba.explotar())
-		*/		
-}	
+	method crearBomba(pos) = new Bomba(position = pos) 		
+		
 
 	method crearSalud() {
 		return new HongoSalud(efecto = 2.randomUpTo(5).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)		
@@ -62,9 +55,8 @@ object factory {
 		return new HongoVeneno(efecto = 2.invert().randomUpTo(5.invert()).truncate(0)) // ASIGNADO CON LOS VALORES DEL README, PUEDE CAMBIAR(GT)
 	}
 	
-	method crearLlave() {
-		return new Llave()
-	}
+	method crearLlave() = new Llave()
+	
 	
 	method crearArma(img,atkMin,atkMax) {
 		return new Arma(image = img, mejoraAtk = atkMin.randomUpTo(atkMax).truncate(0))
@@ -150,7 +142,7 @@ object factoryCofre {
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
-				contenido = factory.crearBomba()
+				contenido = factory.crearBomba(pos)
 		)
 			game.addVisual(_cofre)
 			game.hideAttributes(_cofre)
