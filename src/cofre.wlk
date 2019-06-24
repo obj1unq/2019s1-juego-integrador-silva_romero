@@ -5,6 +5,8 @@ class Cofre inherits NoColisionable {
 	
 	const property position
 	var property contenido
+
+	method tipo() = "cofre"
 	
 	method image()= "cofre1.png"
 

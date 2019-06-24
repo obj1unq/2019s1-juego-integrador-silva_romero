@@ -6,6 +6,8 @@ class Puerta inherits NoColisionable {
 	const nivelActual
 
 	method image()= "door.png" 
+
+	method tipo() = "puerta"
 	
 	method serInteractuadoPor(jugador) {
 		//Si tiene 3 llaves, la abre y gana el juego. Si no, le dice "Faltan llaves."
