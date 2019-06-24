@@ -140,12 +140,21 @@ method recogerLlave() {
 
 	}
 	
+// Metodo cuando el personaje abre un cofre bomba
+	method explotado(){
+		if(self.vida()>0){
+			vida -= 4
+		}else{
+			self.muerto()
+		}
+	} 
+	
 	method muerto() {
 		vida=0
 		imagen = "pikachuMuerto.png"
 		
 	}
-// SI SU VIDA ESTA 	
+
 	
 	
 // Pasar de Nivel 

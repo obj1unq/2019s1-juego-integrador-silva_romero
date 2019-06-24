@@ -34,7 +34,7 @@ class Bomba inherits NoColisionable {
 	}
 
 	method aContinuacion(direccion) {
-		if (self.personajeEnDireccion(direccion)) { personaje.muerto() }
+		if (self.personajeEnDireccion(direccion)) { personaje.explotado() }
 	}
 
 	method personajeEnDireccion(direccion) = not game.getObjectsIn(direccion.posicionAl(self)).isEmpty() and game.getObjectsIn(direccion.posicionAl(self)).contains(personaje)
