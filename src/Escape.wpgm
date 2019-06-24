@@ -11,7 +11,7 @@ program Game {
 	
 	
 	//nivel1.cargar()
-	//nivel3.cargar()
+	nivel3.cargar()
 	game.start()
 	
 }

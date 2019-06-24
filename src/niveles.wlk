@@ -74,8 +74,7 @@ class Nivel {
 	method visuales() {
 	} // cada nivel maneja su propio visuales / fondo, enemigos, cofres
 
-	method ganaste() {
-	} // cada nivel maneja su propio ganaste 
+	method ganaste()  // cada nivel maneja su propio ganaste 
 
 	method reiniciar() {
 		self.siPerdio()
@@ -140,18 +139,26 @@ object nivel2 inherits Nivel {
 		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel2()
 	}
+	override method ganaste() {
+		nivel3.cargar()
+	}
 }
 
 object nivel3 inherits Nivel {
 
 	override method tipo() = 3
-
+	override method configuraciones(){
+		super()
+		game.ground("suelo3.jpg") 
+	}
 	override method visuales() {
-		game.ground("suelo3.jpg") //CAMBIAR
-		muro.cargar("muro2.jpg") //CAMBIAR
+		
+		muro.cargar("muro3.jpeg") 
 		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel3()
 	}
-	
+	override method ganaste(){
+		resultado.ganaste()
+	}
 }
 
