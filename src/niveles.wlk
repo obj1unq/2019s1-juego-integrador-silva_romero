@@ -20,11 +20,11 @@ class Nivel {
 
 	method tipo()
 
-	method start() {
+	method cargar() {
 		self.configuraciones()
 		self.menu()
-		self.movimientos()
 		self.personaje()
+		self.movimientos()
 		self.animaciones()
 		self.visuales() // para cada nivel
 	}
@@ -33,20 +33,22 @@ class Nivel {
 	method configuraciones() {
 		game.title("Escape : the pikachu's dungeon")
 		game.height(14)
-		game.width(22)
+		game.width(22)		
 		representacionMenu.generarFondo()
 	}
 
 	method personaje() {
 		// Personaje
 		game.addVisual(personaje)
-		//game.hideAttributes(personaje)
+		game.hideAttributes(personaje)
 			// Colisiones 
 		game.whenCollideDo(personaje, { objeto => objeto.colisionarCon(personaje)}) // Los unicos obj. con los que puede colisionar son llaves o hongos.	
 	}
 
 	method movimientos() {
-		keyboard.r().onPressDo{ self.reiniciar()}
+		
+		
+		
 		keyboard.up().onPressDo{ personaje.mover(personaje.position().up(1), arriba)}
 		keyboard.down().onPressDo{ personaje.mover(personaje.position().down(1), abajo)}
 		keyboard.left().onPressDo{ personaje.mover(personaje.position().left(1), izquierda)}
@@ -56,7 +58,7 @@ class Nivel {
 		keyboard.v().onPressDo{ game.say(personaje, personaje.vida().toString())} // Para testings
 		keyboard.l().onPressDo{ game.say(personaje, personaje.llavesObtenidas().toString())} // Para testings
 		keyboard.o().onPressDo{ game.say(personaje, personaje.position().up(1).allElements().toString())}
-		
+		keyboard.r().onPressDo{ self.reiniciar()}
 	}
 
 	method menu() {
@@ -81,7 +83,8 @@ class Nivel {
 		self.siPerdio()
 		game.clear()
 		reloj.reiniciar()
-		self.start()
+		personaje.reinicio()
+		self.cargar()
 	}
 
 	method siPerdio() {
@@ -102,16 +105,16 @@ object nivel1 inherits Nivel {
 	override method tipo() = 1
 
 	override method ganaste() {
-		nivel2.start()
+		nivel2.cargar()
 	}
-
-	override method start() {
+	override method configuraciones(){
 		super()
-		self.comienzo() // sin el nivel 1 no hay comienzo aca tiene el start
+		game.ground("concreto.png")
 	}
+	
 
 	override method visuales() {
-		game.ground("concreto.png")
+		
 			// Muros
 		muro.cargar("muro.png")
 			// Puerta
@@ -119,9 +122,7 @@ object nivel1 inherits Nivel {
 		tablero.cargarCofresDelNivel1()
 	}
 
-	method comienzo() {
-		game.start()
-	}
+	
 
 }
 
@@ -130,14 +131,16 @@ object nivel2 inherits Nivel {
 	// Leo no rompas nada 
 	override method tipo() = 2
 
-	override method start() {
+	override method cargar() {
 		game.clear()
 		super()
-		game.start()
 	}
-
-	override method visuales() {
+	override method configuraciones(){
+		super()
 		game.ground("suelo2.jpg")
+	}
+	override method visuales() {
+		
 		muro.cargar("muro2.jpg")
 		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel2()

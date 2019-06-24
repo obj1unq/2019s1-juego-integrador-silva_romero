@@ -8,6 +8,18 @@ import direcciones.*
 
 program Game {
 	//inicio.portada()	
-	nivel1.start()
-	/// el game start esta en nivel 1 
+	
+	nivel1.cargar()
+	game.start()
+	
+	
+	
 }
+// prueba 1 : probe con sacarlo de la clase nivel y poner lo movimientos en el objecto nivel1
+//prueba 2 : agregue otro start
+//prueba 3 comente personaje y cofres y bomba 
+// prueba 4 cree otro objecto ,para ver si el problema estaba en eso y nop 
+// prueba 5 cambie de lugar la altura y ancho de tablero 
+// borre todo y pikachu sigue sin moverse 
+// cambia los niveles y no funciona 
+//  lo encontre !!! 4:22 am 

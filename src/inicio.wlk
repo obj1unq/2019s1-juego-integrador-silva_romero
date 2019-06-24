@@ -12,7 +12,7 @@ object inicio {
 		game.addVisual(inicioDelJuego)
 		keyboard.s().onPressDo{ 
 		game.clear()
-		nivel1.start()
+		nivel1.cargar()
 		}
 	}
 
