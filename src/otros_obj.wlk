@@ -25,9 +25,6 @@ class Colisionable {
 	
 }
 
-class FondoNegro {
-	method image() = "negro.png"
-}
 
 object repeat {
 	//uso : repeat.cant( numero, bloque de codigo )
@@ -46,14 +43,6 @@ object repeat {
 	}
 }
 
-object remove {
-	
-	method allIn(pos) {
-		//Remueve todos los objetos que esten en la posicion
-		
-		pos.allElements().forEach { obj => game.removeVisual(obj) }
-	}
-}
 
 
 object observerEnemigos {
