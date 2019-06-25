@@ -18,13 +18,13 @@ object tablero {
 		factoryCofre.enemigosPosibles([ "pacman", "donkey" ])
 //		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)}) // borrar esta linea solo es para testear el paso de nivel
 			// DESCOMENTAR LO QUE ESTA ABAJO ES COMO QUEDA EL NIVEL 1
-		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
-		factoryCofre.crearCofreEnemigoConLlave(pos, 6, 12)
-		repeat.cant(4, { factoryCofre.crearCofreSalud(pos)})
-		repeat.cant(3, { factoryCofre.crearCofreVeneno(pos)})
-		repeat.cant(2, { factoryCofre.crearCofreLlave(pos)})
-		repeat.cant(2, { factoryCofre.crearCofreArma(pos, 1, 3)})
-		repeat.cant(3, { factoryCofre.crearCofreBomba(pos)})
+//		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
+//		factoryCofre.crearCofreEnemigoConLlave(pos, 6, 12)
+//		repeat.cant(4, { factoryCofre.crearCofreSalud(pos)})
+//		repeat.cant(3, { factoryCofre.crearCofreVeneno(pos)})
+		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)})
+//		repeat.cant(2, { factoryCofre.crearCofreArma(pos, 1, 3)})
+//		repeat.cant(3, { factoryCofre.crearCofreBomba(pos)})
 	}
 
 	method cargarCofresDelNivel2() {

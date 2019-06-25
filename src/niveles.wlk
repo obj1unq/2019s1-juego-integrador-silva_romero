@@ -16,7 +16,7 @@ import arma.*
 import llave.*
 import tablero.*
 import inicio.*
-
+import suelo.*
 class Nivel {
 
 	method tipo()
@@ -67,8 +67,7 @@ class Nivel {
 		game.onTick(500, "animacion enemigos", { observerEnemigos.update()})
 	}
 
-	method visuales() {
-	} // cada nivel maneja su propio visuales / fondo, enemigos, cofres
+	method visuales()  // cada nivel maneja su propio visuales / fondo, enemigos, cofres
 
 	method ganaste()  // cada nivel maneja su propio ganaste 
 
@@ -88,13 +87,16 @@ class Nivel {
 		game.clear()
 		game.boardGround("gameOver.jpg")
 	}
-	
+	method colocarSuelo(imagen){
+		suelo.image(imagen)
+		game.addVisual(suelo)
+	}
 	
 
 }
 
 object nivel1 inherits Nivel {
-
+	
 	override method tipo() = 1
 
 	override method ganaste() {
@@ -103,8 +105,9 @@ object nivel1 inherits Nivel {
 		representacionMenu.actualizar()
 	}
 	override method configuraciones(){
+		self.colocarSuelo("textura1.jpg")
 		super()
-		game.ground("concreto.png")
+		
 	}
 	
 
@@ -128,7 +131,7 @@ object nivel2 inherits Nivel {
 		super()
 	}
 	override method configuraciones(){
-		game.ground("suelo2.jpg")
+		self.colocarSuelo("textura2.jpg")
 		super()
 	}
 	override method visuales() {
@@ -148,7 +151,7 @@ object nivel3 inherits Nivel {
 
 	override method tipo() = 3
 	override method configuraciones(){
-		game.ground("suelo3.jpg") 
+		game.ground("texurra3.jpg")
 		super()
 	}
 	
