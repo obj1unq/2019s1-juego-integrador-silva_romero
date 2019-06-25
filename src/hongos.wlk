@@ -11,16 +11,17 @@ class Hongo inherits Colisionable {
 	method tipo() = ""
 	
 	 method colisionarCon(personaje) {
-	 	  
 		if (personaje.vida() != 10 or self.efecto() < 0) {
-			//self.efecto() > 0 significa que es una pocion curativa y no un veneno.
-		personaje.aplicarEfecto(self)
-		game.removeVisual(self)
-		representacionMenu.actualizar()
-		}else if((personaje.vida() == 10) && self.efecto()>0){
-			 game.say(personaje,"Ya tengo vida!")
-			 }
+			// self.efecto() > 0 significa que es una pocion curativa y no un veneno.
+			personaje.aplicarEfecto(self)
+			game.removeVisual(self)
+			representacionMenu.actualizar()
+		} else if ((personaje.vida() == 10) && self.efecto() > 0) {
+			game.onTick(0, "mensajeDeVidaLlena", { game.say(personaje, "vida suficiente!")
+				game.removeTickEvent("mensajeDeVidaLlena")
+			})
 		}
+	}
 	
 	
 	method serInteractuadoPor(jugador) {

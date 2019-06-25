@@ -59,7 +59,7 @@ object reloj {
 object segundos {
 
 	var property cant
-	var position = game.at(7, 12)
+	var position = game.at(1, 12)
 
 	method image() = cant.image()
 
@@ -70,7 +70,7 @@ object segundos {
 object segundo {
 
 	var property cant
-	var position = game.at(8, 12)
+	var position = game.at(2, 12)
 
 	method image() = cant.image()
 

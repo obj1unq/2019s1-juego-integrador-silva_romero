@@ -96,12 +96,12 @@ object personaje {
 			inventario.add(arma)
 			game.removeVisual(arma)
 			self.aplicarMejora(arma)
-			game.addVisualIn(arma, game.at(12, 12)) // agrega la imagen al menu
+			game.addVisualIn(arma, game.at(2,13)) // agrega la imagen al menu
 		} else {
 			self.tirarArmaActual()
 			inventario.add(arma)
 			game.removeVisual(arma)
-			game.addVisualIn(arma, game.at(12, 12)) // agrega la imagen al menu 
+			game.addVisualIn(arma, game.at(2,13)) // agrega la imagen al menu 
 			self.aplicarMejora(arma)
 		}
 	}
