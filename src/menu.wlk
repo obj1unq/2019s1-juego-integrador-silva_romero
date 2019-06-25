@@ -42,6 +42,7 @@ object representacionMenu {
 		self.actualizarVida()
 		self.llavesAquiridas()
 		convertirNumero.actualizarAtaque()
+		
 	}
 	method cargarObj(){
 		
@@ -78,10 +79,10 @@ object representacionMenu {
 	}
 
 	method llavesAquiridas() {
-		var i = 6
+		var i = 15
 		if (not personaje.llavesObtenidas().isEmpty()) {
 			personaje.llavesObtenidas().forEach{ llave =>
-				game.addVisualIn(llave, game.at(i, 11))
+				game.addVisualIn(llave, game.at(i, 13))
 				i += 1
 			}
 		}
@@ -96,13 +97,15 @@ object representacionMenu {
 		posiciones.forEach{ pos => game.addVisualIn(new FondoMenu(), pos)}
 	}
 	method teclasParaJugar(){
-		var lsImg = []
-		var lsPos = [game.at(11,12) ,game.at(11,12),game.at(11,12),game.at(11,12),game.at(11,12)]
+		const teclas = (1 .. 5).map{ i => new Tecla()}
 		
-		lsImg.forEach { 
-			game.addVisualIn(lsImg.head(),lsPos.head())
-			lsImg.tail()
-			lsPos.tail()
+		var lsImg = ["teclaAba.png","tecladoArriba.png","tecladoDer.png","teclaIzq.png","space.png"]
+		var lsPos = [game.at(11,11) ,game.at(11,12),    game.at(12,11), game.at(10,11),game.at(14,11)]
+		
+		teclas.forEach {  tecla => tecla.image(lsImg.head())
+							game.addVisualIn(tecla,lsPos.head())
+							lsImg.remove(lsImg.head())
+							lsPos.remove(lsPos.head())
 		}
 		
 	}

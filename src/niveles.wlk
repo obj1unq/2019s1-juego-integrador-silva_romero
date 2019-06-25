@@ -61,6 +61,7 @@ class Nivel {
 		representacionMenu.cargarObj()
 		
 		reloj.funcionando(seis, cero)
+		representacionMenu.teclasParaJugar()
 	}
 
 	method animaciones() {
