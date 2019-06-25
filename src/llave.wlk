@@ -1,6 +1,8 @@
 import wollok.game.*
 import otros_obj.*
 import menu.*
+import personaje.*
+
 class Llave inherits Colisionable {
 	
 	var position
@@ -18,6 +20,6 @@ class Llave inherits Colisionable {
 	
 	
 	method serInteractuadoPor(jugador) {
-		//Respeta el polimorfismo
+		game.say(personaje,"¿Qué pasará si la paso por encima?")
 	}
 }
