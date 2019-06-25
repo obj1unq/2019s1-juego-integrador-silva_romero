@@ -78,10 +78,10 @@ object factoryCofre {
 	
 	var property enemigosPosibles = [] 
 	var property imagenesArmas = []
-	var hongo = factory.crearHongoSeguro()
-	var llave = factory.crearLlave()
 	
 	method crearCofreEnemigo(pos,vidaMin,vidaMax) { 
+		
+	var hongo = factory.crearHongoSeguro()
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
@@ -95,6 +95,7 @@ object factoryCofre {
 	}
 	
 	method crearCofreEnemigoConLlave(pos,vidaMin,vidaMax) { 
+	var llave = factory.crearLlave()
 		if(game.getObjectsIn(pos).isEmpty()){
 			const _cofre = new Cofre(
 				position = pos,
