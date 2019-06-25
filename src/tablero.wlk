@@ -17,11 +17,11 @@ object tablero {
 		factoryCofre.imagenesArmas([ "martillo.png", "hoz.png", "arco1.png" ])
 		factoryCofre.enemigosPosibles(["megaMan", "pacman", "donkey" ])
 		
-		// DESCOMENTAR LO QUE ESTA ABAJO ES COMO QUEDA EL NIVEL 1
+		
 		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
 		factoryCofre.crearCofreEnemigoConLlave(pos, 6, 12)
 		repeat.cant(4, { factoryCofre.crearCofreSalud(pos)})
-		repeat.cant(3, { factoryCofre.crearCofreVeneno(pos)})
+		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreLlave(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreArma(pos, 1, 3)})
 		repeat.cant(2, { factoryCofre.crearCofreBomba(pos)})
@@ -36,9 +36,8 @@ object tablero {
 		factoryCofre.enemigosPosibles(["bowser","metroid"])
 		
 		
-//		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)}) // borrar esta linea solo es para testear el paso de nivel
 		
-		// DESCOMENTAR LO QUE ESTA ABAJO ES COMO QUEDA EL NIVEL 2
+		
 		
 		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 8, 15)})
 		
@@ -61,11 +60,8 @@ object tablero {
 		factoryCofre.imagenesArmas(["palo3.png","Labrys.png","espada3.png"])
 		factoryCofre.enemigosPosibles(["zelda","link"])
 		
-//		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)}) // borrar esta linea solo es para testear el paso de nivel
 		
-		// DESCOMENTAR LO QUE ESTA ABAJO ES COMO QUEDA EL NIVEL 3
-		
-		repeat.cant(4, { factoryCofre.crearCofreEnemigo(pos, 10, 22)})
+		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 10, 22)})
 		
 		repeat.cant(1, { factoryCofre.crearCofreSalud(pos)})
 		repeat.cant(2, { factoryCofre.crearCofreVeneno(pos)})

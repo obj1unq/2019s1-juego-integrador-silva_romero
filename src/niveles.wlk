@@ -101,6 +101,7 @@ object nivel1 inherits Nivel {
 	override method tipo() = 1
 
 	override method ganaste() {
+		reloj.reiniciar()
 		nivel2.cargar()
 		personaje.pasoDeNivel()
 		representacionMenu.actualizar()
@@ -142,6 +143,7 @@ object nivel2 inherits Nivel {
 		tablero.cargarCofresDelNivel2()
 	}
 	override method ganaste() {
+		reloj.reiniciar()
 		nivel3.cargar()
 		personaje.pasoDeNivel()
 		representacionMenu.actualizar()
@@ -152,7 +154,7 @@ object nivel3 inherits Nivel {
 
 	override method tipo() = 3
 	override method configuraciones(){
-		game.ground("texurra3.jpg")
+		game.ground("suelo3.jpg")
 		super()
 	}
 	

@@ -99,7 +99,7 @@ object representacionMenu {
 	method teclasParaJugar(){
 		const teclas = (1 .. 5).map{ i => new Tecla()}
 		
-		var lsImg = ["teclaAba.png","tecladoArriba.png","tecladoDer.png","teclaIzq.png","space.png"]
+		var lsImg = ["teclaAba.png","tecladoArriba.png","tecladoDer.png","teclaIzq.png","space .png"]
 		var lsPos = [game.at(11,11) ,game.at(11,12),    game.at(12,11), game.at(10,11),game.at(14,11)]
 		
 		teclas.forEach {  tecla => tecla.image(lsImg.head())
