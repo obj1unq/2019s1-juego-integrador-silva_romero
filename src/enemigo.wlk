@@ -187,3 +187,16 @@ class Link inherits Enemigo{
 		}
 	}
 }
+class Dragon inherits Enemigo{
+	override method imagenAtk() = "dragonAtacado.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+	override method tipo() = "dragon"
+	
+	override method animacion() {
+		if(imagen == "dragon1.png") {
+		imagen = "dragon2.png"
+		} else {
+			imagen = "dragon1.png"
+		}
+	}
+}
