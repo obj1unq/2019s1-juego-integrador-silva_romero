@@ -70,9 +70,21 @@ object personaje {
 		// Puede mover si no hay un obj no colisionable en direccion dir
 		orientacion = dir // Actualiza la variable del personaje
 		self.actualizarImagen()
+
 		if (vida > 0 && self.puedeMoverAl(dir)) {
 			self.position(nuevaPosicion)
+			self.mensajeHongoSalud()		
 		}
+	}
+	
+	method mensajeHongoSalud() {
+		if (self.hayHongoSalud() && self.vida() == 10) {
+			game.say(self,"No puedo agarrar eso ahora mismo!")
+		}
+	}
+	
+	method hayHongoSalud() {
+		return game.colliders(self).any { obj => obj.tipo() == "pocion" }
 	}
 
 ///----------------------------------------------------------
