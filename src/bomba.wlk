@@ -20,10 +20,8 @@ class Bomba inherits NoColisionable {
 		if (imagenes.isEmpty()) {
 			game.removeTickEvent("explotar")
 			game.removeVisual(self)
-		} else {
-			self.image(imagenes.first())
-			imagenes.remove(imagenes.first())
-		}
+		} else {self.image(imagenes.first())
+				imagenes.remove(imagenes.first())}
 	}
 
 	method eliminarAlrededor() {

@@ -42,7 +42,7 @@ object personaje {
 	}
 
 	method esAtacado(ataqueEnemigo) {
-		imagen = orientacion.imagenDelPersonajeAtacado()
+		self.animacionPersonajeAtacado()
 		vida -= ataqueEnemigo
 		representacionMenu.actualizarVida()
 	}
@@ -187,6 +187,16 @@ object personaje {
 		llavesObtenidas = []
 		inventario = []
 	}
-
+method animacionPersonajeAtacado() {
+	game.onTick(200, "animacion personaje", { self.animacion()})
+	}
+method animacion(){
+	var imagenes = orientacion.imagenes()
+	if (imagenes.isEmpty()){
+		game.removeTickEvent("animacion personaje")
+	} else 
+	{imagen = imagenes.first()
+	imagenes.remove(imagenes.first())}	
+  }
 }
 

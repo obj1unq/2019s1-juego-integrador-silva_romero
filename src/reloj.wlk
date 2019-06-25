@@ -26,7 +26,6 @@ object reloj {
 		game.onTick(1000, "actualiza cada segundo", { self.temporizador(sgds, sgd)})
 	}
 
-
 	method temporizador(nro, nro2) {
 		if (self.termino()) 
 			{game.removeTickEvent("actualiza cada segundo")
