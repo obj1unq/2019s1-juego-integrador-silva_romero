@@ -7,7 +7,6 @@ import personaje.*
 import direcciones.*
 
 program Game {
-	
 	inicio.portada()
 	game.start()	
 }

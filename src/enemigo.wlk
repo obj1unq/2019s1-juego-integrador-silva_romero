@@ -160,8 +160,21 @@ class Donkey inherits Enemigo {
 	}
 }
 
-class Link inherits Enemigo {
+class MegaMan inherits Enemigo {
 	
+	override method imagenAtk() = "megaManH.png" //la imagen que se muestra cuando es atacado por el jugador
+	
+	override method tipo() = "megaMan"
+	
+	override method animacion() {
+		if(imagen == "megaMan1.png") {
+		imagen = "megaMan2.png"
+		} else {
+			imagen = "megaMan1.png"
+		}	
+	}
+}
+class Link inherits Enemigo{
 	override method imagenAtk() = "link_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
 	override method tipo() = "link"
@@ -171,6 +184,6 @@ class Link inherits Enemigo {
 		imagen = "link2.png"
 		} else {
 			imagen = "link1.png"
-		}	
+		}
 	}
 }

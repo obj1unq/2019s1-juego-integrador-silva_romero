@@ -39,7 +39,9 @@ object factory {
 		if(tipo=="link") {
 			_enemigo = new Link()
 		}
-		
+		if(tipo =="megaMan"){
+			_enemigo = new MegaMan()
+		}
 		//_enemigo.nacer ( vida, ataque )
 		_enemigo.nacer( vidaMin.randomUpTo(vidaMax).truncate(0) , 2.randomUpTo(5).truncate(0) )
 		_enemigo.aniadir(objeto)

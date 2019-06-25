@@ -15,10 +15,10 @@ object tablero {
 		// nivel de  ataque del arma: 1 a 3
 		const pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		factoryCofre.imagenesArmas([ "martillo.png", "hoz.png", "arco1.png" ])
-		factoryCofre.enemigosPosibles([ "pacman", "donkey" ])
+		factoryCofre.enemigosPosibles(["megaMan", "pacman", "donkey" ])
 //		repeat.cant(3, { factoryCofre.crearCofreLlave(pos)}) // borrar esta linea solo es para testear el paso de nivel
 			// DESCOMENTAR LO QUE ESTA ABAJO ES COMO QUEDA EL NIVEL 1
-//		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
+		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 6, 12)})
 //		factoryCofre.crearCofreEnemigoConLlave(pos, 6, 12)
 //		repeat.cant(4, { factoryCofre.crearCofreSalud(pos)})
 //		repeat.cant(3, { factoryCofre.crearCofreVeneno(pos)})
