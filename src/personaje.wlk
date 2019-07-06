@@ -159,15 +159,13 @@ object personaje {
 	}
 
 	method muerto() {
+// necesitar moverse para que aparezca la imagen de gameOver
+// si no se puede arreglar volver a la vieja version
 		vida = 0
 		imagen = "pikachuMuerto.png"
+		resultado.perdiste()
 		
-		
-		game.onTick(1500,"self",{
-			game.clear()
-			game.addVisualIn(gameOver,game.origin())
-			control.reiniciar()
-		})
+
 		
 		
 	}

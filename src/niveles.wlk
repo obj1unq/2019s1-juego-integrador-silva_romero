@@ -17,6 +17,7 @@ import llave.*
 import tablero.*
 import inicio.*
 import suelo.*
+import numeros.*
 class Nivel {
 
 	method tipo()
@@ -70,24 +71,15 @@ class Nivel {
 
 	method visuales()  // cada nivel maneja su propio visuales / fondo, enemigos, cofres
 
-	method ganaste()  // cada nivel maneja su propio ganaste 
-
-	method reiniciar() {
-		self.siPerdio()
-		game.clear()
+	method ganaste(){
 		reloj.reiniciar()
-		personaje.reiniciar()
-		self.cargar()
-	}
+		personaje.pasoDeNivel()
+		representacionMenu.actualizar()
+		self.siguienteNivel()		
+	}  
+	method siguienteNivel()
 
-	method siPerdio() {
-		if (resultado.perdio()) {game.removeVisual(resultado)}
-	}
 
-	method perdiste() {
-		game.clear()
-		game.boardGround("gameOver.jpg")
-	}
 	method colocarSuelo(imagen){
 		suelo.image(imagen)
 		game.addVisual(suelo)
@@ -100,11 +92,8 @@ object nivel1 inherits Nivel {
 	
 	override method tipo() = 1
 
-	override method ganaste() {
-		reloj.reiniciar()
+	override method siguienteNivel(){
 		nivel2.cargar()
-		personaje.pasoDeNivel()
-		representacionMenu.actualizar()
 	}
 	override method configuraciones(){
 		self.colocarSuelo("textura1.jpg")
@@ -125,7 +114,9 @@ object nivel1 inherits Nivel {
 }
 
 object nivel2 inherits Nivel {
-
+	override method siguienteNivel(){
+		nivel3.cargar()
+	}
 	override method tipo() = 2
 
 	override method cargar() {
@@ -142,12 +133,7 @@ object nivel2 inherits Nivel {
 		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel2()
 	}
-	override method ganaste() {
-		reloj.reiniciar()
-		nivel3.cargar()
-		personaje.pasoDeNivel()
-		representacionMenu.actualizar()
-	}
+	
 }
 
 object nivel3 inherits Nivel {
@@ -172,5 +158,8 @@ object nivel3 inherits Nivel {
 	override method ganaste(){
 		resultado.ganaste()
 	}
+	override method siguienteNivel(){
+	 /// no hay mas niveles
+	 }
 }
 

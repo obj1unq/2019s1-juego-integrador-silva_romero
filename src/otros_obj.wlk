@@ -28,14 +28,7 @@ class Colisionable {
 	
 }
 
-object control {
-	
-	method reiniciar() = keyboard.r().onPressDo { 
-			game.clear()
-			personaje.restart()
-			inicio.portada()
-		}
-}
+
 
 
 object repeat {

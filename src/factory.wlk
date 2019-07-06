@@ -42,6 +42,9 @@ object factory {
 		if(tipo =="megaMan"){
 			_enemigo = new MegaMan()
 		}
+		if(tipo =="dragon"){
+			_enemigo = new Dragon()
+		}
 		//_enemigo.nacer ( vida, ataque )
 		_enemigo.nacer( vidaMin.randomUpTo(vidaMax).truncate(0) , 2.randomUpTo(5).truncate(0) )
 		_enemigo.aniadir(objeto)

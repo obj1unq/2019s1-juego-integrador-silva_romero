@@ -58,7 +58,7 @@ object tablero {
 		// nivel de  ataque del arma: 6 a 8
 		const pos = game.at(1.randomUpTo(game.width() - 1).truncate(0), 1.randomUpTo(game.height() - 5).truncate(0))
 		factoryCofre.imagenesArmas(["palo3.png","Labrys.png","espada3.png"])
-		factoryCofre.enemigosPosibles(["zelda","link"])
+		factoryCofre.enemigosPosibles(["zelda","link","dragon"])
 		
 		
 		repeat.cant(3, { factoryCofre.crearCofreEnemigo(pos, 10, 22)})

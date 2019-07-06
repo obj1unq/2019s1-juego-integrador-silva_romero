@@ -1,5 +1,5 @@
 import otros_obj.* //importar para conseguir el fondo negro
-import reloj.* //vacio por ahora
+import numeros.* //vacio por ahora
 import personaje.*
 import llave.*
 import wollok.game.*
