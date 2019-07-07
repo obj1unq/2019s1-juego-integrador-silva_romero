@@ -13,28 +13,6 @@ object resultado {
 			image= "ganaste.jpg"
 			game.addVisual(self)
 	}
-	method perdiste(){
-		game.onTick(1500,"self",{
-			game.clear()
-			game.addVisual(self)
-			control.reiniciar()
-		})
-			
-	}
+	
 }
 
-object control {
-	
-	method reiniciar() { 
-			
-			keyboard.r().onPressDo {
-			game.clear()
-			self.reinicioDeObjectos()
-			inicio.portada()
-									}
-						}
-	method reinicioDeObjectos(){
-		personaje.restart()
-		reloj.reiniciar()
-	}
-}

@@ -20,7 +20,7 @@ import suelo.*
 import numeros.*
 class Nivel {
 
-	method tipo()
+	
 
 	method cargar() {
 		self.configuraciones()
@@ -38,6 +38,7 @@ class Nivel {
 
 	method personaje() {
 		// Personaje
+		personaje.nivelActual(self)
 		game.addVisual(personaje)
 		game.hideAttributes(personaje)
 		// Colisiones 
@@ -60,11 +61,14 @@ class Nivel {
 	method menu() {
 		representacionMenu.actualizarVida()
 		representacionMenu.cargarObj()
-		
-		reloj.funcionando(seis, cero)
+		self.cargarReloj()
 		representacionMenu.teclasParaJugar()
 	}
-
+	method cargarReloj(){
+		reloj.nivelActual(self)
+		reloj.funcionando(seis, cero)
+	}
+	
 	method animaciones() {
 		game.onTick(500, "animacion enemigos", { observerEnemigos.update()})
 	}
@@ -78,19 +82,32 @@ class Nivel {
 		self.siguienteNivel()		
 	}  
 	method siguienteNivel()
-
-
+	method perdiste(){
+		game.onTick(1000,"self",{
+			game.clear()
+			game.addVisual(resultado)
+			self.reiniciar()
+		})
+	}
+	
 	method colocarSuelo(imagen){
 		suelo.image(imagen)
 		game.addVisual(suelo)
 	}
-	
+	method reiniciar(){
+		 keyboard.r().onPressDo {
+			game.clear()
+			personaje.restart()
+			reloj.reiniciar()
+			inicio.portada()
+						}
+	}
 
 }
 
 object nivel1 inherits Nivel {
 	
-	override method tipo() = 1
+	
 
 	override method siguienteNivel(){
 		nivel2.cargar()
@@ -107,7 +124,7 @@ object nivel1 inherits Nivel {
 			// Muros
 		muro.cargar("muro.png")
 			// Puerta
-		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
+		game.addVisual(new Puerta(nivelActual = self)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel1()
 	}
 
@@ -117,7 +134,7 @@ object nivel2 inherits Nivel {
 	override method siguienteNivel(){
 		nivel3.cargar()
 	}
-	override method tipo() = 2
+
 
 	override method cargar() {
 		game.clear()
@@ -130,7 +147,7 @@ object nivel2 inherits Nivel {
 	override method visuales() {
 		
 		muro.cargar("muro2.jpg")
-		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
+		game.addVisual(new Puerta(nivelActual = self)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel2()
 	}
 	
@@ -138,7 +155,7 @@ object nivel2 inherits Nivel {
 
 object nivel3 inherits Nivel {
 
-	override method tipo() = 3
+	
 	override method configuraciones(){
 		game.ground("suelo3.jpg")
 		super()
@@ -152,7 +169,7 @@ object nivel3 inherits Nivel {
 	override method visuales() {
 		
 		muro.cargar("muro3.jpeg") 
-		game.addVisualIn(new Puerta(nivelActual = self), game.at(19, 8)) // posicion siempre menor o igual a (height - 2) (width - 2) 
+		game.addVisual(new Puerta(nivelActual = self)) // posicion siempre menor o igual a (height - 2) (width - 2) 
 		tablero.cargarCofresDelNivel3()
 	}
 	override method ganaste(){

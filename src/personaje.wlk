@@ -9,7 +9,7 @@ import otros_obj.*
 
 //
 object personaje {
-
+	var property nivelActual 
 	var property vida = 10
 	var property ataque = 1
 	var property llavesObtenidas = []
@@ -159,11 +159,10 @@ object personaje {
 	}
 
 	method muerto() {
-// necesitar moverse para que aparezca la imagen de gameOver
-// si no se puede arreglar volver a la vieja version
+
 		vida = 0
 		imagen = "pikachuMuerto.png"
-		resultado.perdiste()
+		nivelActual.perdiste()
 		
 
 		
@@ -186,7 +185,7 @@ object personaje {
 		inventario = []
 	}
 method animacionPersonajeAtacado() {
-	game.onTick(200, "animacion personaje", { self.animacion()})
+	game.onTick(100, "animacion personaje", { self.animacion()})
 	}
 method animacion(){
 	var imagenes = orientacion.imagenes()
