@@ -15,7 +15,7 @@ class Enemigo inherits NoColisionable {
 	var contador = 0 //cuando el contador llega a 3, ataca al personaje y reinicia el contador. Va sumando uno cada vez que recibe un ataque.
 	const inventario = [] 
 	var imagen 
-	
+		
 	method asignarPosicion(pos){position = pos}
 	
 	method image() = imagen
@@ -71,12 +71,13 @@ class Enemigo inherits NoColisionable {
 	}
 	
 	method animacion() 
-	method tipo() {return ""}
+	method tipo()
 	
 	method nacer(_hp,_atk) {
 		hp = _hp
 		atk = _atk
 	}
+	
 }
 
 

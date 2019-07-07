@@ -8,7 +8,7 @@ class Hongo inherits Colisionable {
 	
 	method image() = "hongo.png"
 	
-	method tipo() = ""
+	method tipo()
 	
 	method colisionConVidaAlPalo(personaje) {
 		//Ejecuta solo si colisionando el personaje tiene toda la vida

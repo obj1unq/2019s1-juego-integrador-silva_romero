@@ -102,7 +102,7 @@ class Nivel {
 			inicio.portada()
 						}
 	}
-
+	method cantLlavesNecesarias()=3
 }
 
 object nivel1 inherits Nivel {

@@ -1,8 +1,5 @@
 import wollok.game.*
 import otros_obj.*
-import niveles.*
-import resultado.*
-import inicio.*
 import personaje.*
 
 class Puerta inherits NoColisionable {
@@ -14,7 +11,7 @@ class Puerta inherits NoColisionable {
 	
 	method serInteractuadoPor(jugador) {
 			
-		if (jugador.llavesObtenidas().size() == 3 ) {
+		if (jugador.llavesObtenidas().size() == nivelActual.cantLlavesNecesarias()) {
 			nivelActual.ganaste()			
 				}  else {
 		game.say(self, "¡Aún te faltan llaves! Seguí buscando.")

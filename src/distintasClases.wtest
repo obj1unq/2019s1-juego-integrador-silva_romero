@@ -1,0 +1,31 @@
+import arma.*
+import bomba.*
+import cofre.*
+import hongos.*
+import llave.*
+describe "Distintas clases para testear"{
+const arma = new Arma()
+const bomba= new Bomba()
+const cofre = new Cofre()
+const hongoS= new HongoSalud()
+const hongoV = new HongoVeneno()
+const llave= new Llave()
+test"Arma no es colisionable"{
+	assert.notThat(arma.esColisionable())
+	}
+test"bomba no es colisionable"{
+	assert.notThat(bomba.esColisionable())
+	}
+test"cofe no es Colisionable"{
+	assert.notThat(cofre.esColisionable())
+	}
+test" hongo es colisionable"{
+	assert.that(hongoS.esColisionable())
+	}
+test"hongo Venenoso es colisionable"{
+	assert.that(hongoV.esColisionable())
+	}
+test"llave es colisionable"{
+	assert.that(llave.esColisionable())
+	}
+}

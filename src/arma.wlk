@@ -1,4 +1,3 @@
-import wollok.game.*
 import personaje.*
 import otros_obj.*
 import menu.*

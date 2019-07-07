@@ -1,6 +1,5 @@
 import wollok.game.*
 import otros_obj.*
-
 import enemigo.*
 import bomba.*
 import llave.*

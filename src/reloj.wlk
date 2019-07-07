@@ -6,12 +6,8 @@ object reloj {
 	var sgds
 	var sgd
 	var contador = 10
-
 	// el reloj funciona con decenas por el contador 
-	method preparar(nro, obj) {
-		obj.cant(nro)
-		game.addVisual(obj)
-	}
+	
 
 	method definir(nro, nro2) {
 		sgds = nro
@@ -22,7 +18,10 @@ object reloj {
 		self.definir(nro, nro2)
 		decenaDeSegundo.preparar(nro)
 		segundo.preparar(nro2)
-		game.onTick(1000, "actualiza cada segundo", { self.temporizador(sgds, sgd)})
+		
+		game.onTick(1000, "actualiza cada segundo", 
+			{ self.temporizador(sgds, sgd)}
+		)
 	}
 
 	method temporizador(nro, nro2) {
@@ -70,7 +69,7 @@ object decenaDeSegundo inherits Tiempo {
 object segundo inherits Tiempo {
 	var position = game.at(2, 12)
 
-//override	method seAcabo() = decenaDeSegundo.seAcabo()and super()
+
 
 }
 
