@@ -23,5 +23,6 @@ class Cofre inherits NoColisionable {
 			contenido.explotar()
 		}
 	}
-		
+	method crear()= new Cofre()	
 }
+const cofreSupremo  = new Cofre()

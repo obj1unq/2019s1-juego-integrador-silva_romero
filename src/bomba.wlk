@@ -37,4 +37,5 @@ class Bomba inherits NoColisionable {
 
 	method personajeEnDireccion(direccion) = not game.getObjectsIn(direccion.posicionAl(self)).isEmpty() and game.getObjectsIn(direccion.posicionAl(self)).contains(personaje)
 
+	
 }

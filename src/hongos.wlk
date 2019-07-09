@@ -29,21 +29,26 @@ class Hongo inherits Colisionable {
 	method serInteractuadoPor(jugador) {
 		game.say(jugador,"¿Qué pasará si la paso por encima?")
 	}
+	
+
 }
 
 class HongoSalud inherits Hongo{
 	//Le suma vida al jugador (su efecto es positivo)	
 	
 	override method tipo() = "pocion" 
+
 }
 
 class HongoSeguro inherits HongoSalud {
-	override method tipo() = "pocion" 
+ 
 	override method image() = "hongoSeguro.png"
+	method crear()= new HongoSeguro(efecto = 2.randomUpTo(5).truncate(0))
 }
-
+	
 class HongoVeneno inherits Hongo{
 	// Le resta vida al jugador (su efecto es negativo)
 
 	override method tipo() = "veneno" 
+	
 }

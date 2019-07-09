@@ -57,9 +57,8 @@ object factory {
 		
 	method crearHongoSeguro() = new HongoSeguro(efecto = 2.randomUpTo(5).truncate(0))	
 
-	method crearSalud() {
-		return new HongoSalud(efecto = 2.randomUpTo(5).truncate(0))	
-	}
+	method crearSalud()= new HongoSalud(efecto = 2.randomUpTo(5).truncate(0))	
+	
 	
 	method crearVeneno() {
 		return new HongoVeneno(efecto = 2.invert().randomUpTo(5.invert()).truncate(0)) 
@@ -80,6 +79,36 @@ object factoryCofre {
 	
 	var property enemigosPosibles = [] 
 	var property imagenesArmas = []
+
+	
+	
+	method crearCofreDe(objeto,pos){
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = objeto)
+			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
+		}else{
+			self.crearCofreDe
+(objeto,game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
+		}
+	}
+	method crearCofreEspecial(pos,objeto,especialidad){
+		if(game.getObjectsIn(pos).isEmpty()){
+			const _cofre = new Cofre(
+				position = pos,
+				contenido = objeto.crear(especialidad))
+			game.addVisual(_cofre)
+			game.hideAttributes(_cofre)
+		}else{
+			self.crearCofreEspecial
+(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)),objeto,especialidad)
+		}
+	}
+
+	
+	
 	
 	method crearCofreEnemigo(pos,vidaMin,vidaMax) { 
 		
@@ -110,57 +139,12 @@ object factoryCofre {
 		}
 	}
 	
-	method crearCofreSalud(pos) {
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearSalud()
-			)
-			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
-		}else{
-			self.crearCofreSalud(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
 	
-	method crearCofreVeneno(pos) {
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearVeneno()
-			)
-			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
-		}else{
-			self.crearCofreVeneno(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
 	
-	method crearCofreLlave(pos) {
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearLlave()
-			)
-			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
-		}else{
-			self.crearCofreLlave(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
 	
-	method crearCofreBomba(pos) {
-		if(game.getObjectsIn(pos).isEmpty()){
-			const _cofre = new Cofre(
-				position = pos,
-				contenido = factory.crearBomba(pos)
-		)
-			game.addVisual(_cofre)
-			game.hideAttributes(_cofre)
-		}else{
-			self.crearCofreBomba(game.at(1.randomUpTo(game.width() - 1).truncate(0),1.randomUpTo(game.height() - 5).truncate(0)))
-		}
-	}
+
+	
+// necesito eviar 4 parametros para arma
 	
 	method crearCofreArma(pos,atkMin,atkMax) { 
 		if(game.getObjectsIn(pos).isEmpty()){

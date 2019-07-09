@@ -22,4 +22,5 @@ class Llave inherits Colisionable {
 	method serInteractuadoPor(jugador) {
 		game.say(personaje,"¿Qué pasará si la paso por encima?")
 	}
+	
 }
