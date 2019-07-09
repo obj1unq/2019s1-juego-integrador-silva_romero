@@ -70,7 +70,7 @@ class Nivel {
 	}
 	
 	method animaciones() {
-		game.onTick(500, "animacion enemigos", { observerEnemigos.update()})
+		game.onTick(300, "animacion enemigos", { observerEnemigos.update()})
 	}
 
 	method visuales()  // cada nivel maneja su propio visuales / fondo, enemigos, cofres
