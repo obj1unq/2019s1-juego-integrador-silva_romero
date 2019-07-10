@@ -1,6 +1,6 @@
 import wollok.game.*
 import otros_obj.*
-
+import tablero.*
 // NOTAS:
 
 // Estos enemigos comparten las mismas caracteristicas pero van a diferir en la cantidad de vida y ataque que tienen, asi como tambien el objeto que 
@@ -10,7 +10,7 @@ import otros_obj.*
 class Enemigo inherits NoColisionable {
 	var  imagenes = []
 	var  hp
-	var  atk
+	var  atk 
 	var position
 	var contador = 0 //cuando el contador llega a 3, ataca al personaje y reinicia el contador. Va sumando uno cada vez que recibe un ataque.
 	const inventario = [] 
@@ -79,7 +79,7 @@ class Enemigo inherits NoColisionable {
 			imagenes.remove(imagen)
 			imagenes.add(imagen)	
 }
-
+	
 }
 // Estos objetos son para que los diferentes enemigos hereden sus respectivas imagenes para usar de animaciones.
 
@@ -89,12 +89,12 @@ class Bowser inherits Enemigo {
 	
 	override method tipo() = "bowser"
 	override method imagenesE(){
-		imagenes.add("browser1.png")
-		imagenes.add("browser2.png")
+		imagenes.add("bowser1.png")
+		imagenes.add("bowser2.png")
 	}
-
+	method crear()=new Bowser()
 }
-
+const browser=new Bowser()
 class Zelda inherits Enemigo {
 
 	override method imagenAtk() = "zelda_atk.png" //la imagen que se muestra cuando es atacado por el jugador
@@ -104,11 +104,9 @@ class Zelda inherits Enemigo {
 		imagenes.add("zelda1.png")
 		imagenes.add("zelda2.png")
 	}
-
-
-
+	method crear()=new Zelda()
 }
-
+const zelda=new Zelda()
 
 
 class Pacman inherits Enemigo {
@@ -121,9 +119,9 @@ class Pacman inherits Enemigo {
 		imagenes.add("pacman1.png")
 		imagenes.add("pacman2.png")
 	}
-
+    method crear()=new Pacman()
 }
-
+const pacman = new Pacman()
 class Metroid inherits Enemigo {
 
 	override method imagenAtk() = "metroid_atk.png" //la imagen que se muestra cuando es atacado por el jugador
@@ -133,9 +131,9 @@ class Metroid inherits Enemigo {
 		imagenes.add("metroid1.png")
 		imagenes.add("metroid2.png")
 	}
-
+	method crear()= new Metroid()
 }
-
+const metroid= new Metroid()
 class Donkey inherits Enemigo {
 
 	override method imagenAtk() = "donkey_atk.png" //la imagen que se muestra cuando es atacado por el jugador
@@ -145,9 +143,9 @@ class Donkey inherits Enemigo {
 		imagenes.add("donkey1.png")
 		imagenes.add("donkey2.png")
 	}
-
+ method crear()= new Donkey()
 }
-
+const donkey=new Donkey()
 class MegaMan inherits Enemigo {
 	
 	override method imagenAtk() = "megaManH.png" //la imagen que se muestra cuando es atacado por el jugador
@@ -157,9 +155,9 @@ class MegaMan inherits Enemigo {
 		imagenes.add("megaMan1.png")
 		imagenes.add("megaMan2.png")
 	}
-	
-	
+	method crear()=new MegaMan()	
 	}
+const megaMan = new MegaMan()	
 class Link inherits Enemigo{
 	override method imagenAtk() = "link_atk.png" //la imagen que se muestra cuando es atacado por el jugador
 	
@@ -168,8 +166,9 @@ class Link inherits Enemigo{
 		imagenes.add("link1.png")
 		imagenes.add("link2.png")
 	}
-
+method crear()=new Link()
 }
+const link=new Link()
 class Dragon inherits Enemigo{
 	override method imagenAtk() = "dragonAtacado.png" //la imagen que se muestra cuando es atacado por el jugador
 	
@@ -178,5 +177,6 @@ class Dragon inherits Enemigo{
 		imagenes.add("dragon1.png")
 		imagenes.add("dragon2.png")
 	}
-
+method crear()=new Dragon()
 }
+const dragon= new Dragon()

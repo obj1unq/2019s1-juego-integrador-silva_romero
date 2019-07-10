@@ -8,6 +8,7 @@ import direcciones.*
 
 program Game {
 	inicio.portada()
+	
 	game.start()	
 }
 
